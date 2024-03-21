@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "../ProjectLibrary.module.css";
 
 export default function ProjectCard({ projectObj }) {
   const activity_type = projectObj.activity_type;
   return (
-    <div>
+    <div className={styles.Card}>
       <img src={`images/projects${projectObj.project_pic}`} alt="" />
       <h3>{projectObj.name}</h3>
       <p>{`${projectObj.course.toUpperCase()} | ${

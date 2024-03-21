@@ -13,12 +13,13 @@ const projects = [
     project_id: "Project02",
     name: "My Birthday",
     project_pic: "/Project02.png",
-    course: "beginner",
+    course: "advanced",
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
     subject_matter: "math",
   },
+
   {
     project_id: "Project03",
     name: "10 Block Challenge",
@@ -151,4 +152,20 @@ const projects = [
   },
 ];
 
+const filters = {
+  course: ["beginner", "intermediate", "advanced"],
+  subscription: ["free", "premium"],
+  activity_type: ["animation", "game", "chatbot", "augmented reality"],
+  year_level: ["1-4", "5-6", "7-8", "9-13"],
+  subject_matter: [
+    "computer science",
+    "maths",
+    "science",
+    "language",
+    "art",
+    "music",
+  ],
+};
+
 export { projects };
+export { filters };
