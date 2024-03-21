@@ -1,77 +1,59 @@
-:root {
-  --header-height: 7vh;
-  --footer-height: 20vh;
-  --main-height: calc(100vh - (var(--footer-height) + var(--header-height)));
-}
-
 .Wrapper {
   width: 100%;
-  height: 100vh;
   display: grid;
   grid-template-columns: 3fr 7fr;
   grid-template-areas:
     "header header"
+    ". title"
     "sidebar content"
+    ". buttons"
     "footer footer";
 }
 
 .Header {
   grid-area: header;
-  width: 100%;
-  height: var(--header-height);
-  background-color: #43c0f6;
-  border: 1px solid #43c0f6;
-  box-shadow: 0px 3px 6px #00000029;
-  color: #ffffff;
-  font: 16px bold "Open Sans", "sans serif";
+  position: sticky;
+  top: 0;
+}
+
+.TitleArea {
+  grid-area: title;
 }
 
 .SideBar {
   grid-area: sidebar;
-  height: var(--main-height);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  overflow-y: auto;
 }
 
 .MainContent {
   grid-area: content;
-  height: var(--main-height);
-  overflow-y: auto;
 }
 
 .Footer {
   grid-area: footer;
-  height: var(--footer-height);
-  width: 100%;
-  background-color: #43c0f6;
-  color: #ffffff;
 }
 
 .ProjectCardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: start;
+}
+
+.FilterButtonContainer {
+  width: calc((70vw * 2) / 3 + 328.992px);
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.Card {
-  text-align: center;
-  font-weight: bold;
+.ButtonContainer {
+  grid-area: buttons;
+  justify-items: start;
 }
 
-.CheckBoxesContainer {
-  width: 50%;
-}
-
-.LargeHeading {
-  margin-top: 8rem;
-  font-family: Nunito;
-  color: #6c6c6c;
-  font-size: 2.625rem;
-  font-weight: 800;
-}
-
-.Paragraph {
-  font-size: 24px;
+.ButtonFlexContainer {
+  width: calc((70vw * 2) / 3 + 328.992px);
+  display: flex;
+  justify-content: end;
 }

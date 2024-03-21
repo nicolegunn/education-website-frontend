@@ -1,0 +1,11 @@
+.LargeHeading {
+  margin-top: 8rem;
+  font-family: Nunito;
+  color: #6c6c6c;
+  font-size: 2.625rem;
+  font-weight: 800;
+}
+
+.Paragraph {
+  font-size: 24px;
+}

@@ -1,8 +1,9 @@
 import React from "react";
-import styles from "../ProjectLibrary.module.css";
+import styles from "./ProjectCard.module.css";
 
 export default function ProjectCard({ projectObj }) {
   const activity_type = projectObj.activity_type;
+  
   return (
     <div className={styles.Card}>
       <img src={`images/projects${projectObj.project_pic}`} alt="" />

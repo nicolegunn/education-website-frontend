@@ -1,24 +1,29 @@
 import styles from "./ProjectLibrary.module.css";
 import { useState } from "react";
 import { projects, filters } from "./Projects.js";
-import NavBarHome from "../../common/NavBarHome.jsx";
-import FilterPanel from "./components/FilterPanel.jsx";
+
+import NavBar from "../../common/NavBar.jsx";
+import Footer from "../../common/Footer.jsx";
+import TitleArea from "./components/TitleArea.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
+import Button from "./components/Button.jsx";
+
 
 export default function ProjectLibrary() {
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [projectFilters, setProjectFilters] = useState(filters);
 
   const handleFilter = (evt) => {};
-  console.log(window.innerHeight);
+
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBarHome />
+        <NavBar />
       </div>
-      <div></div>
+      <div className={styles.TitleArea}>
+        <TitleArea />
+      </div>
       <div className={styles.SideBar}>
         <CheckBoxFilter title="subscription" boxes={filters.subscription} />
         <CheckBoxFilter title="activity type" boxes={filters.activity_type} />
@@ -26,12 +31,10 @@ export default function ProjectLibrary() {
         <CheckBoxFilter title="subject matter" boxes={filters.subject_matter} />
       </div>
       <div className={styles.MainContent}>
-        <h1 className={styles.LargeHeading}>PROJECTS</h1>
-        <p className={styles.Paragraph}>
-          Welcome to the project library. You can use the filters on the right
-          to help you search for specific projects.
-        </p>
-        <ButtonFilter handleClick={handleFilter}></ButtonFilter>
+        <div className={styles.FilterButtonContainer}>
+          <ButtonFilter handleClick={handleFilter}></ButtonFilter>
+          <ButtonFilter handleClick={handleFilter}></ButtonFilter>{" "}
+        </div>
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
             return (
@@ -43,8 +46,14 @@ export default function ProjectLibrary() {
           })}
         </div>
       </div>
+      <div className={styles.ButtonContainer}>
+        <div className={styles.ButtonFlexContainer}>
+          <Button />
+          <Button />
+        </div>
+      </div>
       <div className={styles.Footer}>
-        <h2>Footer</h2>
+        <Footer />
       </div>
     </div>
   );
