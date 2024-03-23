@@ -5,16 +5,26 @@ import { projects, filters } from "./Projects.js";
 
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
+import Button from "../../common/Button.jsx";
 import TitleArea from "./components/TitleArea.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
-import Button from "./components/Button.jsx";
 
 export default function ProjectLibrary() {
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
   const handleFilter = (e) => {};
+
+  const backToTop = (e) => {};
+
+  const backToDashboard = (e) => {};
+
+  const btnStyles = {
+    marginLeft: "1rem",
+    marginTop: "4rem",
+    marginBottom: "4rem",
+  };
 
   return (
     <div className={styles.Wrapper}>
@@ -56,8 +66,15 @@ export default function ProjectLibrary() {
       </div>
       <div className={styles.ButtonContainer}>
         <div className={styles.ButtonFlexContainer}>
-          <Button label="BACK TO TOP" color="#e5ab2c" />
-          <Button label="BACK TO DASHBOARD" color="#F91C85" />
+          <Button
+            style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
+            handleClick={backToTop}
+          >
+            BACK TO TOP
+          </Button>
+          <Button style={btnStyles} handleClick={backToDashboard}>
+            BACK TO DASHBOARD
+          </Button>
         </div>
       </div>
       <div className={styles.Footer}>

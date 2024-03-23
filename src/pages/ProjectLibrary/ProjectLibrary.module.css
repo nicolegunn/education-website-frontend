@@ -1,5 +1,4 @@
 .Wrapper {
-  width: 100%;
   display: grid;
   grid-template-columns: 2fr 4fr 1fr;
   grid-template-areas:
