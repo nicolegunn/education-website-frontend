@@ -12,7 +12,7 @@
 .Header {
   grid-area: header;
   position: sticky;
-  top: 0;
+  top: 0; 
 }
 
 .TitleArea {

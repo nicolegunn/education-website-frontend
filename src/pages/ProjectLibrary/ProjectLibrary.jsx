@@ -1,6 +1,6 @@
 import styles from "./ProjectLibrary.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projects, filters } from "./Projects.js";
 
 import NavBar from "../../common/NavBar.jsx";
@@ -12,13 +12,21 @@ import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 
 export default function ProjectLibrary() {
+  const [backToTop, setBackToTop] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
+  const goBackToTop = () => {
+    setBackToTop(!backToTop);
+    useEffect(
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      }),
+      [backToTop]
+    );
+  };
+
   const handleFilter = (e) => {};
-
-  const backToTop = (e) => {};
-
-  const backToDashboard = (e) => {};
 
   const btnStyles = {
     marginLeft: "1rem",
@@ -55,12 +63,23 @@ export default function ProjectLibrary() {
         </div>
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
-            return (
-              <ProjectCard
-                key={project.project_id}
-                projectObj={project}
-              ></ProjectCard>
-            );
+            if (project.name.toLowerCase() === "introduction") {
+              return (
+                <Link to="/learning-objectives">
+                  <ProjectCard
+                    key={project.project_id}
+                    projectObj={project}
+                  ></ProjectCard>
+                </Link>
+              );
+            } else {
+              return (
+                <ProjectCard
+                  key={project.project_id}
+                  projectObj={project}
+                ></ProjectCard>
+              );
+            }
           })}
         </div>
       </div>
@@ -68,13 +87,13 @@ export default function ProjectLibrary() {
         <div className={styles.ButtonFlexContainer}>
           <Button
             style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
-            handleClick={backToTop}
+            handleClick={goBackToTop}
           >
             BACK TO TOP
           </Button>
-          <Button style={btnStyles} handleClick={backToDashboard}>
-            BACK TO DASHBOARD
-          </Button>
+          <Link to="/learning-objectives">
+            <Button style={btnStyles}>BACK TO DASHBOARD</Button>
+          </Link>
         </div>
       </div>
       <div className={styles.Footer}>
