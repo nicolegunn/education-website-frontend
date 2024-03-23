@@ -1,0 +1,79 @@
+
+/*Styling of Navigation bar*/
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-right: 40px;
+    margin-left: 40px;
+    background-color: white;
+  }
+
+/*Styling of Logo*/
+.logo{
+    height:64px;
+    align-items: start;
+    padding-left: 0;
+}
+
+/*Styling of Start Project button*/
+.navbtn1{color: white;
+padding: 10px 15px;
+border-radius: 5px;
+outline: 0;
+border: 0; 
+margin: 10px 0px;
+cursor: pointer;
+box-shadow: 0px 2px 2px lightgray;
+background-color: rgb(209, 105, 8);
+}
+
+/*Styling of Ask Teacher for Help button*/
+.navbtn2{color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0; 
+    margin: 10px 0px;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px lightgray;
+    background-color:#e91e63;
+    }
+
+/*Styling of More Projects button*/
+    .navbtn3{color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0; 
+    margin: 10px 0px;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px lightgray;
+    background-color: #43C0F6;
+    }
+
+/*Styling of Project and Subtitle*/
+.layout{
+    justify-content: space-evenly;
+    padding-right: 1px;
+   }
+
+/*Styling of all buttons*/
+.btn{
+    justify-content: space-evenly;
+    gap: 50px; 
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    margin-left: 40px; 
+}
+
+/*Styling of Flag*/
+.languageflag {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 0.6em;
+    margin: 5px;
+    margin-bottom: 40px;
+  }
