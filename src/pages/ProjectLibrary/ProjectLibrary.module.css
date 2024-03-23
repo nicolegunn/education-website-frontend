@@ -1,13 +1,13 @@
 .Wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 7fr;
+  grid-template-columns: 2fr 4fr 1fr;
   grid-template-areas:
-    "header header"
-    ". title"
-    "sidebar content"
-    ". buttons"
-    "footer footer";
+    "header header header"
+    ". title ."
+    "sidebar content ."
+    ". buttons ."
+    "footer footer footer";
 }
 
 .Header {
@@ -35,15 +35,14 @@
   grid-area: footer;
 }
 
-.ProjectCardContainer {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-items: start;
+.FilterButtonContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
-.FilterButtonContainer {
-  width: calc((70vw * 2) / 3 + 328.992px);
-  display: flex;
+.ProjectCardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 15vw);
   justify-content: space-between;
 }
 
@@ -53,7 +52,6 @@
 }
 
 .ButtonFlexContainer {
-  width: calc((70vw * 2) / 3 + 328.992px);
   display: flex;
   justify-content: end;
 }

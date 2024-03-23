@@ -1,4 +1,29 @@
 .Card {
+  margin-bottom: 2.25rem;
   text-align: center;
-  font-weight: bold;
+}
+
+.CardImg {
+  width: 100%;
+  object-fit: scale-down;
+  /* margin-bottom: 1rem; */
+}
+
+.ProjectName {
+  /* margin-bottom: 0.8125; */
+  /* padding-top: 0.15rem; */
+  /* padding-bottom: 0.15rem; */
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #707070;
+}
+
+.ShortDescription {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #767676;
 }

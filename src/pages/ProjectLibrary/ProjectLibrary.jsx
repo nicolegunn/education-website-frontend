@@ -1,4 +1,5 @@
 import styles from "./ProjectLibrary.module.css";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { projects, filters } from "./Projects.js";
 
@@ -10,11 +11,10 @@ import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 import Button from "./components/Button.jsx";
 
-
 export default function ProjectLibrary() {
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
-  const handleFilter = (evt) => {};
+  const handleFilter = (e) => {};
 
   return (
     <div className={styles.Wrapper}>
@@ -32,8 +32,16 @@ export default function ProjectLibrary() {
       </div>
       <div className={styles.MainContent}>
         <div className={styles.FilterButtonContainer}>
-          <ButtonFilter handleClick={handleFilter}></ButtonFilter>
-          <ButtonFilter handleClick={handleFilter}></ButtonFilter>{" "}
+          <ButtonFilter
+            buttons={["BEGINNER", "INTERMEDIATE", "ADVANCED"]}
+            handleFilter={handleFilter}
+          ></ButtonFilter>
+          <ButtonFilter
+            buttons={[5, 10, "All"]}
+            handleFilter={handleFilter}
+            label="SHOW"
+            initialSelection={2}
+          ></ButtonFilter>
         </div>
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
@@ -48,8 +56,8 @@ export default function ProjectLibrary() {
       </div>
       <div className={styles.ButtonContainer}>
         <div className={styles.ButtonFlexContainer}>
-          <Button />
-          <Button />
+          <Button label="BACK TO TOP" color="#e5ab2c" />
+          <Button label="BACK TO DASHBOARD" color="#F91C85" />
         </div>
       </div>
       <div className={styles.Footer}>
