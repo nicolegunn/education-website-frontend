@@ -6,29 +6,16 @@ import PhotoCard from "./components/PhotoCard.jsx";
 import StudentProfileCard from "./components/StudentProfileCard.jsx";
 import { Link } from "react-router-dom";
 
-//Dummy data - This will need to come from useState probably from App.jsx
-const CurrentStudent = {
-  student_id: 123,
-  name: "Rawiri Fletcher",
-  school: "Homai School",
-  teacher: "Jasmina Salvador",
-  course: "Beginner",
-  date_of_birth: "25 June 2010",
-  contact_number: "022 524 63 99",
-  email: "fletchy.r@gmail.com",
-  profile_pic: "/images/students/RawiriFletcher.png",
-};
-
-export default function StudentProfileViewer() {
+export default function StudentProfileViewer({ user}) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
         <NavBar />
       </div>
       <div className={styles.MainContent}>
-        <PhotoCard student={CurrentStudent} />
+        <PhotoCard student={user} />
         <div className={styles.FlexContainer}>
-          <StudentProfileCard student={CurrentStudent} />
+          <StudentProfileCard student={user} />
           <Link to="/project-library">
             <Button>BACK TO PROJECTS</Button>
           </Link>

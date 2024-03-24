@@ -15,17 +15,32 @@ import StudentProfiles from "./pages/StudentProfiles/StudentProfiles.jsx";
 import ProgressTracker from "./pages/ProgressTracker/ProgressTracker.jsx";
 import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
+import { tempUser } from "./common/TempUserFile.js";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //User will be an object of all the items from the database relating to the user
+  //I'm guessing the database info will say whether the user is a teacher or student so we can pull that info from user
+  const [user, setUser] = useState(tempUser);
+  const [selectedProject, setSelectedProject] = useState(1);
+
+  //state updating functions will need to go in here e.g.
+  const updateSelectedProject = (projectID) => {
+    setSelectedProject(projectID);
+  };
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/project-library" element={<ProjectLibrary />} />
+        <Route
+          path="/project-library"
+          element={<ProjectLibrary userType={user.user_type} />}
+        />
         <Route
           path="/student-profile-viewer"
-          element={<StudentProfileViewer />}
+          element={<StudentProfileViewer user={user} />}
         />
         <Route path="/learning-objectives" element={<LearningObjectives />} />
         <Route path="/instructions" element={<Instructions />} />

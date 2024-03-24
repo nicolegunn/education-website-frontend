@@ -11,8 +11,9 @@ import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 
-export default function ProjectLibrary() {
+export default function ProjectLibrary({ userType }) {
   const [backToTop, setBackToTop] = useState(false);
+  const [filtersObj, setFiltersObj] = useState();
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
   const goBackToTop = () => {
@@ -63,23 +64,17 @@ export default function ProjectLibrary() {
         </div>
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
-            if (project.name.toLowerCase() === "introduction") {
-              return (
-                <Link to="/learning-objectives">
-                  <ProjectCard
-                    key={project.project_id}
-                    projectObj={project}
-                  ></ProjectCard>
-                </Link>
-              );
-            } else {
-              return (
-                <ProjectCard
-                  key={project.project_id}
-                  projectObj={project}
-                ></ProjectCard>
-              );
-            }
+            return (
+              <div key={project.project_id}>
+                {project.name.toLowerCase() === "introduction" ? (
+                  <Link to="/learning-objectives">
+                    <ProjectCard projectObj={project} />
+                  </Link>
+                ) : (
+                  <ProjectCard projectObj={project} />
+                )}
+              </div>
+            );
           })}
         </div>
       </div>
@@ -91,9 +86,11 @@ export default function ProjectLibrary() {
           >
             BACK TO TOP
           </Button>
-          <Link to="/learning-objectives">
-            <Button style={btnStyles}>BACK TO DASHBOARD</Button>
-          </Link>
+          {userType === "teacher" && (
+            <Link to="/progress-tracker">
+              <Button style={btnStyles}>BACK TO DASHBOARD</Button>
+            </Link>
+          )}
         </div>
       </div>
       <div className={styles.Footer}>
