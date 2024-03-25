@@ -1,0 +1,56 @@
+.Wrapper {
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr;
+  grid-template-areas:
+    "header header header"
+    ". title ."
+    "sidebar content ."
+    ". buttons ."
+    "footer footer footer";
+}
+
+.Header {
+  grid-area: header;
+  position: sticky;
+  top: 0; 
+}
+
+.TitleArea {
+  grid-area: title;
+}
+
+.SideBar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.MainContent {
+  grid-area: content;
+}
+
+.Footer {
+  grid-area: footer;
+}
+
+.FilterButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ProjectCardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 15vw);
+  justify-content: space-between;
+}
+
+.ButtonContainer {
+  grid-area: buttons;
+  justify-items: start;
+}
+
+.ButtonFlexContainer {
+  display: flex;
+  justify-content: end;
+}
