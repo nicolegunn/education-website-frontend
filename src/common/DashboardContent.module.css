@@ -1,0 +1,40 @@
+.contentContainer {
+    background-color: #B2E4FA;
+    box-sizing: border-box;
+    font-family: "Open-sans", sans-serif;
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+    justify-content: flex-end;
+}
+
+.backgroundContainer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #B2E4FA;
+    opacity: 1;
+    box-sizing: border-box;
+    font-family: "Open-sans", sans-serif;
+    /* font-size: 0.9rem; */
+    top: 62px;
+    left: 236px;
+    width: 1684px;
+    height: 957px;
+    margin: 47px;
+    background: transparent url('img/Rectangle 248.png') 0% 0% no-repeat padding-box;
+    border: 1px solid #B2E4FA;
+    opacity: 1;
+    align-items: center;
+}
+
+.mainContent {
+    display: flex;
+    background: lavender 0% 0% no-repeat padding-box;
+    border-radius: 30px;
+    opacity: 1;
+    align-items: center;
+    top: 109px;
+    left: 266px;
+    width: 1571px;
+    height: 860px;
+}
