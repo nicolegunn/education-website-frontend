@@ -7,43 +7,53 @@
     margin-right: 40px;
     margin-left: 40px;
     background-color: white;
+    height:91px;
   }
 
 /*Styling of Logo*/
 .logo{
-    height:64px;
+    top: 0px;
+    left: 29px;
+    width: 109px;
+    height: 45px;
     align-items: start;
     padding-left: 0;
 }
 
 /*Styling of Start Project button*/
-.navbtn1{color: white;
+ .navbtn1{color: white;
 padding: 10px 15px;
 border-radius: 5px;
+width: 200px;
+height:35px;
 outline: 0;
 border: 0; 
 margin: 10px 0px;
 cursor: pointer;
 box-shadow: 0px 2px 2px lightgray;
 background-color: rgb(209, 105, 8);
-}
+} 
 
 /*Styling of Ask Teacher for Help button*/
 .navbtn2{color: white;
     padding: 10px 15px;
     border-radius: 5px;
+    width: 200px;
+    height:35px;
     outline: 0;
     border: 0; 
     margin: 10px 0px;
     cursor: pointer;
     box-shadow: 0px 2px 2px lightgray;
-    background-color:#e91e63;
+    background-color:#F91C85;
     }
 
 /*Styling of More Projects button*/
     .navbtn3{color: white;
     padding: 10px 15px;
     border-radius: 5px;
+    width: 200px;
+    height:35px;
     outline: 0;
     border: 0; 
     margin: 10px 0px;
@@ -74,6 +84,11 @@ background-color: rgb(209, 105, 8);
     align-items: center;
     font-size: 20px;
     gap: 0.6em;
-    margin: 5px;
-    margin-bottom: 40px;
+   
+    top: 9px;
+    left: 1374px;
+    width: 24px;
+    height: 12px;
   }
+  /* margin: 5px;
+    margin-bottom: 40px;*/
