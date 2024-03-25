@@ -7,7 +7,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "science",
   },
   {
     project_id: "Project02",
@@ -17,7 +17,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
 
   {
@@ -28,7 +28,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "art",
   },
   {
     project_id: "Project04",
@@ -38,7 +38,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "music",
   },
   {
     project_id: "Project05",
@@ -48,7 +48,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project06",
@@ -58,7 +58,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project07",
@@ -68,7 +68,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "computer science",
   },
   {
     project_id: "Project08",
@@ -78,7 +78,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project09",
@@ -88,7 +88,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project10",
@@ -98,7 +98,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project11",
@@ -108,7 +108,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project12",
@@ -118,7 +118,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project13",
@@ -128,7 +128,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project14",
@@ -138,7 +138,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
   {
     project_id: "Project15",
@@ -148,7 +148,7 @@ const projects = [
     subscription: 0,
     activity_type: "animation",
     year_level: 2,
-    subject_matter: "math",
+    subject_matter: "maths",
   },
 ];
 
