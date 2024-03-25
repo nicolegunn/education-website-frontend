@@ -13,7 +13,7 @@ export default function NavBar() {
         <img className = {styles.level_up_works_logo} src = {level_up_works_logo} alt='level_up_works_logo'/>
         </Link>
           <div className = {styles.navigation_bar}>
-            <Link className = {styles.radial_mount} to = '/home'>
+            <Link className = {styles.radial_mount} to = '/'> {/*Recent Change <removed /home>*/}
               <div>Home</div>
             </Link>
             <Link className = {styles.radial_mount} to = '/about'>
