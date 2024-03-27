@@ -4,10 +4,13 @@ import Home from './pages/Home/Home.jsx'
 import Login from './pages/Login/Login.jsx'
 import ProjectLibrary from './pages/ProjectLibrary/ProjectLibrary.jsx';
 import StudentProfileViewer from './pages/StudentProfileViewer/StudentProfileViewer.jsx';
-import LearningObjectives from './pages/LearningObjectives/LearningObjectives.jsx';
-import Instructions from './pages/Instructions/Instructions.jsx';
-import MakeProject from './pages/MakeProject/MakeProject.jsx';
-import VideoTutorial from './pages/VideoTutorial/VideoTutorial.jsx';
+
+import StudentDashboard from './pages/StudentDashboard/StudentDashboard.jsx'
+// import LearningObjectives from './pages/LearningObjectives/LearningObjectives.jsx';
+// import Instructions from './pages/Instructions/Instructions.jsx';
+// import MakeProject from './pages/MakeProject/MakeProject.jsx';
+// import VideoTutorial from './pages/VideoTutorial/VideoTutorial.jsx';
+
 import ProjectSubmissions from './pages/ProjectSubmissions/ProjectSubmissions.jsx';
 import SubmitProject from './pages/SubmitProject/SubmitProject.jsx';
 import StudentProfiles from './pages/StudentProfiles/StudentProfiles.jsx';
@@ -23,10 +26,13 @@ function App() {
     <Route path="/login" element={<Login />} />
     <Route path="/project-library" element={<ProjectLibrary />} />
     <Route path="/student-profile-viewer" element={<StudentProfileViewer />} />
-    <Route path="/learning-objectives" element={<LearningObjectives />} />
-    <Route path="/instructions" element={<Instructions />} />
-    <Route path="/make-project" element={<MakeProject />} />
-    <Route path="/video-tutorial" element={<VideoTutorial />} />
+
+    <Route path="/student-dashboard" element={<StudentDashboard/>}/>
+    {/* <Route path="/learning-objectives" element={<LearningObjectives />} />
+    // <Route path="/instructions" element={<Instructions />} />
+    // <Route path="/make-project" element={<MakeProject />} />
+    // <Route path="/video-tutorial" element={<VideoTutorial />} /> */}
+
     <Route path="/project-submissions" element={<ProjectSubmissions />} />
     <Route path="/submit-project" element={<SubmitProject />} />
     <Route path="/student-profiles" element={<StudentProfiles />} />
