@@ -1,49 +1,50 @@
+/*Styling of content area in side bar */
 .main{
     margin-top: 10px;
-margin-bottom: 10px;
+    margin-bottom: 10px;
     font-family: "Open Sans", "sans-serif";
     font-weight: 600;
     font-size: 16px;
-    color: #707070;
+    color: #707070; 
+    
 }
 
+/*Styling of dashboard right side of side bar */
 .container{
-    padding-left: 20%;
+    padding-left: 10%;
     padding-right: 20%;
     text-align: left;
 
 }
 
+/*Styling of Title "Join Scratch" */
 .title{
-        margin-top: 10px;
+    margin-top: 10px;
     margin-bottom: 10px;
-        font-family: "Nunito", "sans-serif";
-        font-weight: 900;
-        font-size: 24px;
-        color: #6c6c6c;
+    font-family: "Nunito", "sans-serif";
+    font-weight: 900;
+    font-size: 24px;
+    color: #6c6c6c;
 }
 
-
+/*Styling of Text above image */
 .p1{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.p2{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
+/*Styling of image */
 .image{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/*Styling of text below image */
 .p3{
-    /* text-align: center;
-    position: relative;
-    justify-content:center; */
-    width: 90%;
+     width: 120%;
 }
+
+/*Styling of pink color text */
 .pinkcolortext{
     color:#F91C85 ;
 }

@@ -1,54 +1,47 @@
-
-
-
-
-
+/*Styling of title*/
 .title{
     margin-top: 10px;
-margin-bottom: 10px;
+    margin-bottom: 10px;
     font-family: "Nunito", "sans-serif";
     font-weight: 700;
     font-size: 24px;
     color: #707070;
 }
-
+/*Styling of text below the title*/
 .content{
     margin-top: 10px;
-margin-bottom: 10px;
+    margin-bottom: 10px;
     font-family: "Open Sans", "sans-serif";
     font-weight: 400;
     font-size: 16px;
     color: #707070;
 }
-
+/*Styling of block title*/
 .subtitle1{
     margin-top: 10px;
     margin-bottom: 10px;
-        font-family: "Nunito", "sans-serif";
-        font-weight: 700;
-        font-size: 18px;
-        color: #707070;
+    font-family: "Nunito", "sans-serif";
+    font-weight: 700;
+    font-size: 18px;
+    color: #707070;
 }
-
+/*Styling of block area*/
 .flexContainer{
     display: flex;
-justify-content: space-around;
-}
+    justify-content: space-around;
 
+}
+/*Styling of each block*/
 .scratchBlock{
     display: flex;
-flex-direction: column;
-align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
 }
-
+/*Styling of images in each block*/
 .imgContainer{
-display:flex;
+    display:flex;
 }
-
-/* .img1{
-   
-} */
-
+/*Styling of small images in each block*/
 .img2{
     align-self: start;
 }

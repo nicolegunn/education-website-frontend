@@ -50,16 +50,11 @@ export default function Studentdashboard() {
             </div>
 
     {/*Displays main content on student Dashboard */}
-            <div className={styles.colunmn}>
-                <div className={styles.centreArea}>
+            <div className={styles.centreArea}>
                 <div>{displayedContent.component}</div> 
-                </div>
             </div>
-
         </div>
         
-        
-
     </>
   )
 }

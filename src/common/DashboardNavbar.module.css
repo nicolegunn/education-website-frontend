@@ -1,31 +1,15 @@
-
 /*Styling of Navigation bar*/
-/* .navbar{
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    margin-right: 40px;
-    margin-left: 40px;
-    background-color: white;
-    height:91px;
-  } */
-  
   .navbar{
     font-family:'Open Sans', Bold,  system-ui, -apple-system;
     font-weight: 500;
     display: flex;
     justify-content: space-evenly;
-   
     margin-top: 0px;
     margin-left: 0px;
-    
-   
     align-items: center;
     height:64px;
     gap: 0px;
     background-color: white;
-    /* width: 1440px; */
-
 } 
 
 /*Styling of Logo*/
@@ -38,7 +22,7 @@
     padding-left: 0;
 }
 
-/*Styling of Start Project button*/
+/*Styling of "Start Project" button*/
  .navbtn1{color: white;
 padding: 10px 15px;
 border-radius: 5px;
@@ -52,7 +36,7 @@ box-shadow: 0px 2px 2px lightgray;
 background-color: rgb(209, 105, 8);
 } 
 
-/*Styling of Ask Teacher for Help button*/
+/*Styling of "Ask Teacher for Help" button*/
 .navbtn2{color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -66,7 +50,7 @@ background-color: rgb(209, 105, 8);
     background-color:#F91C85;
     }
 
-/*Styling of More Projects button*/
+/*Styling of "More Projects" button*/
     .navbtn3{color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -85,9 +69,9 @@ background-color: rgb(209, 105, 8);
     justify-content: space-evenly;
     padding-right: 1px;
     top: 13px;
-left: 200px;
-width: 68px;
-height: 32px;
+    left: 200px;
+    width: 68px;
+    height: 32px;
    }
 
 /*Styling of all buttons*/
