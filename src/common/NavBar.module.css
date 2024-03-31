@@ -70,19 +70,18 @@
     transition: border-color 0.25s;
   } */
 
-  
-  .radial_mount {
-    font-size: 1.2em;
-    transition: font-size 0.3s ease;
-    text-decoration: none;
-    color: #ffffff;
-  }
-  
-  .radial_mount:hover {
-    font-size: 1.4em;
-  }
-  
-  /* button:hover {
+.radial_mount {
+  font-size: 1.2em;
+  transition: font-size 0.3s ease;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.radial_mount:hover {
+  font-size: 1.4em;
+}
+
+/* button:hover {
       border-color: #646cff;
   } */
 

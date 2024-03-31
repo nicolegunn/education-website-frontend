@@ -15,7 +15,7 @@ const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
 const initialFilters = {
   pages: [],
-  course: ["beginner"],
+  course: [],
   subscription: [],
   activity_type: [],
   year_level: [],
@@ -88,10 +88,7 @@ export default function ProjectLibrary({ userType }) {
     );
 
     for (let key of filterKeys) {
-      if (
-        filtersObjCopy[key].length !== 0 &&
-        filtersObjCopy[key].length !== filters[key].length
-      ) {
+      if (filtersObjCopy[key].length !== 0) {
         activeFilters[key] = filtersObjCopy[key];
       }
     }
@@ -108,6 +105,12 @@ export default function ProjectLibrary({ userType }) {
         newFilteredProjects.push(project);
       }
     }
+
+    console.log(Object.keys(activeFilters));
+    if (Object.keys(activeFilters).length > 0) {
+      console.log(activeFilters.year_level);
+    }
+    console.log(filtersObjCopy);
 
     if (filtersObjCopy.pages.length > 0) {
       newFilteredProjects = newFilteredProjects.splice(

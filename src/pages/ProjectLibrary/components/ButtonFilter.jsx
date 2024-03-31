@@ -6,7 +6,7 @@ export default function ButtonFilter({
   name,
   handleFilter,
   label = "",
-  initialSelection = buttons[0],
+  initialSelection = "",
 }) {
   const [active, setActive] = useState(String(initialSelection));
 
