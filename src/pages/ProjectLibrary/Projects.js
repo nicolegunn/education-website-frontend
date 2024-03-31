@@ -57,7 +57,7 @@ const projects = [
     course: "beginner",
     subscription: 1,
     activity_type: "animation",
-    year_level: 2,
+    year_level: 5,
     subject_matter: "maths",
   },
   {
