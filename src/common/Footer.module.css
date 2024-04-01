@@ -4,7 +4,7 @@
   padding-left: 12.5vw;
   padding-right: 12.5vw;
   display: flex;
-  font-family: "Open Sans", "sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: #707070;
@@ -34,7 +34,7 @@
 
 .Title {
   padding-bottom: 0.3rem;
-  font-family: "Nunito", sans-serif;
+  font-family: Nunito, sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
 }

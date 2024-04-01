@@ -1,7 +1,12 @@
 import styles from "./CheckBoxFilter.module.css";
 
-export default function CheckBoxFilter({ title, boxes }) {
-  const handleChange = (e) => {};
+export default function CheckBoxFilter({ name, title, boxes, handleFilter }) {
+  function handleChange(e) {
+    const id = e.target.id;
+    const name = e.target.name;
+    const selected = e.target.checked;
+    handleFilter(id, name, selected);
+  }
 
   return (
     <div className={styles.CheckBoxesContainer}>
@@ -10,7 +15,8 @@ export default function CheckBoxFilter({ title, boxes }) {
         <div key={`${title}_${item}`} className={styles.CheckBoxRow}>
           <input
             type="checkbox"
-            id={`${title}_${item}`}
+            name={name}
+            id={item}
             onChange={(e) => handleChange(e)}
             className={styles.CheckBox}
           ></input>

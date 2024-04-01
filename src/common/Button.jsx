@@ -5,7 +5,7 @@ export default function Button({ children, style, handleClick }) {
     <button
       className={styles.Button}
       style={style}
-      onClick={(e) => handleClick(e)}
+      onClick={handleClick ? (e) => handleClick(e) : undefined}
     >
       {children}
     </button>
