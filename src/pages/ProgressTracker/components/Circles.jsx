@@ -29,9 +29,9 @@ const circleStyle = {
   };
 
   const container = {
-    width: '100%', /* Or a larger fixed width */
+    width: '100%', 
     display: 'flex',
-    flexWrap: 'wrap', /* Allows items to wrap to the next line */
+    flexWrap: 'wrap', 
     justifyContent: 'flexStart',
     
   }
