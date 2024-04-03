@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './ProgressTracker.css'
 import WhiteRectangle from './components/WhiteReactangle.jsx';
 import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Footer from '/src/common/DashboardFooter.jsx';
 
 export default function ProgressTracker() {
     const students = [{

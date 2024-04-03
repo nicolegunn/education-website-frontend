@@ -1,7 +1,7 @@
 import React from 'react';
 import './StudentProfile.css';
 import Header from '/src/pages/ProgressTracker/components/Header.jsx'
-import Footer from '../ProgressTracker/components/Footer';
+import Footer from '/src/common/DashboardFooter.jsx'
 
 function StudentProfiles() {
   const students = [

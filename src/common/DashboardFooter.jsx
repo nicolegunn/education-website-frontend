@@ -14,7 +14,7 @@ const footer = {
     textAlign: 'center',
     color: '#707070',
     backgroundColor: 'white',
-    padding: '5px',
+    padding: '16px',
     position: 'fixed',
     width: '100%',
     bottom: '0',
