@@ -1,0 +1,55 @@
+.Footer {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-left: 12.5vw;
+  padding-right: 12.5vw;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #707070;
+  background-color: #b2e4fa;
+  border: 1px solid #b2e4fa;
+}
+
+.Company {
+  width: 12.5vw;
+}
+
+.Courses {
+  width: 12.5vw;
+}
+
+.Support {
+  width: 12.5vw;
+}
+
+.Legal {
+  width: 12.5vw;
+}
+
+.LevelUpDescription {
+  width: 25vw;
+}
+
+.Title {
+  padding-bottom: 0.3rem;
+  font-family: Nunito, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.List {
+  margin-top: 1rem;
+  list-style-type: none;
+}
+
+.ListItem {
+  margin-bottom: 0.375rem;
+}
+
+.Paragraph {
+  margin-top: 0.1rem;
+  line-height: 1.1rem;
+  font-weight: 400;
+}
