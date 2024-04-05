@@ -2,7 +2,7 @@
 .main{
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: "Open Sans", "sans-serif";
+    font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 16px;
     color: #707070; 
@@ -14,14 +14,15 @@
     padding-left: 10%;
     padding-right: 20%;
     text-align: left;
-
+    
+    
 }
 
 /*Styling of Title "Join Scratch" */
 .title{
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: "Nunito", "sans-serif";
+    font-family: Nunito, sans-serif;
     font-weight: 900;
     font-size: 24px;
     color: #6c6c6c;

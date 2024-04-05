@@ -1,7 +1,7 @@
 
 import React from 'react'
 import styles from './DashboardNavbar.module.css'
-
+import {Link}from 'react-router-dom'
 import logo from '../assets/NavBar/LevelUpWorks-blue.png'
 import new_zealand_flag from '../assets/NavBar/NZFlag.png'
 import new_zealand_alternate_flag from '../assets/NavBar/MaoriFlag.png'
@@ -23,9 +23,13 @@ export default function DashboardNavbar(props) {
 
         {/*Buttons */}
             <div className={styles.btn}>
+              <Link to="/make-project">
               <button className={styles.navbtn1}>Start Project</button>
+              </Link>
               <button className={styles.navbtn2}>Ask Teacher for Help</button>
+              <Link to="/project-library">
               <button className={styles.navbtn3}>More Projects</button>
+              </Link>
             </div>
 
         {/*Displays Flags */}

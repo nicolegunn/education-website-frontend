@@ -40,3 +40,16 @@
     font-size: 20px;
     grid-area: main;
 }
+
+/*Styling of dashboard*/
+.dashboard {
+    float:left;
+    height: 80%;
+    background: #FFFFFF80;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 30px;
+}
+

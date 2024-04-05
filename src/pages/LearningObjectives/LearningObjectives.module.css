@@ -42,12 +42,13 @@
 /*Styling of images in each block*/
 .imgContainer{
     display:flex;
-  
+  gap: 1em;
 }
 /*Styling of small images in each block*/
 .img2{
     align-self: start;
 }
+
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
@@ -55,7 +56,7 @@
 .sidebar {
     background-color: #43C0F6;
     grid-area: sidebar;
-    height:100vh;
+    height:90vh;
     display: flex;
     flex-direction: column;
 }
@@ -84,6 +85,7 @@
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-areas: "sidebar main";
+    background-color: #B2E4FA;
 }
 /*Styling of main content*/
 .centreArea{
@@ -99,8 +101,8 @@
     background: #FFFFFF80;
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 15px;
+    /* margin-bottom: 40px; */
     border-radius: 30px;
+    height: 85vh;
 }
-

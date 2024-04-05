@@ -5,11 +5,11 @@ import Login from './pages/Login/Login.jsx'
 import ProjectLibrary from './pages/ProjectLibrary/ProjectLibrary.jsx';
 import StudentProfileViewer from './pages/StudentProfileViewer/StudentProfileViewer.jsx';
 
-import StudentDashboard from './pages/StudentDashboard/StudentDashboard.jsx'
-// import LearningObjectives from "./pages/StudentDashboard/components/LearningObjectives.jsx";
-// import Instructions from "./pages/StudentDashboard/components/Instructions.jsx";
-// import MakeProject from "./pages/StudentDashboard/components/MakeProject.jsx";
-// import VideoTutorial from "./pages/StudentDashboard/components/VideoTutorial.jsx";
+// import StudentDashboard from './pages/StudentDashboard/StudentDashboard.jsx';
+import LearningObjectives from "./pages/LearningObjectives/LearningObjectives.jsx";
+import Instructions from "./pages/Instructions/Instructions.jsx";
+import MakeProject from './pages/MakeProject/MakeProject.jsx';
+import VideoTutorial from "./pages/VideoTutorial/VideoTutorial.jsx"
 
 import ProjectSubmissions from './pages/ProjectSubmissions/ProjectSubmissions.jsx';
 import SubmitProject from './pages/SubmitProject/SubmitProject.jsx';
@@ -27,11 +27,12 @@ function App() {
     <Route path="/project-library" element={<ProjectLibrary />} />
     <Route path="/student-profile-viewer" element={<StudentProfileViewer />} />
 
-    <Route path="/student-dashboard" element={<StudentDashboard/>}/>
-    {/* <Route path="student-dashboard/learning-objectives" element={<LearningObjectives />} />
-     <Route path="student-dashboard/instructions" element={<Instructions />} />
-    <Route path="student-dashboard/make-project" element={<MakeProject />} />
-     <Route path="student-dashboard/video-tutorial" element={<VideoTutorial />} /> */}
+    {/* <Route path="/student-dashboard" element={<StudentDashboard/>}/> */}
+      <Route path="/learning-objectives" element={<LearningObjectives />} />
+      <Route path="/instructions" element={<Instructions />} />
+      <Route path="/make-project" element={<MakeProject />} />
+      <Route path="/video-tutorial" element={<VideoTutorial />} />
+    
 
     <Route path="/project-submissions" element={<ProjectSubmissions />} />
     <Route path="/submit-project" element={<SubmitProject />} />

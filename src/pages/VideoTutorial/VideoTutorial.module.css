@@ -1,26 +1,10 @@
-/*Styling of area containg image*/
-.imageContainer{
-    margin-top: 5px;
-    margin-bottom: 100px;
-    margin-left: 10%;
-    margin-right: 10%;
-    border-radius: 30px;
-    background-color:  #b2e4fa;       
-  }
-/*Styling of image*/
-.image{
-width: 95%;
-margin-top: 5%;
-margin-bottom: 5%;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /*Styling of Studentdashboard sidebar*/
 .sidebar {
     background-color: #43C0F6;
     grid-area: sidebar;
-    height:100vh;
+    height:90vh;
     display: flex;
     flex-direction: column;
 }
@@ -49,6 +33,7 @@ margin-bottom: 5%;
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-areas: "sidebar main";
+    background-color: #B2E4FA;
 }
 /*Styling of main content*/
 .centreArea{
@@ -64,8 +49,8 @@ margin-bottom: 5%;
     background: #FFFFFF80;
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 15px;
+    /* margin-bottom: 40px; */
     border-radius: 30px;
+    height: 85vh;
 }
-
