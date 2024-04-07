@@ -9,12 +9,14 @@
   box-shadow: 0px 3px 6px #00000029;
 }
 
+/* Changed margins from previously 40px to 8em */
+
 .navigation_bar {
   display: flex;
   align-items: center;
   gap: 50px;
-  margin-right: 40px;
-  margin-left: 40px;
+  margin-right: 8em;
+  margin-left: 8em;
 }
 
 .language_flag_ribbon {
@@ -45,61 +47,18 @@
   height: 64px;
 }
 
-/* body {
-      margin: 0;
-      display: flex;
-      place-items: center;
-      min-width: 320px;
-      min-height: 100vh;
-    } */
+  
+.radial_mount {
+  font-size: 1.2em;
+  transition: font-size 0.3s ease;
+  text-decoration: none;
+  color: #ffffff;
+}
 
-/* h1 {
-      font-size: 3.2em;
-      line-height: 1.1;
-    } */
+.radial_mount:hover {
+  font-size: 1.4em;
+}
 
-/* button {
-    display: flex;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  } */
 
   
-  .radial_mount {
-    font-size: 1.2em;
-    transition: font-size 0.3s ease;
-    text-decoration: none;
-    color: #ffffff;
-  }
-  
-  .radial_mount:hover {
-    font-size: 1.4em;
-  }
-  
-  /* button:hover {
-      border-color: #646cff;
-  } */
-
-/* button:focus,
-  button:focus-visible {
-      outline: 4px auto -webkit-focus-ring-color;
-  }
-    
-  @media (prefers-color-scheme: light) {
-      :root {
-        color: #213547;
-        background-color: #ffffff;
-      }
-      a:hover {
-        color: #747bff;
-      }
-      button {
-        background-color: #f9f9f9;
-      }
-  } */
+ 

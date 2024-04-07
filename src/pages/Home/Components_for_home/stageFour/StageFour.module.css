@@ -1,0 +1,80 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 1.5em;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: #767676;
+}
+
+.toggle {
+    background-color: rgb(238, 238, 238);
+}
+
+.buttons:hover {
+    border-color: #41BAEF;
+}
+
+.topLevel_nav_bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    gap: 30px;
+    margin-right: -8.5em;
+    margin-left: -8.5em; 
+    border: 2px solid black; 
+}
+
+.flex_box_container {
+    display: flex;
+    flex-direction: column;
+    background-color: #EFEFF1;
+    height: 100%;
+    margin-left: -8.5em;
+    margin-right: -8.5em;
+    border: 2px solid black;
+    margin-bottom: 120px;
+}
+
+.flex_box_container_margins {
+    margin-left: 8.5em;
+    margin-right: 8.5em;
+    border: 2px solid black;
+}
+
+.hidden_content_container {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+@media screen and (min-width: 1200px) {
+    .hidden_content_container{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .topLevel_nav_bar{
+        display: none;
+    }
+    .flex_box_container {
+        margin-right: -2em;
+        margin-left: -2em;
+    }
+    .flex_box_container_margins {
+        margin-right: 2em;
+        margin-left: 2em;
+    }
+}

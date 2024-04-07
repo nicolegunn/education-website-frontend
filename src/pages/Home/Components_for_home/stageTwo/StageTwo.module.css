@@ -1,0 +1,77 @@
+.margins {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow the flex items to wrap */
+    border: 2px solid black;
+}
+
+.content_left {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Full width on small screens */
+    
+}
+
+.content_whatWeOffer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;
+}
+
+.content_whatWillStudentsCreate {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+.features_box_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow the images to wrap */
+}
+
+.features_boxImage {
+    height: 8em;
+    width: auto;
+}
+
+.content_image_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%; /* Full width on small screens */
+}
+
+.laptopImage_Styles{
+    height: 20em;
+    width: auto;
+}
+
+/* Media query for screens larger than 768px */
+@media (min-width: 768px) {
+    .content_left, .content_image_right {
+        width: 50%; /* Half width on larger screens */
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .content_left, .content_image_right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .content_whatWillStudentsCreate {
+        margin-bottom: 0px;
+    }
+    .content_whatWeOffer {
+        margin-bottom: 20px;
+    }
+}
