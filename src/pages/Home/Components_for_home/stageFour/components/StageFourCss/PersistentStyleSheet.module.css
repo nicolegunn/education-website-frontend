@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.paragraph {
+    display: flex;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.boxContents {
+    display: flex;
+    align-items: center;
+}
+
+.content_styles {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}

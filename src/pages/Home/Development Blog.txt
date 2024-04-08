@@ -1,0 +1,37 @@
+Development Blog
+
+###<== Change log ==> 28 /03/ 2024###
+
+> Added notes, for codes, just to keep track of changes
+
+###<== Change log ==> 2/04/2024 (1.01)###
+
+> finished adding stages one until 4, work in progress making the website responsive.
+> Removed depricated code lines especially in stage four.
+
+###<== Change log ==> 03/04/2024 (1.02)###
+
+> Added 'radio' button to render data in stage four. When the website gets smaller, will hide button and show radio instead.
+> 80% of webpage is complete and fully functional.
+> Known bug with the <NavBar> where the margins would not apply.
+> Known bug in stage two where the <Fonts> won't apply in the CSS, possibly a conflict with the top level CSS.
+
+> Things left to do
+
+> Add StageFive to complete the webpage.  
+> Fix bug from <NavBar> in the shared components modules <causes the flags to overstretch>
+> Add overlay login/signup screen.
+> turn this responsive and add gates for future database connection. 
+> Polish homepage, fully test before pre-alpha.
+> Remove deprecated/ duplicates/ codes or implement them.
+
+###<== Change log ==> 07/04/2024 (1.03) ### 
+
+> Stage revamped, duplicates removed.
+> "Stage Five" added, needs to be responsive though
+> Webpage is now 90% finished, excluding backend database
+
+###<== Change log ==> 08/04/2024
+
+> Stage five made responsive.
+> Known minor issue, stage one buttons are both not responsive.

@@ -1,0 +1,40 @@
+/* Top Text */
+
+.topLevel {
+    display: flex;
+    justify-content: center;
+}
+
+/* Image Container */
+
+.flex_box_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    flex-wrap: wrap; /* Allow the items to wrap as necessary */
+}
+
+.group_image {
+    display: flex;
+    margin: 15px;
+    height: 10em;
+    /* Adjust the width for smaller screens */
+}
+
+/* Bottom Text */
+
+.bottomLevel {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+@media screen and (max-width: 1200px) {
+    .group_image, .flex_box_container, .bottomLevel, .topLevel {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+}
+
+

@@ -1,0 +1,136 @@
+.hero_banner {
+    width: 100%;
+}
+
+.margins {
+    margin-left: -8.5em;
+    margin-right: -8.5em;
+}
+
+
+.flex_box_container {
+    display: flex;
+    position: relative;
+}
+
+.content_container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-right: 8.5em;
+    margin-left: 8.5em;
+}
+
+/* Top left text */
+.top_left {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+}
+
+.buttons_signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 1.5em;
+    border-radius: 8px;
+    border: 2px solid rgb(249, 28, 133);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: rgb(255, 255, 255);
+    background-color: rgb(249, 28, 133);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.buttons_signup:hover {
+    border-color: #41BAEF;
+}
+
+.buttons_learn_more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 1.5em;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: #767676;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buttons_learn_more:hover {
+    border-color: #41BAEF;
+}
+
+.learn_more_and_signup {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.tAndc {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    width: 170px;
+}
+
+
+/* Hidden Content */
+
+.hiddenContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8.5em;
+    margin-right: 8.5em;
+
+}
+
+
+/* Hide .hiddenContent when the viewport is 1200px or more */
+@media screen and (min-width: 1200px) {
+    .hiddenContent {
+        display: none;
+    }
+}
+
+/* Show .hiddenContent when the viewport is less than 1200px */
+@media screen and (max-width: 1199px) {
+    .hiddenContent {
+        margin-top: 200px;
+        display: flex;
+    }
+    .margins {
+        margin-left: -2em;
+        margin-right: -2em;
+    }
+}
+
+/* Show .flex_box_container when the viewport is 1200px or more */
+@media screen and (min-width: 1200px) {
+    .flex_box_container {
+        display: flex;
+    }
+}
+
+/* Hide .flex_box_container when the viewport is less than 1200px */
+@media screen and (max-width: 1199px) {
+    .flex_box_container {
+        display: none;
+    }
+}
