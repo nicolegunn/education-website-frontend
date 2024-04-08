@@ -1,0 +1,52 @@
+.SideBarButtonsLink {
+    display: flex;
+    flex-direction: column;
+    background-color: #43C0F6;
+    background: transparent url('img/Rectangle 250.png') 0% 0% no-repeat padding-box;
+    /* border: 1px solid #B2E4FA; */
+    opacity: 1;
+    font-family: Open-sans, sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    padding: 20px;
+}
+
+p {
+    background-color: #43c0f6;
+    justify-content: flex-start;
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    display: inline;
+}
+
+/* Style navigation bar links */
+/* .SideBarButtonsLink:hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #B2E4FA;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: left;
+} */
+
+.SideBarButtonsList {
+    width: 20vw;
+}
+
+/* .isActive .SideBarButtonText {
+    display:none;
+}
+
+.isActive .SideBarButtonIcon {
+    width: 20%;
+} */
+
+.SideBarButtonIcon {
+    width: 10%;
+}

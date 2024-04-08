@@ -1,0 +1,92 @@
+.layout {
+    display: flex;
+    width: 100%;
+    background-color: #B2E4FA;
+}
+
+.projectSubmissionsContents {
+    display: flex;
+    /* align-items: stretch; */
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    text-align: center;
+    /* grid-template-columns: repeat(2, 20vw); */
+    margin: 98px 97px;
+    /* padding: 10px; */
+    width: 70vw;
+}
+
+.contentHeader {
+    flex-direction: row;
+}
+
+.contentTitle {
+    background-color: #d9f2fd;
+    color: #6C6C6C;
+    font-family: "Nunito", sans-serif;
+    justify-content: flex-start;
+    font-size: 25px;
+    font-weight: 900;
+    height: 34px;
+    width: 305px;
+}
+
+.contentButtons {
+    background-color: #d9f2fd;
+    align-items: right;
+    font-family: "Open-sans", sans-serif;
+    color: #6C6C6C;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.scrollContainer {
+    height: 90vh;
+    max-height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* background-color: #d9f2fd; */
+    /* background-color: #ffffff; */
+    /* margin: 0 auto; */
+    border-radius: 8px;
+    width: 70vw;
+    padding: 0px;
+    /* scrollbar-color: #43C0F6; */
+}
+
+li {
+    display: flex;
+    list-style-type: none;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #d9f2fd;
+}
+
+input {
+  top: 0;
+  left: 0;
+  height: 31px;
+  width: 31px;
+  background-color: #d9f2fd;
+  list-style: none;
+}
+
+.checkboxContainer {
+    display: flex;
+}
+
+.submittedProjectContainer {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: column; */
+    /* align-content: center; */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 20px;
+    width: 90%;
+    /* margin: 0 auto; */
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
