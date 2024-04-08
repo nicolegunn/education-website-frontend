@@ -1,8 +1,10 @@
 import React from "react";
-import Circles from "./Circles";
+import Circles from "./Circles"
 
 
 function WhiteRectangle ({name, level}) {
+    
+    
     return (
         <div style={style}>
             <div style={nameCont}>
@@ -40,8 +42,6 @@ const style = {
     alignItems: 'center', 
      }
   
-  const circlesContainer = {
-    display: 'flex',
-  };
+
 
 export default WhiteRectangle;

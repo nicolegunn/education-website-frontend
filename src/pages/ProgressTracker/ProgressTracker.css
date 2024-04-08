@@ -37,17 +37,17 @@
   order: -1;
 }
 
-h2, p{
+.h2-content, .p-content {
   color: #6C6C6C;
   font-weight: bold;
 
 }
 
-h2 {
+.h2-content {
   padding-bottom: 2%;
 }
 
-p {
+.p-content {
   margin-left: auto;
 
 }

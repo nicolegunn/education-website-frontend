@@ -19,7 +19,21 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    overflow: hidden;
+    overflow-x: auto;
+    padding-right: 50px;
+  }
+
+  .rect::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .rect::-webkit-scrollbar-thumb {
+    background-color: #fff; /* White color for the scrollbar thumb */
+    border-radius: 5px;     /* Rounded corners for the thumb */
+  }
+  
+  .rect::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Light grey color for the scrollbar track */
   }
 
 .student-card {
