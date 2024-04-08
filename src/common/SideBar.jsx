@@ -125,21 +125,21 @@ export default function SideBar(props) {
     return (
         <>
         {/* Toggle function */}
-        <nav className={`${styles.sidebar} ${isActive ? styles.isActive : ""}`}>
+        <nav className={`${styles.SideBar} ${isActive ? styles.isActive : ""}`}>
             <div>
-            <button className={styles.profilePicture}><img src="../../public/images/students/RawiriFletcher.png" alt="" width="40%" /></button>
+            <button className={styles.ProfilePicture}><img src="../../public/images/students/RawiriFletcher.png" alt="" width="40%" /></button>
             </div>
             
             {/* Import buttons */}
             <div>{buttons}</div>
             
             {/* Toggle Button */}
-            <div className={styles.toggleButtonContainer}>
+            <div className={styles.ToggleButtonContainer}>
                 <button className={styles.toggleButton} onClick={toggleSidebar}><img src={arrowLeft} alt="" width="200%"/></button>
             </div>
             
             {/* Setting Buttons at the bottom of sidebar */}
-            <div className={styles.settingButtonsContainer}>
+            <div className={styles.SettingButtonsContainer}>
                     <button><img src={profile} alt="" /><br/><p>Profile</p></button>
                     <button><img src={settings} alt="" /><br/><p>Settings</p></button>
                     <button><img src={logout} alt="" /><br/><p>Log out</p></button>
