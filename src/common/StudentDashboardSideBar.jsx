@@ -1,4 +1,7 @@
+// THIS FILE IS NOT USED AND WILL BE REMOVED //
+
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './StudentDashboardSideBar.module.css'
 
 import learningObjectives from "../assets/StudentDashboard/learningObjectives.png";
@@ -22,54 +25,58 @@ export default function StudentDashboardSideBar () {
 
     return (
         <>
-        <section>
+        {/* Toggle function */}
         <nav className={`${styles.sidebar} ${isActive ? styles.isActive : ""}`}>
+            {/* side bar buttons */}
             <ul>
                 <div className={styles.menuButtons}>
                 <li>
-                    <p><img src="../../public/images/students/RawiriFletcher.png" alt="" width="30%" /></p>
+                    <Link to=""><button><img src="../../public/images/students/RawiriFletcher.png" alt="" width="40%" /></button></Link>
                 </li>
 
                 <li>
-                    <a href="#"><p><img src={learningObjectives} alt="" width="10%" /> Learning Objectives</p></a>
+                    <Link to="/learning-objective"><img src={learningObjectives} alt="" width="10%" /> <p>Learning Objectives</p></Link>
                 </li>
                 
                 <li>
-                    <a href="#"><img src={instructions} alt="" width="10%" /> Instructions</a>
+                    <Link to="/instructions"><img src={instructions} alt="" width="10%" /> <p >Instructions</p></Link>
                 </li>
                 
                 <li>
-                    <a href="#"><img src={video} alt="" width="10%" /> Video Tutorial</a>
+                    <Link to="/video-tutorial"><img src={video} alt="" width="10%" /> <p>Video Tutorial</p></Link>
                 </li>
                 
                 <li>
-                    <a href="#"><img src={makeProject} alt="" width="10%" /> Make Project</a>
+                    <Link to="/make-project"><img src={makeProject} alt="" width="10%" /> <p>Make Project</p></Link>
                 </li>
 
                 <li>
-                    <a href="#"><img src={submitProject} alt="" width="10%" /> Submit Project</a>
+                    <Link to="/submit-project"><img src={submitProject} alt="" width="10%" /> <p>Submit Project</p></Link>
                 </li>
 
                 <li>
-                    <a href="#"><img src={bonusChallenge} alt="" width="10%" /> Bonus Challenge</a>
+                    <Link to=""><img src={bonusChallenge} alt="" width="10%" /> <p>Bonus Challenge</p></Link>
                 </li>
                 
                 <li>
-                    <a href="#"><img src={takeTheQuiz} alt="" width="10%" /> Take the Quiz</a>
+                    <Link to=""><img src={takeTheQuiz} alt="" width="10%" /> <p>Take the Quiz</p></Link>
                 </li>
                 </div>
 
+                {/* Toggle Button - pink triangle button */}
+                <div className={styles.toggleButtonContainer}>
                 <button className={styles.toggleButton} onClick={toggleSidebar}><img src={arrowLeft} alt="" width="200%"/></button>
-                    
-                <div className={styles.settingButtons}>
-                    <button class="profileButton"><img src={profile} alt="" />Profile</button>
-                    <button class="settingsButton"><img src={settings} alt="" />Settings</button>
-                    <button class="logoutButton"><img src={logout} alt="" />Log out</button>
+                </div>
+                
+                {/* Setting Buttons at the bottom of sidebar */}
+                <div className={styles.settingButtonsContainer}>
+                    <button><img src={profile} alt="" /><p>Profile</p></button>
+                    <button><img src={settings} alt="" /><p>Settings</p></button>
+                    <button><img src={logout} alt="" /><p>Log out</p></button>
                 </div>
             </ul>
             
         </nav>
-        </section>
         
         </>
     )

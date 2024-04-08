@@ -1,29 +1,34 @@
-/* THIS FILE IS NOT USED AND WILL BE REMOVED */
-
-/* * {
-    background-color: #88DBFF;
+.sidebar {
+    background-color: #43c0f6;
+    width: 20vw;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
     box-sizing: border-box;
     font-family: "Open-sans", sans-serif;
     font-size: 0.9rem;
     color: white;
     border: none;
-} */
-
-.sidebar {
-    background-color: #43c0f6;
-    top: 62px;
-    left: 0px;
-    width: 236px;
-    height: 957px;
-    transition: width 0.3s ease-in-out;
+    /* justify-content: space-evenly; */
 }
 
 .isActive {
-    top: 62px;
-    left: 0px;
-    width: 118px;
-    height: 957px;
+    width: 10vw;
+    height: 100vh;
     transition: width 0.3 ease-in-out;
+}
+
+.profilePicture {
+    outline: none;
+    width: 100%;
+    padding-top: 30px;
+}
+
+/* .isActive .profilePicture {
+    width: 100%;
+} */
+
+.SideBarButtonsList {
+    outline: none;
 }
 
 /* 
@@ -34,22 +39,15 @@ img {
     opacity: 1;
 } */
 
-nav {
+/* nav {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
     overflow-x: visible;
     background-color: #43c0f6;
-}
-
-p {
-    background-color: #43c0f6;
-    justify-content: flex-start;
-    color: white;
-    text-decoration: none;
-    text-align: left;
-}
+} */
 
 /* p:hover {
     background-color: #B2E4FA;
@@ -61,7 +59,7 @@ p {
 } */
 
 /* Style navigation bar links */
-nav a {
+/* nav a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -70,23 +68,24 @@ nav a {
     padding: 14px 20px;
     text-decoration: none;
     text-align: left;
-}
+} */
 
 /* Change color on hover */
-nav a:hover {
+/* nav a:hover {
     background-color: #B2E4FA;
     background: transparent url('img/Rectangle 248.png') 0% 0% no-repeat padding-box;
     color: #707070;
-}
+} */
 
 .toggleButtonContainer {
     display: flex;
     justify-content: flex-end;
-    position: relative;
-    top: 56px;
+    /* align-items: flex-end; */
+    /* position: relative; */
+    /* top: 56px;
     left: 172px;
     width: 64px;
-    height: 72px;
+    height: 72px; */
     border: 1px solid #B2E4FA;
     border-radius: 10px 0px 0px 10px;
     opacity: 1;
@@ -107,6 +106,11 @@ nav a:hover {
     padding: 15px;
 }
 
+.isActive .toggleButton img {
+    /* justify-content: flex-start; */
+    transform: rotate(180deg);
+}
+
 .settingButtonsContainer {
     display: flex;
     align-items: flex-end;
@@ -115,8 +119,17 @@ nav a:hover {
     /* bottom: 0; */
     background-color: #43c0f6;
     color: white;
-    padding: 140px 20px 0px;
+    padding: 140px 20px;
     gap: 0.5rem;
+}
+
+.isActive .settingButtonsContainer {
+    flex-direction: column;
+    align-items: center;
+}
+
+.isActive .settingButtonsContainer p {
+    display: none;
 }
 
 /* content placeholder */
@@ -139,10 +152,11 @@ nav a:hover {
     padding: 20px;
 } */
 
-.menuButtons>li>a {
+/* .menuButtons>li>a {
     display: flex;
     flex-direction: row;
-}
+} */
+
 
 .isActive p{
     display: none;
@@ -150,12 +164,13 @@ nav a:hover {
 
 button {
     background-color: #43c0f6;
+    border: none;
 }
 
-ul {
+/* ul {
     background-color: #43c0f6;
-}
+} */
 
-.isActive img{
-    width: 70%;
+.isActive buttons{
+    width: 20%;
 }

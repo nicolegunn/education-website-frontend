@@ -1,27 +1,92 @@
 .layout {
     display: flex;
     width: 100%;
+    background-color: #B2E4FA;
 }
 
-.submitProjectContent {
-    display: grid;
-    grid-template-columns: repeat(2, 20vw);
-    background-color: white;
+.submitProjectContents {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    /* flex-direction: row; */
+    text-align: center;
+    /* grid-template-columns: repeat(2, 20vw); */
+    background-color: #B2E4FA;
     margin: 98px 97px;
+    /* padding: 10px; */
+    /* width: 50%; */
 }
 
 .Button {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     width: 243px;
     height: 153px;
     font-family: "Nunito", sans-serif;
-    font-size: 0.65rem;
+    font-size: 20px;
     font-weight: 900;
     color: white;
     background-color: #f91c85;
     border: none;
     border-radius: 5px;
     box-shadow: 0px 4px 5px #00000029;
+  }
+
+  .line {
+    display: flex;
+    flex-direction: row;
+    top: 110px;
+    /* left: 1052px; */
+    left: 50%;
+    height: 860px;
+    size: 2px;
+    border-left: 2px solid #C7C2C2;
+    opacity: 1;
+    /* border-right: 5px solid transparent; */
+    /* border-bottom: 5px solid black; */
+  }
+
+  .subHeading {
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #707070;
+    padding: 10px;
+    background-color: #B2E4FA;
+    text-align: center;
+  }
+
+  .text {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #707070;
+    text-align: center;
+    background-color: #B2E4FA;
+  }
+
+  .contentOne {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    background-color: #B2E4FA;
+    /* width: 785; */
+  }
+
+  .contentTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    background-color: #B2E4FA;
+  }
+
+  img {
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+  }
+
+  .buttonContainer {
+    background-color: #B2E4FA;
   }

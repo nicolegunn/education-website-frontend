@@ -1,5 +1,6 @@
 import React from 'react'
-import StudentDashboardSideBar from '../../common/StudentDashboardSideBar'
+// import StudentDashboardSideBar from '../../common/StudentDashboardSideBar'
+import SideBar from '../../common/SideBar'
 import styles from './SubmitProject.module.css'
 
 import makeProjectScreenshot from "../../assets/StudentDashboard/makeProject-screenshot.png"
@@ -12,27 +13,63 @@ export default function SubmitProject() {
 
   return (
     <>
-    {/* <Header /> */}
-      <StudentDashboardSideBar />
-      <DashboardContent>
-      
-      <div className={styles.submitProjectContents}>
-      <div>
-      <img src={makeProjectScreenshot} alt="" width="35%" />
+      {/* <Header /> */}
+      <div className={styles.layout}>
+        <SideBar dashboard="student" />
+        <DashboardContent>
+          <div className={styles.submitProjectContents}>
+            <div className={styles.contentOne}>
+              <div>
+                <img src={makeProjectScreenshot} alt="" width="100%" />
+              </div>
+
+              <div>
+                <p className={styles.subHeading}>Submit project photo</p>
+                <br/>
+                <p className={styles.text}>
+                  After completing your project, take a screenshot of your
+                  project and upload it here.
+                </p>
+              </div>
+
+              <div className={styles.buttonContainer}>
+                <button className={styles.Button}>
+                  <img src={sendPhoto} alt="" width="20%" />
+                  <br />
+                  Send Photo
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.line}></div>
+
+            <div className={styles.contentTwo}>
+              <div>
+                <img src={submitProjectPhoto} alt="" width="100%" />
+              </div>
+
+              <div>
+                <p className={styles.subHeading}>Show your teacher</p>
+                <br/>
+                <p className={styles.text}>
+                  If your teacher is in the same room as you, click the button
+                  below to let them know you are done.
+                </p>
+              </div>
+
+              <div className={styles.buttonContainer}>
+                <button className={styles.Button}>
+                  <img src={callTeacher} alt="" width="20%" />
+                  <br />
+                  Ask Teacher for Help
+                </button>
+              </div>
+            </div>
+          </div>
+        </DashboardContent>
       </div>
 
-      <div>
-      <img src={submitProjectPhoto} alt="" width="35%" />
-      </div>
-
-      <div>
-        <button className={styles.Button}>'<img src={sendPhoto} alt="" width="20%" />Send Photo</button>
-        <button className={styles.Button}><img src={callTeacher} alt="" width="20%" />Call Teacher</button>
-      </div>
-      </div>
-
-      </DashboardContent>
-    {/* <Footer /> */}
+      {/* <Footer /> */}
     </>
-  )
+  );
 }
