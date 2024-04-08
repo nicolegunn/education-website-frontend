@@ -25,14 +25,14 @@ export default function ProjectLibrary({ userType }) {
   //Scrolls to top of window when user clicks on the Back To Top Button
   const goBackToTop = () => {
     setBackToTop(!backToTop);
-    useEffect(
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      }),
-      [backToTop]
-    );
   };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [backToTop]);
 
   //When a filter checkbox or button is clicked, this function passes the existing filter object to the createFilter function.
   //The createFilter function updates the filter object, and returns the updated version.
