@@ -1,6 +1,6 @@
 //Dummy data - This will come from database later
 const tempUser = {
-  user_type: "student",
+  user_type: "teacher",
   student_id: 123,
   name: "Rawiri Fletcher",
   school: "Homai School",

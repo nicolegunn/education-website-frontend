@@ -1,0 +1,72 @@
+/*Styling of area containg image*/
+.imageContainer{
+    margin-top: 5px;
+    margin-bottom: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 30px;
+    /* background-color:  #b2e4fa;        */
+  }
+/*Styling of image*/
+.image{
+width: 95%;
+margin-top: 5%;
+margin-bottom: 5%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/*Styling of Studentdashboard sidebar*/
+.sidebar {
+    background-color: #43C0F6;
+    grid-area: sidebar;
+    height:90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Styling of buttons on sidebar*/
+.btn {
+    top: 143px;
+    margin-left:0px;
+    width: 177px;
+    height: 40px;
+    background-color: #43C0F6;
+    color: white;
+    font-weight: 700;
+    border-width: 0;
+}
+
+.active {
+    background-color: #b2e4fa;
+    color: gray;
+}
+/*Styling of whole area below navigation bar*/
+.layout {
+ 
+    /* display: flex; */
+    width:100vw;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-areas: "sidebar main";
+    background-color: #B2E4FA;
+}
+/*Styling of main content*/
+.centreArea{
+    text-align: center;
+    font-size: 20px;
+    grid-area: main;
+}
+
+/*Styling of dashboard*/
+.dashboard {
+    float:left;
+    height: 80%;
+    background: #FFFFFF80;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 15px;
+    /* margin-bottom: 40px; */
+    border-radius: 30px;
+    height: 85vh;
+}

@@ -2,6 +2,7 @@ import styles from "./ProjectLibrary.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { projects, filters } from "./Projects.js";
+import { initialFilters, createFilter, filterProjects } from "./filter.js";
 
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
@@ -11,22 +12,17 @@ import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 
+//Labels for the ButtonFilter components
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
-const initialFilters = {
-  pages: [],
-  course: ["beginner"],
-  subscription: [],
-  activity_type: [],
-  year_level: [],
-  subject_matter: [],
-};
 
 export default function ProjectLibrary({ userType }) {
   const [backToTop, setBackToTop] = useState(false);
   const [filtersObj, setFiltersObj] = useState(initialFilters);
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
+  //PLEASE HELP WITH BUTTON ERROR!!!!!!!!!
+  //Scrolls to top of window when user clicks on the Back To Top Button
   const goBackToTop = () => {
     setBackToTop(!backToTop);
     useEffect(
@@ -38,88 +34,19 @@ export default function ProjectLibrary({ userType }) {
     );
   };
 
+  //When a filter checkbox or button is clicked, this function passes the existing filter object to the createFilter function.
+  //The createFilter function updates the filter object, and returns the updated version.
+  //The updated filter object is used in the newFilteredProjects function to filter the projects array.
   const handleFilter = (id, name, selected = true) => {
-    const filtersObjCopy = { ...filtersObj };
-    let value = id.toLowerCase();
-
-    if (name === "pages") {
-      value === "all"
-        ? (filtersObjCopy.pages = [])
-        : (filtersObjCopy.pages[0] = Number(value));
-    }
-
-    if (name === "course") {
-      filtersObjCopy.course[0] = value;
-    }
-
-    if (name === "subscription") {
-      value = value === "free" ? 0 : 1;
-      selected
-        ? filtersObjCopy.subscription.push(value)
-        : filtersObjCopy.subscription.splice(
-            filtersObjCopy.subscription.indexOf(value),
-            1
-          );
-    }
-
-    if (name === "year_level") {
-      const min = Number(id[0]);
-      const max = Number(id.slice(2));
-      value = [...Array(max - min + 1).keys()].map((key) => key + min);
-      selected
-        ? filtersObjCopy.year_level.push(...value)
-        : (filtersObjCopy.year_level = filtersObjCopy.year_level.filter(
-            (num) => value.indexOf(num) < 0
-          ));
-    }
-
-    if (name === "activity_type" || name === "subject_matter") {
-      selected
-        ? filtersObjCopy[name].push(value)
-        : (filtersObjCopy[name] = filtersObjCopy[name].filter(
-            (item) => item !== value
-          ));
-    }
-
-    let newFilteredProjects = [];
-    const activeFilters = {};
-    const filterKeys = Object.keys(filtersObjCopy).filter(
-      (key) => key !== "pages"
-    );
-
-    for (let key of filterKeys) {
-      if (
-        filtersObjCopy[key].length !== 0 &&
-        filtersObjCopy[key].length !== filters[key].length
-      ) {
-        activeFilters[key] = filtersObjCopy[key];
-      }
-    }
-
-    for (let project of projects) {
-      let include = true;
-      for (let key in activeFilters) {
-        if (!activeFilters[key].includes(project[key])) {
-          include = false;
-        }
-      }
-
-      if (include) {
-        newFilteredProjects.push(project);
-      }
-    }
-
-    if (filtersObjCopy.pages.length > 0) {
-      newFilteredProjects = newFilteredProjects.splice(
-        0,
-        filtersObjCopy.pages[0]
-      );
-    }
-
-    setFiltersObj(filtersObjCopy);
+    const newFilter = createFilter(filtersObj, id, name, selected);
+    const newFilteredProjects = filterProjects(newFilter, projects);
+    console.log("New filter: ", newFilter);
+    console.log("New Projects: ", newFilteredProjects);
+    setFiltersObj(newFilter);
     setFilteredProjects(newFilteredProjects);
   };
 
+  //Unique styles passed to Button components used at bottom of project-library page
   const btnStyles = {
     marginLeft: "1rem",
     marginTop: "4rem",
@@ -193,6 +120,7 @@ export default function ProjectLibrary({ userType }) {
       </div>
       <div className={styles.ButtonContainer}>
         <div className={styles.ButtonFlexContainer}>
+          {/* PLEASE HELP WITH BUTTON ERROR!!!!!!!!! */}
           <Button
             style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
             handleClick={goBackToTop}
