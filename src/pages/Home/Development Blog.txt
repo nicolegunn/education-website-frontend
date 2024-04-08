@@ -33,8 +33,5 @@ Development Blog
 
 ###<== Change log ==> 08/04/2024
 
-> Stage five made responsive
-> 
-
-
-//   I need your help getting me a small bug fixed in my c# code, 
+> Stage five made responsive.
+> Known minor issue, stage one buttons are both not responsive.

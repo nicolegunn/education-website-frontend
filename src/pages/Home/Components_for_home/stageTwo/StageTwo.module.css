@@ -6,7 +6,6 @@
 .container {
     display: flex;
     flex-wrap: wrap; /* Allow the flex items to wrap */
-    border: 2px solid black;
 }
 
 .content_left {

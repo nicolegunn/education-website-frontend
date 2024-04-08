@@ -39,7 +39,7 @@ export default function StageTwo() {
             <div className={styles.container}>
             <div className={styles.content_left}>
                 <div className={styles.content_whatWeOffer}>
-                    <p style={{fontSize: '2em', fontWeight: '900'}}>What We Offer</p><br/>
+                    <p style={{fontSize: '3em', fontWeight: '900'}}>What We Offer</p><br/>
                     <p style={{fontSize: '1.5em', fontWeight: '600'}}>The Creative 'Problem Solving' programme is a series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand's leading IT industry experts and schools.</p><br/>
                 </div>
                 <div className={styles.content_whatWillStudentsCreate}>

@@ -33,7 +33,6 @@
     gap: 30px;
     margin-right: -8.5em;
     margin-left: -8.5em; 
-    border: 2px solid black; 
 }
 
 .flex_box_container {
@@ -43,20 +42,17 @@
     height: 100%;
     margin-left: -8.5em;
     margin-right: -8.5em;
-    border: 2px solid black;
     margin-bottom: 120px;
 }
 
 .flex_box_container_margins {
     margin-left: 8.5em;
     margin-right: 8.5em;
-    border: 2px solid black;
 }
 
 .hidden_content_container {
     display: flex;
     justify-content: center;
-    border: 2px solid black;
 }
 
 @media screen and (min-width: 1200px) {
