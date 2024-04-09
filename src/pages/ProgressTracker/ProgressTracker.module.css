@@ -1,23 +1,15 @@
-.app {
+.App {
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     background-color:  #B2E4FA;
+    
   }
   
-  .sidebar {
-    background-color:#43C0F6;
-    transition: width 0.3s ease;
-    overflow: hidden;
-    top: 62px;
-    left: 0px;
-    width: 200px;
-    height: 100vh;
-  }
   
-  .rectangle {
+  .Rectangle {
     flex-grow: 1;
     transition: margin-left 0.3s ease;
     padding: 5% 5% 5% 5%;
@@ -29,25 +21,25 @@
     margin: 50px;
     height:65vh;
     justify-content: center;
-  }
+  }  
 
-.content {
+.Content {
   display: flex;
   flex-direction: column;
   order: -1;
 }
 
-.h2-content, .p-content {
+.H2Content, .PContent {
   color: #6C6C6C;
   font-weight: bold;
 
 }
 
-.h2-content {
+.H2Content {
   padding-bottom: 2%;
 }
 
-.p-content {
+.PContent {
   margin-left: auto;
 
 }

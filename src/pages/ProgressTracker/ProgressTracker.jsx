@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
-import './ProgressTracker.css'
+import styles from './ProgressTracker.module.css'
 import WhiteRectangle from './components/WhiteReactangle.jsx';
 import Footer from '/src/common/DashboardFooter.jsx';
+import SideBar from '../../common/SideBar';
+import DashboardNavbar from '../../common/DashboardNavbar.jsx'; 
 
 export default function ProgressTracker() {
     const students = [{
@@ -17,22 +19,21 @@ export default function ProgressTracker() {
 
   return (
     <div>
-        <div className="app">
-          <div className="sidebar">
-          </div>
-            <div className="rectangle">
-              <div className='content'>
-                <p className='p-content'>Export as spreadsheet</p>
-                <h2 className='h2-content'>BEGINNER COURSE</h2>
+      <DashboardNavbar />
+   <div className={styles.App}>
+    <SideBar dashboard="student"/>
+            <div className={styles.Rectangle}>
+              <div className={styles.Content}>
+                <p className={styles.PContent}>Export as spreadsheet</p>
+                <h2 className={styles.H2Content}>BEGINNER COURSE</h2>
                 {students.map((student, index) => (
                   <WhiteRectangle key={index} name={student.name} level={student.level} />
                 ))}
               </div>
           </div>
-        
-        </div>
-      <Footer />  
-    </div>
+    <Footer />
+   </div>
+   </div>
   );
 }
 

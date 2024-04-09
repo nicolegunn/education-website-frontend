@@ -1,6 +1,11 @@
 import React from 'react';
-import './StudentProfile.css';
-import Footer from '/src/common/DashboardFooter.jsx'
+import styles from './StudentProfile.module.css';
+import Footer from '/src/common/DashboardFooter.jsx';
+import DashboardNavbar from '../../common/DashboardNavbar.jsx'; 
+import SideBar from '../../common/SideBar';
+
+
+
 
 function StudentProfiles() {
   const students = [
@@ -23,17 +28,20 @@ function StudentProfiles() {
   ] 
 
   return (
-    <div className="background">
-      <div className='sidebar'></div>
-      <div className="rect">
-        {students.map((student, index) => (
-          <div key={index} className='student-card'>
-          <img className='student-img' src={'./images/students/' + student.replace(/\s+/g, '') + '.png'} alt=" "/>
-          <p className='student-name'>{student}</p>
-          </div>
-          ))}
+    <div>
+      <DashboardNavbar />
+      <div className={styles.App}>
+        <SideBar dashboard="student" />
+        <div className={styles.Rectangle}>
+          {students.map((student, index) => (
+            <div key={index} className={styles.StudentCard}>
+            <img className={styles.StudentImg} src={'/images/students/' + student.replace(/\s+/g, '') + '.png'} alt=" "/>
+            <p className={styles.StudentName}>{student}</p>
+            </div>
+            ))}
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
