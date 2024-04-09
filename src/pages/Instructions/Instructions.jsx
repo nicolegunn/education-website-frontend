@@ -3,51 +3,49 @@ import styles from "./Instructions.module.css"
 import DashboardNavbar from "../../common/DashboardNavbar";
 import Projectinstructions from "../../../public/images/projects/Project01-instructions.png";
 
+
 export default function Instructions() {
     
   return (
     <>
-      {/*Displays StudentDashboard Navigation bar */}
-      <DashboardNavbar
-        projectTitle="Project"
-        subTitle="Introduction"
-        dotMap="⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫"
-      />
-      {/*Displays Sidebar and buttons */}
-      <div className={styles.layout}>
-        <div className={styles.colunmn}>
-            {/* Replace this sidebar with Eunhyes sidebar when it is finished */}
-          <div className={styles.sidebar}>
-            
-          </div>
+  {/*Displays StudentDashboard Navigation bar */}
+      <DashboardNavbar projectTitle="Project"subTitle="Introduction"/>
+      
+
+
+  {/*Displays Sidebar and buttons */}
+      <div className={styles.Layout}>
+        <div className={styles.Colunmn}>
+  {/* Replace this sidebar with Eunhyes sidebar when it is finished */}
+          <div className={styles.Sidebar}></div>
         </div>
 
         {/*Displays main content on student Dashboard */}
-        <div className={styles.colunmn}>
-          <div className={styles.centreArea}>
-            <div className={styles.dashboard}>
+        <div className={styles.Colunmn}>
+          <div className={styles.CentreArea}>
+            <div className={styles.Dashboard}>
               <div>
-                <div className={styles.container}>
-                  <div className={styles.main}>
-                    <div className={styles.title}>
+                <div className={styles.Container}>
+                  <div className={styles.Main}>
+                    <div className={styles.Title}>
                       <h1>1.Join Scratch</h1>
                     </div>
-                    <div className={styles.p1}>
+                    <div className={styles.P1}>
                       <p>
                         If you haven't used Scratch before, you will need to
                         join Scratch first.
                       </p>
                     </div>
-                    <div className={styles.p1}>
+                    <div className={styles.P1}>
                       Go to https://scratch.mit.edu. Click on{" "}
-                      <span className={styles.pinkcolortext}>
+                      <span className={styles.PinkcolorText}>
                         Join Scratch.
                       </span>
                     </div>
-                    <div className={styles.image}>
+                    <div className={styles.Image}>
                       <img src={Projectinstructions} alt="" />
                     </div>
-                    <div className={styles.p3}>
+                    <div className={styles.P3}>
                       <p>
                         Follow the instructions to join. You will need a
                         username and a password that you will remember. If

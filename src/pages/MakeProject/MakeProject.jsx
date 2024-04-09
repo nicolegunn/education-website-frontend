@@ -8,20 +8,20 @@ export default function MakeProject() {
     {/*Displays StudentDashboard Navigation bar */}
      <DashboardNavbar projectTitle='Project' subTitle='Introduction' dotMap="⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫"/>
     {/*Displays Sidebar and buttons */}
-        <div className={styles.layout}>
-            <div className={styles.colunmn}>
-                <div className={styles.sidebar}>
+        <div className={styles.Layout}>
+            <div className={styles.Colunmn}>
+                <div className={styles.Sidebar}>
                     
                 </div>
             </div>
 
     {/*Displays main content on student Dashboard */}
-    <div className={styles.colunmn}>
-                <div className={styles.centreArea}>
-                <div className={styles.dashboard}>
+    <div className={styles.Colunmn}>
+                <div className={styles.CentreArea}>
+                <div className={styles.Dashboard}>
             <div> {/*Displays Right side of Side bar */}
-    <div className={styles.imageContainer}>
-    <img className={styles.image} src={makeprojectimage}alt=""/>
+    <div className={styles.ImageContainer}>
+    <img className={styles.Image} src={makeprojectimage}alt=""/>
     </div>
     </div> 
                 </div>
