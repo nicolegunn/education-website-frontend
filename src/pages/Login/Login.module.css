@@ -1,0 +1,117 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    color: #767676;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;    
+}
+
+.container {
+    display: flex;
+    height: 45em;
+    width: 45em;
+    
+}
+
+.containerHeader {
+    display: flex;
+    justify-content: flex-end;
+    width: 45em;
+    height: 30px;
+}
+
+.headerLeft {
+    display: flex;
+    border-right: 2px solid #767676;
+    flex: 1;
+}
+
+.headerRight {
+    display: flex;
+    justify-content: flex-end;
+    border-left: 2px solid #767676;
+    flex: 1;
+}
+
+.sectionLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid #767676;
+    flex: 1;
+    padding: 20px;
+}
+
+.sectionRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 2px solid #767676;
+    flex: 1;
+    padding: 20px;
+}
+
+.loginSignup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    height: 40px;
+}
+
+.classSelector1 {
+    padding: 20px;
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: #767676;;
+}
+
+.formsLayout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputField {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #767676;
+    outline: none;
+    border-radius: 10px;
+    background-color: transparent
+}
+
+.submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 1.5em;
+    border-radius: 8px;
+    border: 2px solid rgb(249, 28, 133);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: rgb(255, 255, 255);
+    background-color: rgb(249, 28, 133);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+.submitButton:hover {
+    border-color: #41BAEF;
+}
+
