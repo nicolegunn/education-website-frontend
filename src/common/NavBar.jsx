@@ -56,9 +56,8 @@ export default function NavBar() {
               >
                 REGISTER
               </Link>{" "}
-              |
               <Link
-                to="/signin"
+                to="/login"
                 style={{ textDecoration: "none", color: "#ffffff" }}
               >
                 LOGIN
