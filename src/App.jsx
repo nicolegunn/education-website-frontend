@@ -1,6 +1,7 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import Home from "./pages/Home/Home.jsx";
 import Login from "./pages/Login/Login.jsx";
@@ -16,19 +17,37 @@ import StudentProfiles from "./pages/StudentProfiles/StudentProfiles.jsx";
 import ProgressTracker from "./pages/ProgressTracker/ProgressTracker.jsx";
 import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
-import { tempUser } from "./common/TempUserFile.js";
 
 function App() {
+  //Andrei - you will probably need to tweak these once you do your login tables
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  //User will be an object of all the items from the database relating to the user
-  //I'm guessing the database info will say whether the user is a teacher or student so we can pull that info from user
-  const [user, setUser] = useState(tempUser);
+
+  //user is an object of user info from the database (see axios request in useEffect below)
+  //- at the moment it is set to the student table, but the request will need to be dynamic
+  //i.e.grab data from teacher table if the user is a teacher
+  const [user, setUser] = useState([]);
+
+  //Inital state should be '' until someone is logged in, I've just set it to 'teacher' as a temporary measure
+  const [userType, setUserType] = useState("teacher");
+
+  //Do we need a state for selectedProject?
   const [selectedProject, setSelectedProject] = useState(1);
 
   //state updating functions will need to go in here e.g.
   const updateSelectedProject = (projectID) => {
     setSelectedProject(projectID);
   };
+
+  useEffect(() => {
+    axios
+      //Andrei, this will need to be dynamic, I've just set to id of 1 for now
+      .get("http://localhost:4000/student/1")
+      .then((res) => {
+        setUser(res.data[0]);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -37,7 +56,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="/project-library"
-          element={<ProjectLibrary userType={user.user_type} />}
+          element={<ProjectLibrary userType={userType} />}
         />
         <Route
           path="/student-profile-viewer"
