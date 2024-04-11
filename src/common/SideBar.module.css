@@ -1,4 +1,6 @@
 .SideBar {
+    display: flex;
+    flex-direction: column;
     background-color: #43c0f6;
     width: 20vw;
     height: 100vh;
@@ -8,7 +10,7 @@
     font-size: 0.9rem;
     color: white;
     border: none;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
 }
 
 .isActive {
@@ -30,6 +32,11 @@
 .SideBarButtonsList {
     outline: none;
 }
+
+
+/* .isActive .SideBarButtonsList>img {
+    width: 1000%;
+} */
 
 /* 
 img {
@@ -80,18 +87,16 @@ img {
 .ToggleButtonContainer {
     display: flex;
     justify-content: flex-end;
-    /* align-items: flex-end; */
     /* position: relative; */
     /* top: 56px;
     left: 172px;
     width: 64px;
     height: 72px; */
-    border: 1px solid #B2E4FA;
     border-radius: 10px 0px 0px 10px;
     opacity: 1;
 }
 
-.isActive toggleButtonContainer {
+.isActive .ToggleButtonContainer {
     left: 0px;
     transition: width 0.3 ease-in-out;
 }
@@ -100,27 +105,64 @@ img {
     display: flex;
     align-items: center;
     background-color: #B2E4FA;
-    background: transparent url('img/Rectangle 248.png') 0% 0% no-repeat padding-box;
-    border: none;
-    border-radius: 15px;
+    border: 1px solid #B2E4FA;
+    size: 18px 36px;
+    /* border-radius: 15px; */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     padding: 15px;
 }
 
-.isActive .ToggleButton img {
-    /* justify-content: flex-start; */
+.isActive .ProfilePicture img {
+    width: 50%;
+}
+
+.isActive .ImportedMenuButtons img {
+    width: 20%;
+}
+
+/* .isActive .ImportedMenuButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+} */
+
+.isActive .ImportedMenuButtons p {
+    display: none;
+}
+
+/* .isActive .SideBarButtonsLink {
+    display: none;
+    display: flex;
+    justify-content: center;
+} */
+
+.isActive .ToggleButton {
+    display: flex;
     transform: rotate(180deg);
+}
+
+.isActive .ToggleButtonContainer {
+    display: flex;
+    justify-content: flex-start;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .SettingButtonsContainer {
     display: flex;
-    align-items: flex-end;
     justify-content: space-evenly;
     /* vertical-align: bottom; */
-    /* bottom: 0; */
-    background-color: #43c0f6;
-    color: white;
     padding: 140px 20px;
     gap: 0.5rem;
+}
+
+.SettingButtons {
+    background-color: #43c0f6;
+    color: white;
+    border: none;
 }
 
 .isActive .SettingButtonsContainer {
@@ -128,9 +170,10 @@ img {
     align-items: center;
 }
 
-.isActive .SettingButtonsContainer p {
+.isActive .SettingButtonsText {
     display: none;
 }
+
 
 /* content placeholder */
 /* .contentBox {
@@ -145,22 +188,10 @@ img {
     padding: 20px;
 }
 
-/* right column */
-/* #right {
-    flex-basis: 70%;
-    background-color: white;
-    padding: 20px;
-} */
-
 /* .menuButtons>li>a {
     display: flex;
     flex-direction: row;
 } */
-
-
-.isActive p {
-    display: none;
-}
 
 .ProfilePicture, .SettingButtonsContainer {
     background-color: #43c0f6;
