@@ -44,7 +44,8 @@
     height: 90vh;
     max-height: 800px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-color: #43C0F6 #FFFFFFBF;
     /* background-color: #d9f2fd; */
     /* background-color: #ffffff; */
     /* margin: 0 auto; */
