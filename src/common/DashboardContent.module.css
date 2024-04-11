@@ -1,4 +1,4 @@
-.contentContainer {
+.DashboardContentContainer {
     /* display: flex; */
     background-color: #B2E4FA;
     box-sizing: border-box;
@@ -14,7 +14,7 @@
     height: 100vh;
 }
 
-.backgroundContainer {
+.DashboardBackgroundContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@
     opacity: 1;
 }
 
-.mainContent {
+.DashboardMainContent {
     display: flex;
     flex-direction: column;
     align-items: center;
