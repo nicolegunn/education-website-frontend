@@ -4,7 +4,7 @@
     background-color: #B2E4FA;
 }
 
-.submitProjectContents {
+.SubmitProjectContents {
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
@@ -33,7 +33,7 @@
     box-shadow: 0px 4px 5px #00000029;
   }
 
-  .line {
+  .Line {
     display: flex;
     flex-direction: row;
     top: 110px;
@@ -47,7 +47,7 @@
     /* border-bottom: 5px solid black; */
   }
 
-  .subHeading {
+  .SubHeading {
     font-family: "Nunito", sans-serif;
     font-size: 24px;
     font-weight: 900;
@@ -57,7 +57,7 @@
     text-align: center;
   }
 
-  .text {
+  .Text {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     color: #707070;
@@ -65,7 +65,7 @@
     background-color: #B2E4FA;
   }
 
-  .contentOne {
+  .ContentOne {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -74,7 +74,7 @@
     /* width: 785; */
   }
 
-  .contentTwo {
+  .ContentTwo {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -82,11 +82,11 @@
     background-color: #B2E4FA;
   }
 
-  img {
+  .ContentOne img, .ContentTwo img {
     background: transparent 0% 0% no-repeat padding-box;
     opacity: 1;
   }
 
-  .buttonContainer {
+  .ButtonContainer {
     background-color: #B2E4FA;
   }
