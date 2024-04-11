@@ -31,13 +31,6 @@ function App() {
   //Inital state should be '' until someone is logged in, I've just set it to 'teacher' as a temporary measure
   const [userType, setUserType] = useState("teacher");
 
-  //Do we need a state for selectedProject?
-  const [selectedProject, setSelectedProject] = useState(1);
-
-  //state updating functions will need to go in here e.g.
-  const updateSelectedProject = (projectID) => {
-    setSelectedProject(projectID);
-  };
 
   useEffect(() => {
     axios
