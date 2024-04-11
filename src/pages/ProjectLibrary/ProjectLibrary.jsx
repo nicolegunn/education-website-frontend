@@ -1,8 +1,13 @@
 import styles from "./ProjectLibrary.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { projects, filters } from "./Projects.js";
-import { initialFilters, createFilter, filterProjects } from "./filter.js";
+import axios from "axios";
+import {
+  filters,
+  initialFilters,
+  createFilter,
+  filterProjects,
+} from "./filter.js";
 
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
@@ -17,12 +22,21 @@ const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
 
 export default function ProjectLibrary({ userType }) {
-  const [backToTop, setBackToTop] = useState(false);
+  const [allProjects, setAllProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState(initialFilters);
-  const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [filteredProjects, setFilteredProjects] = useState(allProjects);
+  const [backToTop, setBackToTop] = useState(false);
 
-  //PLEASE HELP WITH BUTTON ERROR!!!!!!!!!
-  //Scrolls to top of window when user clicks on the Back To Top Button
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/projects")
+      .then((res) => {
+        setAllProjects(res.data);
+        setFilteredProjects(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const goBackToTop = () => {
     setBackToTop(!backToTop);
   };
@@ -39,7 +53,7 @@ export default function ProjectLibrary({ userType }) {
   //The updated filter object is used in the newFilteredProjects function to filter the projects array.
   const handleFilter = (id, name, selected = true) => {
     const newFilter = createFilter(filtersObj, id, name, selected);
-    const newFilteredProjects = filterProjects(newFilter, projects);
+    const newFilteredProjects = filterProjects(newFilter, allProjects);
     console.log("New filter: ", newFilter);
     console.log("New Projects: ", newFilteredProjects);
     setFiltersObj(newFilter);
@@ -120,7 +134,6 @@ export default function ProjectLibrary({ userType }) {
       </div>
       <div className={styles.ButtonContainer}>
         <div className={styles.ButtonFlexContainer}>
-          {/* PLEASE HELP WITH BUTTON ERROR!!!!!!!!! */}
           <Button
             style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
             handleClick={goBackToTop}

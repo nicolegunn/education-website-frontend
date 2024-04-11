@@ -7,7 +7,7 @@ export default function ProjectCard({ projectObj }) {
     <div className={styles.Card}>
       <img
         className={styles.CardImg}
-        src={`images/projects${projectObj.project_pic}`}
+        src={projectObj.project_pic}
         alt=""
       />
       <h3 className={styles.ProjectName}>

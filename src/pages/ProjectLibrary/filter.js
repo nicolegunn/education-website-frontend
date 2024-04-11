@@ -1,3 +1,18 @@
+const filters = {
+  course: ["beginner", "intermediate", "advanced"],
+  subscription: ["free", "premium"],
+  activity_type: ["animation", "game", "chatbot", "augmented reality"],
+  year_level: ["1-4", "5-6", "7-8", "9-13"],
+  subject_matter: [
+    "computer science",
+    "maths",
+    "science",
+    "language",
+    "art",
+    "music",
+  ],
+};
+
 const initialFilters = {
   pages: [],
   course: [],
@@ -23,16 +38,6 @@ function createFilter(existingFiltersObject, id, name, selected) {
     case "course":
       //Only one course type can be selected at a time
       newFiltersObject.course[0] = value;
-      break;
-    case "subscription":
-      //Converts free and premium to their numeric values
-      value = value === "free" ? 0 : 1;
-      selected
-        ? newFiltersObject.subscription.push(value)
-        : newFiltersObject.subscription.splice(
-            newFiltersObject.subscription.indexOf(value),
-            1
-          );
       break;
     case "year_level":
       //Converts the selected range of year levels into separate array items
@@ -90,4 +95,4 @@ function filterProjects(filterObj, projectsArray) {
   return newFilteredProjects;
 }
 
-export { initialFilters, createFilter, filterProjects };
+export { filters, initialFilters, createFilter, filterProjects };
