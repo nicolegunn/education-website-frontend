@@ -7,7 +7,7 @@ export default function SideBarButtons(props) {
         <Link to={props.link} className={styles.SideBarButtonsLink}>
             <div className={styles.SideBarButtonsList}>
                 <img src={props.image} className={styles.SideBarButtonIcon} alt=""/>
-                <p classNam={styles.SideBarButtonText}>{props.buttonText}</p>
+                <p className={styles.SideBarButtonText}>{props.buttonText}</p>
             </div>
         </Link>
     )
