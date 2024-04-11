@@ -1,4 +1,4 @@
-.layout {
+.ProjectSubmissionsLayout {
     display: flex;
     width: 100%;
     background-color: #B2E4FA;
@@ -55,7 +55,7 @@
     /* scrollbar-color: #43C0F6; */
 }
 
-li {
+.submissionList li {
     display: flex;
     list-style-type: none;
     align-items: flex-start;
@@ -63,7 +63,7 @@ li {
     background-color: #d9f2fd;
 }
 
-input {
+.submissionList input {
   top: 0;
   left: 0;
   height: 31px;

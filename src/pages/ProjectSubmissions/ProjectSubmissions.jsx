@@ -15,7 +15,7 @@ export default function ProjectSubmissions() {
   
   return (
     <>
-    <div className={styles.layout}>
+    <div className={styles.ProjectSubmissionsLayout}>
       <SideBar dashboard="teacher"/>
       <DashboardContent>
         <div className={styles.projectSubmissionsContents}>
