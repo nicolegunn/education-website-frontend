@@ -35,3 +35,10 @@ Development Blog
 
 > Stage five made responsive.
 > Known minor issue, stage one buttons are both not responsive.
+
+##<== Change log ==> 11/04/2024
+
+> Added login page
+> Main webpage finishes, some small known bugs with the buttons on responsive
+> Fixed non existent route from /signin to /login in the component <navBar> line 60
+> Register route in homepage is connected to an empty page
