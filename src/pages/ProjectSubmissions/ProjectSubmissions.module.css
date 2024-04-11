@@ -4,7 +4,7 @@
     background-color: #B2E4FA;
 }
 
-.projectSubmissionsContents {
+.ProjectSubmissionsContents {
     display: flex;
     /* align-items: stretch; */
     /* justify-content: space-evenly; */
@@ -16,11 +16,11 @@
     width: 70vw;
 }
 
-.contentHeader {
+.ContentHeader {
     flex-direction: row;
 }
 
-.contentTitle {
+.ContentTitle {
     background-color: #d9f2fd;
     color: #6C6C6C;
     font-family: "Nunito", sans-serif;
@@ -31,7 +31,7 @@
     width: 305px;
 }
 
-.contentButtons {
+.ContentButtons {
     background-color: #d9f2fd;
     align-items: right;
     font-family: "Open-sans", sans-serif;
@@ -40,7 +40,7 @@
     font-weight: 900;
 }
 
-.scrollContainer {
+.ScrollContainer {
     height: 90vh;
     max-height: 800px;
     overflow-x: hidden;
@@ -55,7 +55,7 @@
     /* scrollbar-color: #43C0F6; */
 }
 
-.submissionList li {
+.SubmissionList li {
     display: flex;
     list-style-type: none;
     align-items: flex-start;
@@ -63,7 +63,7 @@
     background-color: #d9f2fd;
 }
 
-.submissionList input {
+.SubmissionList input {
   top: 0;
   left: 0;
   height: 31px;
@@ -72,11 +72,11 @@
   list-style: none;
 }
 
-.checkboxContainer {
+.CheckBoxContainer {
     display: flex;
 }
 
-.submittedProjectContainer {
+.SubmittedProjectContainer {
     /* display: flex; */
     /* justify-content: space-between; */
     /* align-items: column; */

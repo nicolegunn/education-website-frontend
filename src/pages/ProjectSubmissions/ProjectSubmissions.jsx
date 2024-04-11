@@ -4,7 +4,7 @@
 
 
 import React from 'react'
-// import TeacherDashboardSideBar from '../../common/TeacherDashboardSideBar'
+// import axios from 
 import SideBar from '../../common/SideBar'
 import styles from './ProjectSubmissions.module.css'
 import DashboardContent from '../../common/DashboardContent'
@@ -18,22 +18,22 @@ export default function ProjectSubmissions() {
     <div className={styles.ProjectSubmissionsLayout}>
       <SideBar dashboard="teacher"/>
       <DashboardContent>
-        <div className={styles.projectSubmissionsContents}>
-        <div className={styles.contentHeader}>
-          <span className={styles.contentTitle}>PROJECT SUBMISSIONS</span>
-          <button className={styles.contentButtons}>Download Files</button>
-          <button className={styles.contentButtons}>
+        <div className={styles.ProjectSubmissionsContents}>
+        <div className={styles.ContentHeader}>
+          <span className={styles.ContentTitle}>PROJECT SUBMISSIONS</span>
+          <button className={styles.ContentButtons}>Download Files</button>
+          <button className={styles.ContentButtons}>
             Mark as Complete Project
           </button>
         </div>
 
         {/* Main contents inside the scroll container */}
-        <div className={styles.scrollContainer}>
-          <ul className={styles.submissionList}>
+        <div className={styles.ScrollContainer}>
+          <ul className={styles.SubmissionList}>
             <li>
               <input type="checkbox" id="checkbox" />
-              <div className={styles.submittedProjectContainer}>
-                <div className={styles.submittedProjectInfo}>
+              <div className={styles.SubmittedProjectContainer}>
+                <div className={styles.SubmittedProjectInfo}>
                   <img src={makeProjectScreenshot} alt="" width="20%" />
                 </div>
               </div>
@@ -41,8 +41,8 @@ export default function ProjectSubmissions() {
 
             <li>
               <input type="checkbox" id="checkbox" />
-              <div className={styles.submittedProjectContainer}>
-                <div className={styles.submittedProjectInfo}>
+              <div className={styles.SubmittedProjectContainer}>
+                <div className={styles.SubmittedProjectInfo}>
                   <img src={makeProjectScreenshot} alt="" width="20%" />
                 </div>
               </div>
@@ -50,8 +50,8 @@ export default function ProjectSubmissions() {
 
             <li>
               <input type="checkbox" id="checkbox" />
-              <div className={styles.submittedProjectContainer}>
-                <div className={styles.submittedProjectInfo}>
+              <div className={styles.SubmittedProjectContainer}>
+                <div className={styles.SubmittedProjectInfo}>
                   <img src={makeProjectScreenshot} alt="" width="20%" />
                 </div>
               </div>
@@ -59,8 +59,8 @@ export default function ProjectSubmissions() {
 
             <li>
               <input type="checkbox" id="checkbox" />
-              <div className={styles.submittedProjectContainer}>
-                <div className={styles.submittedProjectInfo}>
+              <div className={styles.SubmittedProjectContainer}>
+                <div className={styles.SubmittedProjectInfo}>
                   <img src={makeProjectScreenshot} alt="" width="20%" />
                 </div>
               </div>
@@ -68,8 +68,8 @@ export default function ProjectSubmissions() {
 
             <li>
               <input type="checkbox" id="checkbox" />
-              <div className={styles.submittedProjectContainer}>
-                <div className={styles.submittedProjectInfo}>
+              <div className={styles.SubmittedProjectContainer}>
+                <div className={styles.SubmittedProjectInfo}>
                   <img src={makeProjectScreenshot} alt="" width="20%" />
                 </div>
               </div>
@@ -77,8 +77,8 @@ export default function ProjectSubmissions() {
 
             <li>
               <input type="checkbox" id="checkbox" />
-              <div className={styles.submittedProjectContainer}>
-                <div className={styles.submittedProjectInfo}>
+              <div className={styles.SubmittedProjectContainer}>
+                <div className={styles.SubmittedProjectInfo}>
                   <img src={makeProjectScreenshot} alt="" width="20%" />
                 </div>
               </div>

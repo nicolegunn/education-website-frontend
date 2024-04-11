@@ -17,22 +17,22 @@ export default function SubmitProject() {
       <div className={styles.SubmitProjectLayout}>
         <SideBar dashboard="student" />
         <DashboardContent>
-          <div className={styles.submitProjectContents}>
-            <div className={styles.contentOne}>
+          <div className={styles.SubmitProjectContents}>
+            <div className={styles.ContentOne}>
               <div>
                 <img src={makeProjectScreenshot} alt="" width="100%" />
               </div>
 
               <div>
-                <p className={styles.subHeading}>Submit project photo</p>
+                <p className={styles.SubHeading}>Submit project photo</p>
                 <br/>
-                <p className={styles.text}>
+                <p className={styles.Text}>
                   After completing your project, take a screenshot of your
                   project and upload it here.
                 </p>
               </div>
 
-              <div className={styles.buttonContainer}>
+              <div className={styles.ButtonContainer}>
                 <button className={styles.Button}>
                   <img src={sendPhoto} alt="" width="20%" />
                   <br />
@@ -41,23 +41,23 @@ export default function SubmitProject() {
               </div>
             </div>
 
-            <div className={styles.line}></div>
+            <div className={styles.Line}></div>
 
-            <div className={styles.contentTwo}>
+            <div className={styles.ContentTwo}>
               <div>
                 <img src={submitProjectPhoto} alt="" width="100%" />
               </div>
 
               <div>
-                <p className={styles.subHeading}>Show your teacher</p>
+                <p className={styles.SubHeading}>Show your teacher</p>
                 <br/>
-                <p className={styles.text}>
+                <p className={styles.Text}>
                   If your teacher is in the same room as you, click the button
                   below to let them know you are done.
                 </p>
               </div>
 
-              <div className={styles.buttonContainer}>
+              <div className={styles.ButtonContainer}>
                 <button className={styles.Button}>
                   <img src={callTeacher} alt="" width="20%" />
                   <br />
