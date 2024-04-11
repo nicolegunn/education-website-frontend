@@ -10,9 +10,6 @@ export default function Instructions() {
     <>
   {/*Displays StudentDashboard Navigation bar */}
       <DashboardNavbar projectTitle="Project"subTitle="Introduction"/>
-      
-
-
   {/*Displays Sidebar and buttons */}
       <div className={styles.Layout}>
         <div className={styles.Colunmn}>
