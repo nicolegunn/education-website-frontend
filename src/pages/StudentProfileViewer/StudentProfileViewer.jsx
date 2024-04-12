@@ -6,16 +6,16 @@ import PhotoCard from "./components/PhotoCard.jsx";
 import StudentProfileCard from "./components/StudentProfileCard.jsx";
 import { Link } from "react-router-dom";
 
-export default function StudentProfileViewer({ user}) {
+export default function StudentProfileViewer({ student, teacher }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
         <NavBar />
       </div>
       <div className={styles.MainContent}>
-        <PhotoCard student={user} />
+        <PhotoCard student={student} />
         <div className={styles.FlexContainer}>
-          <StudentProfileCard student={user} />
+          <StudentProfileCard student={student} teacher={teacher} />
           <Link to="/project-library">
             <Button>BACK TO PROJECTS</Button>
           </Link>

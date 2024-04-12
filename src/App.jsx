@@ -23,21 +23,32 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  //user is an object of user info from the database (see axios request in useEffect below)
-  //- at the moment it is set to the student table, but the request will need to be dynamic
-  //i.e.grab data from teacher table if the user is a teacher
-  const [user, setUser] = useState([]);
-
   //Inital state should be '' until someone is logged in, I've just set it to 'teacher' as a temporary measure
   const [userType, setUserType] = useState("teacher");
 
+  //student and teacher are objects of info from the database (see axios requests in useEffect below)
+  //the request will need to be dynamic - currently just hooked into first student and teacher
+  //student state will only be populated if logged in and user is student, teacher will be populated if anyone is logged in (because each student has a teacher
+  //teacherID would come from student table if the person logged in is a student
+  const [student, setStudent] = useState([]);
 
+  const [teacher, setTeacher] = useState([]);
+
+  //Andrei, these will need to be dynamic, I've just set to id of 1 for student and teacher for now
+  //If the user is a student the teacher ID will come from the student data
+  //Change to run on isLoggedIn change once set up
   useEffect(() => {
     axios
-      //Andrei, this will need to be dynamic, I've just set to id of 1 for now
       .get("http://localhost:4000/student/1")
       .then((res) => {
-        setUser(res.data[0]);
+        setStudent(res.data[0]);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:4000/teacher/1")
+      .then((res) => {
+        setTeacher(res.data[0]);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -53,7 +64,7 @@ function App() {
         />
         <Route
           path="/student-profile-viewer"
-          element={<StudentProfileViewer user={user} />}
+          element={<StudentProfileViewer student={student} teacher={teacher} />}
         />
         <Route path="/learning-objectives" element={<LearningObjectives />} />
         <Route path="/instructions" element={<Instructions />} />
