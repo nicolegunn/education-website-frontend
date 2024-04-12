@@ -1,6 +1,8 @@
 import styles from "./StudentProfileCard.module.css";
 
-export default function StudentProfileCard({ student }) {
+export default function StudentProfileCard({ student, teacher }) {
+
+
   return (
     <div className={styles.Card}>
       <h1 className={styles.Title}>{student.name}</h1>
@@ -11,7 +13,7 @@ export default function StudentProfileCard({ student }) {
         </li>
         <li className={styles.ListItem}>
           <div className={styles.Key}>Teacher</div>
-          <div className={styles.Value}>{student.teacher}</div>
+          <div className={styles.Value}>{teacher.name}</div>
         </li>
         <li className={styles.ListItem}>
           <div className={styles.Key}>Course</div>
