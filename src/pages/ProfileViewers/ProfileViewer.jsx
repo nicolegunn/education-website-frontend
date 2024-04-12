@@ -7,23 +7,25 @@ import ProfileCard from "./components/ProfileCard.jsx";
 import { Link } from "react-router-dom";
 
 //Unique styles passed to Button components used at bottom of page
-  const btnStyles = {
-    marginLeft: "1rem",
-    marginTop: "4rem",
-    marginBottom: "4rem",
-  };
+const btnStyles = {
+  marginLeft: "1rem",
+  marginTop: "4rem",
+  marginBottom: "4rem",
+};
 
 export default function ProfileViewer({
+  isLoggedIn,
   userType,
   user,
   teacher = "",
   buttons,
   cardFields,
+  navButtons,
 }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
       </div>
       <div className={styles.MainContent}>
         <PhotoCard user={user} buttons={buttons} />
@@ -31,15 +33,19 @@ export default function ProfileViewer({
           <ProfileCard user={user} teacher={teacher} cardFields={cardFields} />
           <div className={styles.ButtonContainer}>
             <Link to="/project-library">
-              <Button style={userType === "teacher" ? { ...btnStyles, backgroundColor: "#e5ab2c" } : btnStyles}>
+              <Button
+                style={
+                  userType === "teacher"
+                    ? { ...btnStyles, backgroundColor: "#e5ab2c" }
+                    : btnStyles
+                }
+              >
                 BACK TO PROJECTS
               </Button>
             </Link>
             {userType === "teacher" && (
               <Link to="/progress-tracker">
-                <Button style={btnStyles}>
-                  BACK TO DASHBOARD
-                </Button>
+                <Button style={btnStyles}>BACK TO DASHBOARD</Button>
               </Link>
             )}
           </div>

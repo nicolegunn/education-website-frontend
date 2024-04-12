@@ -20,8 +20,8 @@ import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileVie
 
 function App() {
   //Andrei - you will probably need to tweak these once you do your login tables
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //set isLoggedIn to true for now, will need to change this to false as inital (updated to true when user logs in)
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   //Inital state should be '' until someone is logged in, I've just set it to 'teacher' as a temporary measure
   const [userType, setUserType] = useState("teacher");
@@ -56,15 +56,32 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Andrei - note props added to Home, ProjectLibrary and the 2 ProfileViewers
+        Andrei - the user prop in Home will need to be dynamic - i.e. if teacher logs in then user will be the teacher and if student logs in will need to be student */}
+        <Route
+          path="/"
+          element={<Home isLoggedIn={isLoggedIn} user={teacher} />}
+        />
         <Route path="/login" element={<Login />} />
         <Route
           path="/project-library"
-          element={<ProjectLibrary userType={userType} />}
+          element={
+            <ProjectLibrary
+              isLoggedIn={isLoggedIn}
+              userType={userType}
+              user={teacher}
+            />
+          }
         />
         <Route
           path="/student-profile-viewer"
-          element={<StudentProfileViewer student={student} teacher={teacher} />}
+          element={
+            <StudentProfileViewer
+              isLoggedIn={isLoggedIn}
+              student={student}
+              teacher={teacher}
+            />
+          }
         />
         <Route path="/learning-objectives" element={<LearningObjectives />} />
         <Route path="/instructions" element={<Instructions />} />
@@ -77,7 +94,9 @@ function App() {
         <Route path="/help-requests" element={<HelpRequests />} />
         <Route
           path="/teacher-profile-viewer"
-          element={<TeacherProfileViewer teacher={teacher} />}
+          element={
+            <TeacherProfileViewer isLoggedIn={isLoggedIn} teacher={teacher} />
+          }
         />
       </Routes>
     </>

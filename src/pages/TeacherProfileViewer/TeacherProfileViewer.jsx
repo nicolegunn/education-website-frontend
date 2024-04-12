@@ -1,7 +1,13 @@
 import ProfileViewer from "../ProfileViewers/ProfileViewer";
 import { DateTime } from "luxon";
 
-export default function TeacherProfileViewer({ teacher }) {
+const navButtons = [
+  { label: "HOME", link: "/" },
+  { label: "PROJECTS", link: "/project-library" },
+  { label: "TEACHERS", link: "/teacher-profile-viewer" },
+];
+
+export default function TeacherProfileViewer({ isLoggedIn, teacher }) {
   const cardFields = [
     { label: "School", value: teacher.school },
     {
@@ -18,10 +24,12 @@ export default function TeacherProfileViewer({ teacher }) {
   return (
     <>
       <ProfileViewer
+        isLoggedIn={isLoggedIn}
         userType="teacher"
         user={teacher}
         buttons={["EDIT PROFILE", "CHANGE PHOTO", "SETTINGS"]}
         cardFields={cardFields}
+        navButtons={navButtons}
       />
     </>
   );
