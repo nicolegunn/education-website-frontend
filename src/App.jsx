@@ -77,7 +77,7 @@ function App() {
         <Route path="/help-requests" element={<HelpRequests />} />
         <Route
           path="/teacher-profile-viewer"
-          element={<TeacherProfileViewer teacher={ teacher} />}
+          element={<TeacherProfileViewer teacher={teacher} />}
         />
       </Routes>
     </>

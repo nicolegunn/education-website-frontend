@@ -1,7 +1,7 @@
 import styles from "./PhotoCard.module.css";
 import Button from "../../../common/Button";
 
-export default function PhotoCard({ student }) {
+export default function PhotoCard({ user, buttons }) {
   const btnStyle = {
     border: "2px solid #43C0F6",
     color: "#43C0F6",
@@ -12,12 +12,15 @@ export default function PhotoCard({ student }) {
     <div className={styles.Card}>
       <img
         className={styles.ProfileImg}
-        src={student.profile_pic}
+        src={user.profile_pic}
         alt="profile picture"
       />
       <div className={styles.ButtonBox}>
-        <Button style={btnStyle}>EDIT PROFILE</Button>
-        <Button style={btnStyle}>CHANGE PHOTO</Button>
+        {buttons.map((btn, index) => (
+          <Button key={index} style={btnStyle}>
+            {btn}
+          </Button>
+        ))}
       </div>
     </div>
   );
