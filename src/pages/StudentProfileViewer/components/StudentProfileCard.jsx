@@ -1,7 +1,17 @@
 import styles from "./StudentProfileCard.module.css";
+import { DateTime } from "luxon";
 
 export default function StudentProfileCard({ student, teacher }) {
+  let course;
+  let dob;
 
+  if (student.course) {
+    course = student.course[0].toUpperCase() + student.course.substring(1);
+  }
+
+  if (student.date_of_birth) {
+    dob = DateTime.fromISO(student.date_of_birth).toFormat("d LLLL yyyy");
+  }
 
   return (
     <div className={styles.Card}>
@@ -17,11 +27,11 @@ export default function StudentProfileCard({ student, teacher }) {
         </li>
         <li className={styles.ListItem}>
           <div className={styles.Key}>Course</div>
-          <div className={styles.Value}>{student.course}</div>
+          <div className={styles.Value}>{course}</div>
         </li>
         <li className={styles.ListItem}>
           <div className={styles.Key}>Date of Birth</div>
-          <div className={styles.Value}>{student.date_of_birth}</div>
+          <div className={styles.Value}>{dob}</div>
         </li>
         <li className={styles.ListItem}>
           <div className={styles.Key}>Contact No</div>
