@@ -7,6 +7,7 @@ import StudentProfileCard from "./components/StudentProfileCard.jsx";
 import { Link } from "react-router-dom";
 
 export default function StudentProfileViewer({ student, teacher }) {
+
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
