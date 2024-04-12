@@ -5,7 +5,7 @@ import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function NavBar() {
+export default function NavBar({ isLoggedIn, user, navButtons }) {
   return (
     <>
       <div className={styles.persistent_nav_bar}>
@@ -17,15 +17,13 @@ export default function NavBar() {
           />
         </Link>
         <div className={styles.navigation_bar}>
-          <Link className={styles.radial_mount} to="/">
-            <div>HOME</div>
-          </Link>
-          <Link className={styles.radial_mount} to="/about">
-            <div>FEATURES</div>
-          </Link>
-          <Link className={styles.radial_mount} to="/TeacherProfileViewer">
-            <div>TEACHERS</div>
-          </Link>
+          {navButtons.map((btn, index) => {
+            return (
+              <Link key={index} className={styles.radial_mount} to={btn.link}>
+                <div>{btn.label}</div>
+              </Link>
+            );
+          })}
         </div>
         <div className={styles.user_interface_plus_languageBar}>
           <div className={styles.language_flag_ribbon}>

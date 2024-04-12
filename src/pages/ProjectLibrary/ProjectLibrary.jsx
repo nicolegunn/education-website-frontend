@@ -20,8 +20,13 @@ import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 //Labels for the ButtonFilter components
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
+const navButtons = [
+  { label: "HOME", link: "/" },
+  { label: "PROJECTS", link: "/project-library" },
+  { label: "TEACHERS", link: "/teacher-profile-viewer" },
+];
 
-export default function ProjectLibrary({ userType }) {
+export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const [allProjects, setAllProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState(initialFilters);
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
@@ -70,7 +75,7 @@ export default function ProjectLibrary({ userType }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
       </div>
       <div className={styles.TitleArea}>
         <TitleArea />
