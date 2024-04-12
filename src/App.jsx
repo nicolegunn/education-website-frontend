@@ -23,32 +23,31 @@ function App() {
   //set isLoggedIn to true for now, will need to change this to false as inital (updated to true when user logs in)
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  //Inital state should be '' until someone is logged in, I've just set it to 'teacher' as a temporary measure
-  const [userType, setUserType] = useState("teacher");
+  //Inital state should be '' until someone is logged in, I've just set it to 'student' as a temporary measure
+  const [userType, setUserType] = useState("student");
 
-  //student and teacher are objects of info from the database (see axios requests in useEffect below)
-  //the request will need to be dynamic - currently just hooked into first student and teacher
-  //student state will only be populated if logged in and user is student, teacher will be populated if anyone is logged in (because each student has a teacher
-  //teacherID would come from student table if the person logged in is a student
-  const [student, setStudent] = useState([]);
+  //This is an object of info from the database see axios request below
+  const [user, setUser] = useState([]);
 
-  const [teacher, setTeacher] = useState([]);
+  const [studentsTeacher, setStudentsTeacher] = useState([]);
 
   //Andrei, these will need to be dynamic, I've just set to id of 1 for student and teacher for now
-  //If the user is a student the teacher ID will come from the student data
+  //If the user is a student the teacher ID will come from the student data - I'm in the process of adding this in here
   //Change to run on isLoggedIn change once set up
   useEffect(() => {
+    let teacherID = 1;
     axios
-      .get("http://localhost:4000/student/1")
+      .get(`http://localhost:4000/${userType}/1`)
       .then((res) => {
-        setStudent(res.data[0]);
+        setUser(res.data[0]);
+        return res.data[0];
       })
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:4000/teacher/1")
+      .get(`http://localhost:4000/teacher/${teacherID}`)
       .then((res) => {
-        setTeacher(res.data[0]);
+        setStudentsTeacher(res.data[0]);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -56,11 +55,11 @@ function App() {
   return (
     <>
       <Routes>
-        {/* Andrei - note props added to Home, ProjectLibrary and the 2 ProfileViewers
-        Andrei - the user prop in Home will need to be dynamic - i.e. if teacher logs in then user will be the teacher and if student logs in will need to be student */}
+        {/* Andrei - note props added to Home, ProjectLibrary and the 2 ProfileViewers */}
+        
         <Route
           path="/"
-          element={<Home isLoggedIn={isLoggedIn} user={teacher} />}
+          element={<Home isLoggedIn={isLoggedIn} user={user} />}
         />
         <Route path="/login" element={<Login />} />
         <Route
@@ -69,7 +68,7 @@ function App() {
             <ProjectLibrary
               isLoggedIn={isLoggedIn}
               userType={userType}
-              user={teacher}
+              user={user}
             />
           }
         />
@@ -78,8 +77,8 @@ function App() {
           element={
             <StudentProfileViewer
               isLoggedIn={isLoggedIn}
-              student={student}
-              teacher={teacher}
+              student={user}
+              teacher={studentsTeacher}
             />
           }
         />
@@ -95,7 +94,7 @@ function App() {
         <Route
           path="/teacher-profile-viewer"
           element={
-            <TeacherProfileViewer isLoggedIn={isLoggedIn} teacher={teacher} />
+            <TeacherProfileViewer isLoggedIn={isLoggedIn} teacher={user} />
           }
         />
       </Routes>
