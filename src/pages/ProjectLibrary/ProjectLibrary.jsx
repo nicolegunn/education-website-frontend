@@ -133,19 +133,17 @@ export default function ProjectLibrary({ userType }) {
         </div>
       </div>
       <div className={styles.ButtonContainer}>
-        <div className={styles.ButtonFlexContainer}>
-          <Button
-            style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
-            handleClick={goBackToTop}
-          >
-            BACK TO TOP
-          </Button>
-          {userType === "teacher" && (
-            <Link to="/progress-tracker">
-              <Button style={btnStyles}>BACK TO DASHBOARD</Button>
-            </Link>
-          )}
-        </div>
+        <Button
+          style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
+          handleClick={goBackToTop}
+        >
+          BACK TO TOP
+        </Button>
+        {userType === "teacher" && (
+          <Link to="/progress-tracker">
+            <Button style={btnStyles}>BACK TO DASHBOARD</Button>
+          </Link>
+        )}
       </div>
       <div className={styles.Footer}>
         <Footer />

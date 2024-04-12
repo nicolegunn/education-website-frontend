@@ -1,108 +1,102 @@
 /*Styling of content area in side bar */
-.Main{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: #707070; 
-    
+.Main {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #707070;
 }
 
 /*Styling of dashboard right side of side bar */
-.Container{
-    padding-left: 10%;
-    padding-right: 20%;
-    text-align: left;
-    
-    
+.Container {
+  padding-left: 10%;
+  padding-right: 20%;
+  text-align: left;
 }
 
 /*Styling of Title "Join Scratch" */
-.Title{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: Nunito, sans-serif;
-    font-weight: 900;
-    font-size: 24px;
-    color: #6c6c6c;
+.Title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Nunito, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: #6c6c6c;
 }
 
 /*Styling of Text above image */
-.P1{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.P1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*Styling of image */
-.Image{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.Image {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*Styling of text below image */
-.P3{
-     width: 120%;
+.P3 {
+  width: 120%;
 }
 
 /*Styling of pink color text */
-.PinkcolorText{
-    color:#F91C85 ;
+.PinkcolorText {
+  color: #f91c85;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /*Styling of Studentdashboard sidebar*/
 .Sidebar {
-    background-color: #43C0F6;
-    grid-area: sidebar;
-    height:90vh;
-    display: flex;
-    flex-direction: column;
+  background-color: #43c0f6;
+  grid-area: sidebar;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /*Styling of buttons on sidebar*/
 .Btn {
-    top: 143px;
-    margin-left:0px;
-    width: 177px;
-    height: 40px;
-    background-color: #43C0F6;
-    color: white;
-    font-weight: 700;
-    border-width: 0;
+  top: 143px;
+  margin-left: 0px;
+  width: 177px;
+  height: 40px;
+  background-color: #43c0f6;
+  color: white;
+  font-weight: 700;
+  border-width: 0;
 }
 
 .Active {
-    background-color: #b2e4fa;
-    color: gray;
+  background-color: #b2e4fa;
+  color: gray;
 }
 /*Styling of whole area below navigation bar*/
 .Layout {
- 
-    /* display: flex; */
-    width:100vw;
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-areas: "sidebar main";
-    background-color: #B2E4FA;
+  /* display: flex; */
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-areas: "sidebar main";
+  background-color: #b2e4fa;
 }
 /*Styling of main content*/
-.CentreArea{
-    text-align: center;
-    font-size: 20px;
-    grid-area: main;
+.CentreArea {
+  text-align: center;
+  font-size: 20px;
+  grid-area: main;
 }
 
 /*Styling of dashboard*/
 .Dashboard {
-    float:left;
-    height: 80%;
-    background: #FFFFFF80;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 15px;
-    /* margin-bottom: 40px; */
-    border-radius: 30px;
-    height: 85vh;
+  float: left;
+  height: 80%;
+  background: #ffffff80;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 15px;
+  /* margin-bottom: 40px; */
+  border-radius: 30px;
+  height: 85vh;
 }
