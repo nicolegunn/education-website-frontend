@@ -1,10 +1,23 @@
+import { useState, useEffect } from "react";
 import ProfileViewer from "../ProfileViewers/ProfileViewer";
 import { DateTime } from "luxon";
+import axios from "axios";
 
-export default function StudentProfileViewer({ isLoggedIn, student, teacher }) {
+export default function StudentProfileViewer({ isLoggedIn, student }) {
+  const [teacherName, setTeacherName] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/teacher/${student.teacher_id}`)
+      .then((res) => {
+        setTeacherName(res.data[0].name);
+      })
+      .catch((err) => console.log(err));
+  });
+
   const cardFields = [
     { label: "School", value: student.school },
-    { label: "Teacher", value: teacher.name },
+    { label: "Teacher", value: teacherName },
     {
       label: "Course",
       value: student.course
@@ -25,7 +38,7 @@ export default function StudentProfileViewer({ isLoggedIn, student, teacher }) {
   const navButtons = [
     { label: "HOME", link: "/" },
     { label: "PROJECTS", link: "/project-library" },
-    { label: "TEACHERS", link: "/teacher-profile-viewer" },
+    { label: "SUBMISSIONS", link: "/project-submissions" },
   ];
 
   return (

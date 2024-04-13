@@ -1,7 +1,7 @@
 .Card {
   width: 35vw;
-  height: 70vh;
-  margin-top: 12.5vh;
+  margin-top: 15vh;
+  padding-bottom: 7.5vh;
   background-color: white;
   border: 2px solid #e2dfdf;
   border-radius: 30px;

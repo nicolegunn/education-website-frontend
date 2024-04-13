@@ -6,6 +6,7 @@ export default function PhotoCard({ user, buttons }) {
     border: "2px solid #43C0F6",
     color: "#43C0F6",
     backgroundColor: "white",
+    marginBottom: "25px",
   };
 
   return (

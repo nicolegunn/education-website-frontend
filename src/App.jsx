@@ -19,35 +19,24 @@ import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
 
 function App() {
-  //Andrei - you will probably need to tweak these once you do your login tables
-  //set isLoggedIn to true for now, will need to change this to false as inital (updated to true when user logs in)
+  //Andrei - you will need to tweak these once you do your login tables
+  //I've set isLoggedIn to true for now, will need to change this to false as initial value (updated to true when user logs in)
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  //Inital state should be '' until someone is logged in, I've just set it to 'student' as a temporary measure
+  //Inital state should be '' until someone is logged in, I've just set a temporary initial value for now
   const [userType, setUserType] = useState("student");
 
   //This is an object of info from the database see axios request below
   const [user, setUser] = useState([]);
 
-  const [studentsTeacher, setStudentsTeacher] = useState([]);
-
-  //Andrei, these will need to be dynamic, I've just set to id of 1 for student and teacher for now
-  //If the user is a student the teacher ID will come from the student data - I'm in the process of adding this in here
+  //Andrei, these will need to be dynamic, I've just set to id of 1 for now
   //Change to run on isLoggedIn change once set up
   useEffect(() => {
-    let teacherID = 1;
     axios
       .get(`http://localhost:4000/${userType}/1`)
       .then((res) => {
         setUser(res.data[0]);
         return res.data[0];
-      })
-      .catch((err) => console.log(err));
-
-    axios
-      .get(`http://localhost:4000/teacher/${teacherID}`)
-      .then((res) => {
-        setStudentsTeacher(res.data[0]);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -56,7 +45,7 @@ function App() {
     <>
       <Routes>
         {/* Andrei - note props added to Home, ProjectLibrary and the 2 ProfileViewers */}
-        
+
         <Route
           path="/"
           element={<Home isLoggedIn={isLoggedIn} user={user} />}
@@ -75,11 +64,7 @@ function App() {
         <Route
           path="/student-profile-viewer"
           element={
-            <StudentProfileViewer
-              isLoggedIn={isLoggedIn}
-              student={user}
-              teacher={studentsTeacher}
-            />
+            <StudentProfileViewer isLoggedIn={isLoggedIn} student={user} />
           }
         />
         <Route path="/learning-objectives" element={<LearningObjectives />} />

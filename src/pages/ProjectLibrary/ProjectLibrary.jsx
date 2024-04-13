@@ -16,21 +16,18 @@ import TitleArea from "./components/TitleArea.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
+import { useTransition } from "react";
 
 //Labels for the ButtonFilter components
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
-const navButtons = [
-  { label: "HOME", link: "/" },
-  { label: "PROJECTS", link: "/project-library" },
-  { label: "TEACHERS", link: "/teacher-profile-viewer" },
-];
 
 export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const [allProjects, setAllProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState(initialFilters);
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [backToTop, setBackToTop] = useState(false);
+  const [navButtons, setNavButtons] = useState([]);
 
   useEffect(() => {
     axios
@@ -40,6 +37,22 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
         setFilteredProjects(res.data);
       })
       .catch((err) => console.log(err));
+
+    let userNavButtons;
+    if (userType === "student") {
+      userNavButtons = [
+        { label: "HOME", link: "/" },
+        { label: "SUBMISSIONS", link: "/project-submissions" },
+      ];
+    } else if (userType === "teacher") {
+      userNavButtons = [
+        { label: "HOME", link: "/" },
+        { label: "PROGRESS TRACKER", link: "/progress-tracker" },
+        { label: "STUDENT PROFILES", link: "/student-profiles" },
+      ];
+    }
+
+    setNavButtons(userNavButtons);
   }, []);
 
   const goBackToTop = () => {
