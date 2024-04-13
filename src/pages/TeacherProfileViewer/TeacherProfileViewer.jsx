@@ -4,7 +4,8 @@ import { DateTime } from "luxon";
 const navButtons = [
   { label: "HOME", link: "/" },
   { label: "PROJECTS", link: "/project-library" },
-  { label: "TEACHERS", link: "/teacher-profile-viewer" },
+  { label: "PROGRESS TRACKER", link: "/progress-tracker" },
+  { label: "STUDENT PROFILES", link: "/student-profiles" },
 ];
 
 export default function TeacherProfileViewer({ isLoggedIn, teacher }) {
