@@ -10,7 +10,7 @@
     background: transparent url('img/Rectangle 248.png') 0% 0% no-repeat padding-box;
     /* top: 62px;
     left: 236px; */
-    width: 70vw;
+    width: 85vw;
     height: 100vh;
 }
 
@@ -24,9 +24,9 @@
     font-family: "Open-sans", sans-serif;
     /* top: 62px;
     left: 236px; */
-    width: 70vw;
+    width: 80vw;
     height: 90vh;
-    margin: 47px;
+    margin: 50px;
     /* margin-top: 2rem; */
     border: 1px solid #B2E4FA;
     border-radius: 30px;
@@ -43,6 +43,6 @@
     opacity: 1;
     /* top: 109px;
     left: 266px; */
-    width: 70vw;
+    width: 90vw;
     height: 90vh;
 }
