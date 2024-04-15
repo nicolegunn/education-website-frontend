@@ -1,21 +1,26 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ProgressTracker.module.css'
-import WhiteRectangle from './components/WhiteReactangle.jsx';
+import WhiteRectangle from './components/WhiteRectangle.jsx';
 import Footer from '/src/common/DashboardFooter.jsx';
 import SideBar from '../../common/SideBar';
 import DashboardNavbar from '../../common/DashboardNavbar.jsx'; 
 
 export default function ProgressTracker() {
-    const students = [{
-      name: 'Aiden Andrews', level: '4/15 projects completed'
-    }, {
-      name: 'Aiden Andrews', level: '4/15 projects completed'
-    }, {
-      name: 'Aiden Andrews', level: '4/15 projects completed'
-    }, {
-      name: 'Aiden Andrews', level: '4/15 projects completed'
-    }];
+    //useState to get student data? 
+    const [data, setData] = useState([]);
+    //useEffect to get apis?
+    useEffect(() => {
+      fetch('http://localhost:4000/student')
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.error("err", error)
+      })
+    }) 
+
 
   return (
     <div>
@@ -26,8 +31,8 @@ export default function ProgressTracker() {
               <div className={styles.Content}>
                 <p className={styles.PContent}>Export as spreadsheet</p>
                 <h2 className={styles.H2Content}>BEGINNER COURSE</h2>
-                {students.map((student, index) => (
-                  <WhiteRectangle key={index} name={student.name} level={student.level} />
+                {data.map((student, index) => (
+                  <WhiteRectangle key={index} name={student.name} level={student.course} />
                 ))}
               </div>
           </div>
@@ -36,4 +41,3 @@ export default function ProgressTracker() {
    </div>
   );
 }
-

@@ -1,8 +1,10 @@
 import React from "react";
+import styles from "./DashboardFooter.module.css"
+
 
 const Footer = () => {
     return (
-      <footer style={footer}>
+      <footer className={styles.Footer}>
         <p>© LevelUp Works 2020</p>
       </footer>
     );
@@ -10,17 +12,7 @@ const Footer = () => {
   
   export default Footer;
 
-const footer = {
-    textAlign: 'center',
-    color: '#707070',
-    backgroundColor: 'white',
-    padding: '16px',
-    position: 'fixed',
-    width: '100%',
-    bottom: '0',
-    right: '0',
-    
-}
+
 
 
   
