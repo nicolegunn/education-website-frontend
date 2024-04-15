@@ -50,7 +50,7 @@ function createFilter(existingFiltersObject, id, name, selected) {
             (num) => value.indexOf(num) < 0
           ));
       break;
-    //default will run for the remaining two filter options: activity_type and subject_matter
+    //default will run for the remaining three filter options: subscription, activity_type and subject_matter
     default:
       selected
         ? newFiltersObject[name].push(value)
