@@ -16,7 +16,6 @@ import TitleArea from "./components/TitleArea.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
-import { useTransition } from "react";
 
 //Labels for the ButtonFilter components
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
@@ -126,27 +125,32 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
             name="course"
             handleFilter={handleFilter}
           ></ButtonFilter>
-          <ButtonFilter
-            buttons={pages}
-            name="pages"
-            handleFilter={handleFilter}
-            label="SHOW"
-            initialSelection={"All"}
-          ></ButtonFilter>
+          <div>
+            <ButtonFilter
+              buttons={pages}
+              name="pages"
+              handleFilter={handleFilter}
+              label="SHOW"
+              initialSelection={"All"}
+            ></ButtonFilter>
+          </div>
         </div>
+
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
-            return (
-              <div key={project.project_id}>
-                {project.name.toLowerCase() === "introduction" ? (
-                  <Link to="/learning-objectives">
+            if (project.name) {
+              return (
+                <div key={project.project_id}>
+                  {project.name.toLowerCase() === "introduction" ? (
+                    <Link to="/learning-objectives">
+                      <ProjectCard projectObj={project} />
+                    </Link>
+                  ) : (
                     <ProjectCard projectObj={project} />
-                  </Link>
-                ) : (
-                  <ProjectCard projectObj={project} />
-                )}
-              </div>
-            );
+                  )}
+                </div>
+              );
+            }
           })}
         </div>
       </div>
