@@ -12,7 +12,7 @@
 .Header {
   grid-area: header;
   position: sticky;
-  top: 0; 
+  top: 0;
 }
 
 .TitleArea {
@@ -47,10 +47,6 @@
 
 .ButtonContainer {
   grid-area: buttons;
-  justify-items: start;
-}
-
-.ButtonFlexContainer {
   display: flex;
   justify-content: end;
 }

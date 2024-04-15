@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Instructions.module.css"
 import DashboardNavbar from "../../common/DashboardNavbar";
+import SideBar from "../../common/SideBar";
+import DashboardFooter from "../../common/DashboardFooter";
 import Projectinstructions from "../../../public/images/projects/Project01-instructions.png";
 
 
@@ -14,7 +16,8 @@ export default function Instructions() {
       <div className={styles.Layout}>
         <div className={styles.Colunmn}>
   {/* Replace this sidebar with Eunhyes sidebar when it is finished */}
-          <div className={styles.Sidebar}></div>
+          {/* <div className={styles.Sidebar}></div> */}
+          <SideBar dashboard="student"/>
         </div>
 
         {/*Displays main content on student Dashboard */}
@@ -58,6 +61,7 @@ export default function Instructions() {
             </div>
           </div>
         </div>
+        <DashboardFooter />
       </div>
     </>
   );

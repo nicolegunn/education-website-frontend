@@ -21,11 +21,12 @@ import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
 
-export default function ProjectLibrary({ userType }) {
+export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const [allProjects, setAllProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState(initialFilters);
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [backToTop, setBackToTop] = useState(false);
+  const [navButtons, setNavButtons] = useState([]);
 
   useEffect(() => {
     axios
@@ -35,6 +36,22 @@ export default function ProjectLibrary({ userType }) {
         setFilteredProjects(res.data);
       })
       .catch((err) => console.log(err));
+
+    let userNavButtons;
+    if (userType === "student") {
+      userNavButtons = [
+        { label: "HOME", link: "/" },
+        { label: "SUBMISSIONS", link: "/project-submissions" },
+      ];
+    } else if (userType === "teacher") {
+      userNavButtons = [
+        { label: "HOME", link: "/" },
+        { label: "PROGRESS TRACKER", link: "/progress-tracker" },
+        { label: "STUDENT PROFILES", link: "/student-profiles" },
+      ];
+    }
+
+    setNavButtons(userNavButtons);
   }, []);
 
   const goBackToTop = () => {
@@ -70,7 +87,7 @@ export default function ProjectLibrary({ userType }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
       </div>
       <div className={styles.TitleArea}>
         <TitleArea />
@@ -108,44 +125,47 @@ export default function ProjectLibrary({ userType }) {
             name="course"
             handleFilter={handleFilter}
           ></ButtonFilter>
-          <ButtonFilter
-            buttons={pages}
-            name="pages"
-            handleFilter={handleFilter}
-            label="SHOW"
-            initialSelection={"All"}
-          ></ButtonFilter>
+          <div>
+            <ButtonFilter
+              buttons={pages}
+              name="pages"
+              handleFilter={handleFilter}
+              label="SHOW"
+              initialSelection={"All"}
+            ></ButtonFilter>
+          </div>
         </div>
+
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
-            return (
-              <div key={project.project_id}>
-                {project.name.toLowerCase() === "introduction" ? (
-                  <Link to="/learning-objectives">
+            if (project.name) {
+              return (
+                <div key={project.project_id}>
+                  {project.name.toLowerCase() === "introduction" ? (
+                    <Link to="/learning-objectives">
+                      <ProjectCard projectObj={project} />
+                    </Link>
+                  ) : (
                     <ProjectCard projectObj={project} />
-                  </Link>
-                ) : (
-                  <ProjectCard projectObj={project} />
-                )}
-              </div>
-            );
+                  )}
+                </div>
+              );
+            }
           })}
         </div>
       </div>
       <div className={styles.ButtonContainer}>
-        <div className={styles.ButtonFlexContainer}>
-          <Button
-            style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
-            handleClick={goBackToTop}
-          >
-            BACK TO TOP
-          </Button>
-          {userType === "teacher" && (
-            <Link to="/progress-tracker">
-              <Button style={btnStyles}>BACK TO DASHBOARD</Button>
-            </Link>
-          )}
-        </div>
+        <Button
+          style={{ ...btnStyles, backgroundColor: "#e5ab2c" }}
+          handleClick={goBackToTop}
+        >
+          BACK TO TOP
+        </Button>
+        {userType === "teacher" && (
+          <Link to="/progress-tracker">
+            <Button style={btnStyles}>BACK TO DASHBOARD</Button>
+          </Link>
+        )}
       </div>
       <div className={styles.Footer}>
         <Footer />

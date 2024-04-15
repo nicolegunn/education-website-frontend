@@ -1,7 +1,7 @@
 .Card {
   width: 35vw;
-  height: 35vw;
-  margin-top: 12.5vh;
+  margin-top: 15vh;
+  padding-bottom: 7.5vh;
   background-color: white;
   border: 2px solid #e2dfdf;
   border-radius: 30px;
@@ -11,7 +11,7 @@
   text-align: center;
   margin: 2.75rem;
   font-family: Nunito, sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #707070;
 }
@@ -30,9 +30,9 @@
 }
 
 .Value {
-  width: 40%;
+  width: 55%;
   font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #707070;
 }
