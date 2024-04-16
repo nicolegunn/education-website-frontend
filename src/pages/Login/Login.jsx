@@ -35,9 +35,9 @@ export default function Login({ logInFunction }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
-    console.log(e.target.name);
+    // console.log(email);
+    // console.log(password);
+    // console.log(e.target.name);
     axios
       .post("http://localhost:4000/login", {
         email: email,
