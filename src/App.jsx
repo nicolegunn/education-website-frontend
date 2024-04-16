@@ -19,38 +19,26 @@ import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
 
 function App() {
-  //Andrei - you will need to tweak these once you do your login tables
-  //I've set isLoggedIn to true for now, will need to change this to false as initial value (updated to true when user logs in)
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
-  //Inital state should be '' until someone is logged in, I've just set a temporary initial value for now
-  const [userType, setUserType] = useState("student");
-
-  //This is an object of info from the database see axios request below
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userType, setUserType] = useState();
   const [user, setUser] = useState([]);
 
-  //Andrei, these will need to be dynamic, I've just set to id of 1 for now
-  //Change to run on isLoggedIn change once set up
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/${userType}/1`)
-      .then((res) => {
-        setUser(res.data[0]);
-        return res.data[0];
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const logInUser = (userType, userData) => {
+    setIsLoggedIn(true);
+    setUserType(userType);
+    setUser(userData);
+  };
 
   return (
     <>
       <Routes>
-        {/* Andrei - note props added to Home, ProjectLibrary and the 2 ProfileViewers */}
-
         <Route
           path="/"
-          element={<Home isLoggedIn={isLoggedIn} user={user} />}
+          element={
+            <Home isLoggedIn={isLoggedIn} userType={userType} user={user} />
+          }
         />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login logInFunction={logInUser} />} />
         <Route
           path="/project-library"
           element={
