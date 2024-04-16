@@ -1,5 +1,5 @@
 import styles from "./ProjectLibrary.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -27,6 +27,7 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [backToTop, setBackToTop] = useState(false);
   const [navButtons, setNavButtons] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -53,6 +54,12 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
 
     setNavButtons(userNavButtons);
   }, []);
+
+  useEffect(() => {
+    setFiltersObj(initialFilters);
+    console.log(location)
+    console.log(filtersObj);
+  }, [location]);
 
   const goBackToTop = () => {
     setBackToTop(!backToTop);

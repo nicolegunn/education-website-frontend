@@ -28,6 +28,7 @@ function createFilter(existingFiltersObject, id, name, selected) {
   let newFiltersObject = { ...existingFiltersObject };
 
   //The switch statement updates the filterObjCopy to include or remove filters based on the selected or unselected filter
+  console.log(`old filter: ${existingFiltersObject}`);
   switch (name) {
     case "pages":
       //No filter is applied if "all" is selected
@@ -87,11 +88,11 @@ function filterProjects(filterObj, projectsArray) {
       newFilteredProjects.push(project);
     }
   }
-  console.log(newFilteredProjects);
 
   if (filterObj.pages.length > 0) {
     newFilteredProjects = newFilteredProjects.splice(0, filterObj.pages[0]);
   }
+
   return newFilteredProjects;
 }
 
