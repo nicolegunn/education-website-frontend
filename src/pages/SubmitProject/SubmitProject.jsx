@@ -1,7 +1,13 @@
-import React from 'react'
-// import StudentDashboardSideBar from '../../common/StudentDashboardSideBar'
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import { PickerOverlay } from "filestack-react-18";
+
 import SideBar from '../../common/SideBar'
 import styles from './SubmitProject.module.css'
+
+import DashboardNavbar from '../../common/DashboardNavbar'
+import DashboardFooter from '../../common/DashboardFooter'
 
 import makeProjectScreenshot from "../../assets/StudentDashboard/makeProject-screenshot.png"
 import sendPhoto from "../../assets/StudentDashboard/sendPhoto.png"
@@ -11,9 +17,23 @@ import DashboardContent from '../../common/DashboardContent'
 
 export default function SubmitProject() {
 
+  // const FileStack = () => {
+  //   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false);
+  //   const [imageUrl, setImageUrl] = useState();
+  
+  //   //About using environment variables in react => https://create-react-app.dev/docs/adding-custom-environment-variables/
+  //   const FILESTACK_API_KEY = process.env.REACT_APP_FILESTACK_API_KEY || 'A9VOm58TLTudg6YPBXWiwz'; 
+  
+  //   const handleVisible = () => {
+  //     setIsPickerOverlayVisible(!isPickerOverlayVisible);
+  //   };  
+
   return (
     <>
-      {/* <Header /> */}
+      {/* Header */}
+      <DashboardNavbar />
+
+      {/* Side Bar + Main Contents */}
       <div className={styles.SubmitProjectLayout}>
         <SideBar dashboard="student" />
         <DashboardContent>
@@ -34,7 +54,7 @@ export default function SubmitProject() {
 
               <div className={styles.ButtonContainer}>
                 <button className={styles.Button}>
-                  <img src={sendPhoto} alt="" width="20%" />
+                  <img src={sendPhoto} alt="submit project image" width="20%" />
                   <br />
                   Send Photo
                 </button>
@@ -69,7 +89,8 @@ export default function SubmitProject() {
         </DashboardContent>
       </div>
 
-      {/* <Footer /> */}
+      {/* Footer */}
+      <DashboardFooter />
     </>
   );
 }

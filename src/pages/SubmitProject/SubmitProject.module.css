@@ -11,8 +11,7 @@
     /* flex-direction: row; */
     text-align: center;
     /* grid-template-columns: repeat(2, 20vw); */
-    background-color: #B2E4FA;
-    margin: 98px 97px;
+    /* margin: 98px 97px; */
     /* padding: 10px; */
     /* width: 50%; */
 }
@@ -39,7 +38,8 @@
     top: 110px;
     /* left: 1052px; */
     left: 50%;
-    height: 860px;
+    /* height: 860px; */
+    height: 1070px;
     size: 2px;
     border-left: 2px solid #C7C2C2;
     opacity: 1;
@@ -53,7 +53,6 @@
     font-weight: 900;
     color: #707070;
     padding: 10px;
-    background-color: #B2E4FA;
     text-align: center;
   }
 
@@ -62,7 +61,6 @@
     font-size: 16px;
     color: #707070;
     text-align: center;
-    background-color: #B2E4FA;
   }
 
   .ContentOne {
@@ -70,7 +68,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 40%;
-    background-color: #B2E4FA;
     /* width: 785; */
   }
 
@@ -79,7 +76,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 40%;
-    background-color: #B2E4FA;
   }
 
   .ContentOne img, .ContentTwo img {
@@ -87,6 +83,6 @@
     opacity: 1;
   }
 
-  .ButtonContainer {
-    background-color: #B2E4FA;
-  }
+  /* .ButtonContainer {
+  
+  } */

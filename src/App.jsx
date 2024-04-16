@@ -26,28 +26,26 @@ function ProtectedRoute({ isLoggedIn, element }) {
 }
 
 function App() {
-  const [isLoggedIn, set, reset] = useSrLatch();
-  const [userType, setUserType] = useState("student");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userType, setUserType] = useState();
   const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/${userType}/1`)
-      .then((res) => {
-        setUser(res.data[0]);
-        return res.data[0];
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const logInUser = (userType, userData) => {
+    setIsLoggedIn(true);
+    setUserType(userType);
+    setUser(userData);
+  };
 
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<Home isLoggedIn={isLoggedIn} user={user} />}
+          element={
+            <Home isLoggedIn={isLoggedIn} userType={userType} user={user} />
+          }
         />
-        <Route path="/login" element={<Login set={set} reset={reset} />} />
+        <Route path="/login" element={<Login logInFunction={logInUser} />} />
         <Route
           path="/project-library"
           element={

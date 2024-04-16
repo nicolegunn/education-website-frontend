@@ -14,13 +14,13 @@
 }
 
 /*Styling of Studentdashboard sidebar*/
-.Sidebar {
+/* .Sidebar {
     background-color: #43C0F6;
     grid-area: sidebar;
     height:90vh;
     display: flex;
     flex-direction: column;
-}
+} */
 
 /*Styling of buttons on sidebar*/
 .Btn {
