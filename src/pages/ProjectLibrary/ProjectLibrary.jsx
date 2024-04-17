@@ -1,13 +1,8 @@
 import styles from "./ProjectLibrary.module.css";
-import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import {
-  filters,
-  initialFilters,
-  createFilter,
-  filterProjects,
-} from "./filter.js";
+import { filters, createFilter, filterProjects } from "./filter.js";
 
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
@@ -23,11 +18,10 @@ const pages = [5, 10, "All"];
 
 export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const [allProjects, setAllProjects] = useState([]);
-  const [filtersObj, setFiltersObj] = useState(initialFilters);
-  const [filteredProjects, setFilteredProjects] = useState(allProjects);
-  const [backToTop, setBackToTop] = useState(false);
+  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [filtersObj, setFiltersObj] = useState();
   const [navButtons, setNavButtons] = useState([]);
-  const location = useLocation();
+  const [backToTop, setBackToTop] = useState(false);
 
   useEffect(() => {
     axios
@@ -37,6 +31,16 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
         setFilteredProjects(res.data);
       })
       .catch((err) => console.log(err));
+
+    const initialFilters = {
+      pages: [],
+      course: [],
+      subscription: [],
+      activity_type: [],
+      year_level: [],
+      subject_matter: [],
+    };
+    setFiltersObj(initialFilters);
 
     let userNavButtons;
     if (userType === "student") {
@@ -51,15 +55,8 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
         { label: "STUDENT PROFILES", link: "/student-profiles" },
       ];
     }
-
     setNavButtons(userNavButtons);
   }, []);
-
-  useEffect(() => {
-    setFiltersObj(initialFilters);
-    console.log(location)
-    console.log(filtersObj);
-  }, [location]);
 
   const goBackToTop = () => {
     setBackToTop(!backToTop);
@@ -78,8 +75,6 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const handleFilter = (id, name, selected = true) => {
     const newFilter = createFilter(filtersObj, id, name, selected);
     const newFilteredProjects = filterProjects(newFilter, allProjects);
-    console.log("New filter: ", newFilter);
-    console.log("New Projects: ", newFilteredProjects);
     setFiltersObj(newFilter);
     setFilteredProjects(newFilteredProjects);
   };
@@ -145,19 +140,17 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
 
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
-            if (project.name) {
-              return (
-                <div key={project.project_id}>
-                  {project.name.toLowerCase() === "introduction" ? (
-                    <Link to="/learning-objectives">
-                      <ProjectCard projectObj={project} />
-                    </Link>
-                  ) : (
+            return (
+              <div key={project.project_id}>
+                {project.name.toLowerCase() === "introduction" ? (
+                  <Link to="/learning-objectives">
                     <ProjectCard projectObj={project} />
-                  )}
-                </div>
-              );
-            }
+                  </Link>
+                ) : (
+                  <ProjectCard projectObj={project} />
+                )}
+              </div>
+            );
           })}
         </div>
       </div>

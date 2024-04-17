@@ -13,22 +13,12 @@ const filters = {
   ],
 };
 
-const initialFilters = {
-  pages: [],
-  course: [],
-  subscription: [],
-  activity_type: [],
-  year_level: [],
-  subject_matter: [],
-};
-
 //This function creates an object of filters that can then be applied to the projects array using the filterProjects function.
 function createFilter(existingFiltersObject, id, name, selected) {
   let value = id.toLowerCase();
   let newFiltersObject = { ...existingFiltersObject };
 
   //The switch statement updates the filterObjCopy to include or remove filters based on the selected or unselected filter
-  console.log(`old filter: ${existingFiltersObject}`);
   switch (name) {
     case "pages":
       //No filter is applied if "all" is selected
@@ -96,4 +86,4 @@ function filterProjects(filterObj, projectsArray) {
   return newFilteredProjects;
 }
 
-export { filters, initialFilters, createFilter, filterProjects };
+export { filters, createFilter, filterProjects };
