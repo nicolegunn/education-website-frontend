@@ -4,12 +4,12 @@ import styles from './ProgressTracker.module.css'
 import WhiteRectangle from './components/WhiteRectangle.jsx';
 import Footer from '/src/common/DashboardFooter.jsx';
 import SideBar from '../../common/SideBar';
-import DashboardNavbar from '../../common/DashboardNavbar.jsx'; 
+import TeacherDashboardNavbar from '../../common/TeacherDashboardNavbar.jsx'; 
 
 export default function ProgressTracker() {
-    //useState to get student data? 
+    //useState to get student data
     const [data, setData] = useState([]);
-    //useEffect to get apis?
+    //useEffect to get apis
     useEffect(() => {
       fetch('http://localhost:4000/student')
       .then((response) => response.json())
@@ -19,14 +19,14 @@ export default function ProgressTracker() {
       .catch((error) => {
         console.error("err", error)
       })
-    }) 
+    }, []);
 
 
   return (
     <div>
-      <DashboardNavbar />
+       <TeacherDashboardNavbar />
    <div className={styles.App}>
-    <SideBar dashboard="student"/>
+    <SideBar className={styles.SideBar} dashboard="teacher"/>
             <div className={styles.Rectangle}>
               <div className={styles.Content}>
                 <p className={styles.PContent}>Export as spreadsheet</p>
