@@ -1,7 +1,8 @@
-import styles from "./ProjectLibrary.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import styles from "./ProjectLibrary.module.css";
 import axios from "axios";
+import { UserContext } from "../../context.js";
 import { filters, createFilter, filterProjects } from "./filter.js";
 
 import NavBar from "../../common/NavBar.jsx";
@@ -16,12 +17,14 @@ import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
 
-export default function ProjectLibrary({ isLoggedIn, userType, user }) {
+export default function ProjectLibrary() {
   const [allProjects, setAllProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState();
   const [navButtons, setNavButtons] = useState([]);
   const [backToTop, setBackToTop] = useState(false);
+
+  const userType = useContext(UserContext).user_type;
 
   useEffect(() => {
     axios
@@ -89,7 +92,7 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
+        <NavBar navButtons={navButtons} />
       </div>
       <div className={styles.TitleArea}>
         <TitleArea />
