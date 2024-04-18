@@ -1,9 +1,11 @@
+import { useContext } from "react";
+import { UserContext } from "../../../context";
 import styles from "./ProfileCard.module.css";
 
-export default function ProfileCard({ user, cardFields }) {
+export default function ProfileCard({ cardFields }) {
   return (
     <div className={styles.Card}>
-      <h1 className={styles.Title}>{user.name}</h1>
+      <h1 className={styles.Title}>{useContext(UserContext).name}</h1>
 
       <ul>
         {cardFields.map((field, index) => (

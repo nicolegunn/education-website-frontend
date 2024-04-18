@@ -1,8 +1,10 @@
+import { useContext } from "react";
+import { UserContext } from "../../context.js";
 import ProfileViewer from "../ProfileViewers/ProfileViewer";
 import { DateTime } from "luxon";
 
-
-export default function StudentProfileViewer({ isLoggedIn, student }) {
+export default function StudentProfileViewer() {
+  const student = useContext(UserContext);
 
   const cardFields = [
     { label: "School", value: student.school },
@@ -33,9 +35,6 @@ export default function StudentProfileViewer({ isLoggedIn, student }) {
   return (
     <>
       <ProfileViewer
-        isLoggedIn={isLoggedIn}
-        userType="student"
-        user={student}
         buttons={["EDIT PROFILE", "CHANGE PHOTO"]}
         cardFields={cardFields}
         navButtons={navButtons}

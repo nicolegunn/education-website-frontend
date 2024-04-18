@@ -1,10 +1,12 @@
+import { useContext } from "react";
+import { UserContext } from "../../context";
+import { Link } from "react-router-dom";
 import styles from "./ProfileViewer.module.css";
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
 import Button from "../../common/Button.jsx";
 import PhotoCard from "./components/PhotoCard.jsx";
 import ProfileCard from "./components/ProfileCard.jsx";
-import { Link } from "react-router-dom";
 
 //Unique styles passed to Button components used at bottom of page
 const btnStyles = {
@@ -13,24 +15,17 @@ const btnStyles = {
   marginBottom: "4rem",
 };
 
-export default function ProfileViewer({
-  isLoggedIn,
-  userType,
-  user,
-  teacher = "",
-  buttons,
-  cardFields,
-  navButtons,
-}) {
+export default function ProfileViewer({ buttons, cardFields, navButtons }) {
+  const userType = useContext(UserContext).user_type;
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
+        <NavBar navButtons={navButtons} />
       </div>
       <div className={styles.MainContent}>
-        <PhotoCard user={user} buttons={buttons} />
+        <PhotoCard buttons={buttons} />
         <div className={styles.FlexContainer}>
-          <ProfileCard user={user} teacher={teacher} cardFields={cardFields} />
+          <ProfileCard cardFields={cardFields} />
           <div className={styles.ButtonContainer}>
             <Link to="/project-library">
               <Button

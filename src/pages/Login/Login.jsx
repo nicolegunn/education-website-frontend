@@ -47,7 +47,9 @@ export default function Login({ logInFunction }) {
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
-          logInFunction(e.target.name, res.data[0]);
+          const userData = { ...res.data[0], user_type: e.target.name }
+          console.log(userData)
+          logInFunction(userData);
         } else {
           //Add some code here
         }
