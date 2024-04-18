@@ -20,7 +20,9 @@ import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileVie
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({
+    profile_pic: "/images/students/LuciaMendez.png",
+  });
 
   const logInUser = (userData) => {
     setIsLoggedIn(true);
