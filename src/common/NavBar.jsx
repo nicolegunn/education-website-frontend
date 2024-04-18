@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext, LoggedInContext } from "../context.js";
 import styles from "./NavBar.module.css";
 import level_up_works_logo from "../assets/NavBar/LevelUpWorks-white.png";
 import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function NavBar({ isLoggedIn, user, navButtons }) {
+export default function NavBar({ navButtons=[] }) {
   return (
     <>
       <div className={styles.persistent_nav_bar}>

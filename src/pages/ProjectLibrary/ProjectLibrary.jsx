@@ -1,13 +1,9 @@
-import styles from "./ProjectLibrary.module.css";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import styles from "./ProjectLibrary.module.css";
 import axios from "axios";
-import {
-  filters,
-  initialFilters,
-  createFilter,
-  filterProjects,
-} from "./filter.js";
+import { UserContext } from "../../context.js";
+import { filters, createFilter, filterProjects } from "./filter.js";
 
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
@@ -20,17 +16,15 @@ import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 //Labels for the ButtonFilter components
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
-const navButtons = [
-  { label: "HOME", link: "/" },
-  { label: "PROJECTS", link: "/project-library" },
-  { label: "TEACHERS", link: "/teacher-profile-viewer" },
-];
 
-export default function ProjectLibrary({ isLoggedIn, userType, user }) {
+export default function ProjectLibrary() {
   const [allProjects, setAllProjects] = useState([]);
-  const [filtersObj, setFiltersObj] = useState(initialFilters);
-  const [filteredProjects, setFilteredProjects] = useState(allProjects);
+  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [filtersObj, setFiltersObj] = useState();
+  const [navButtons, setNavButtons] = useState([]);
   const [backToTop, setBackToTop] = useState(false);
+
+  const userType = useContext(UserContext).user_type;
 
   useEffect(() => {
     axios
@@ -40,6 +34,31 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
         setFilteredProjects(res.data);
       })
       .catch((err) => console.log(err));
+
+    const initialFilters = {
+      pages: [],
+      course: [],
+      subscription: [],
+      activity_type: [],
+      year_level: [],
+      subject_matter: [],
+    };
+    setFiltersObj(initialFilters);
+
+    let userNavButtons;
+    if (userType === "student") {
+      userNavButtons = [
+        { label: "HOME", link: "/" },
+        { label: "SUBMISSIONS", link: "/project-submissions" },
+      ];
+    } else if (userType === "teacher") {
+      userNavButtons = [
+        { label: "HOME", link: "/" },
+        { label: "PROGRESS TRACKER", link: "/progress-tracker" },
+        { label: "STUDENT PROFILES", link: "/student-profiles" },
+      ];
+    }
+    setNavButtons(userNavButtons);
   }, []);
 
   const goBackToTop = () => {
@@ -59,8 +78,6 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   const handleFilter = (id, name, selected = true) => {
     const newFilter = createFilter(filtersObj, id, name, selected);
     const newFilteredProjects = filterProjects(newFilter, allProjects);
-    console.log("New filter: ", newFilter);
-    console.log("New Projects: ", newFilteredProjects);
     setFiltersObj(newFilter);
     setFilteredProjects(newFilteredProjects);
   };
@@ -75,7 +92,7 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
+        <NavBar navButtons={navButtons} />
       </div>
       <div className={styles.TitleArea}>
         <TitleArea />
@@ -113,14 +130,17 @@ export default function ProjectLibrary({ isLoggedIn, userType, user }) {
             name="course"
             handleFilter={handleFilter}
           ></ButtonFilter>
-          <ButtonFilter
-            buttons={pages}
-            name="pages"
-            handleFilter={handleFilter}
-            label="SHOW"
-            initialSelection={"All"}
-          ></ButtonFilter>
+          <div>
+            <ButtonFilter
+              buttons={pages}
+              name="pages"
+              handleFilter={handleFilter}
+              label="SHOW"
+              initialSelection={"All"}
+            ></ButtonFilter>
+          </div>
         </div>
+
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
             return (

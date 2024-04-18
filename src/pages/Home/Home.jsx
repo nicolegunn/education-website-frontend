@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../../context.js";
 import styles from "./Home.module.css";
 
 import NavBar from "../../common/NavBar";
@@ -11,16 +12,18 @@ import StageOne from "./Components_for_home/stageOne/StageOne.jsx";
 import StageFive from "./Components_for_home/stageFive/StageFive.jsx";
 
 // Note: All parts of the website has been modularized, refer to Components_for_home, page to see more details //
-const navButtons = [
-  { label: "HOME", link: "/" },
-  { label: "FEATURES", link: "/" },
-  { label: "TEACHERS", link: "/teacher-profile-viewer" },
-];
 
-export default function Home({ isLoggedIn, user }) {
+export default function Home() {
+  const userType = useContext(UserContext).user_type;
+
+  const navButtons = [
+    { label: "HOME", link: "/" },
+    { label: "FEATURES", link: "/" },
+    { label: "PROFILE", link: `/${userType}-profile-viewer` },
+  ];
   return (
     <>
-      <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} />
+      <NavBar navButtons={navButtons} />
       <div className={styles.default_component_for_home}>
         <div>
           {/*Stage One Modules, refer to src> pages> home> Component_for_home> stageOne
