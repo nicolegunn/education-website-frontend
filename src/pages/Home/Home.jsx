@@ -25,7 +25,7 @@ export default function Home({ port, logInFunction }) {
   const navButtons = [
     { label: "HOME", link: "/" },
     { label: "FEATURES", link: "/" },
-    { label: "PROFILE", link: `/${userType}-profile-viewer` },
+    { label: "PROFILE", link: `/${user.user_type}-profile-viewer` },
   ];
 
   return (
