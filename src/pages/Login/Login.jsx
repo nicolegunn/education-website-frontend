@@ -6,7 +6,7 @@ import imageTeacher from "../../assets/LoginSignup/teachers.png";
 import imageCrosshair from "../../assets/LoginSignup/esc.png";
 import axios from "axios";
 
-export default function Login({ showLogin, updateShowLogin, logInFunction }) {
+export default function Login({ port, showLogin, updateShowLogin, logInFunction }) {
   const navigate = useNavigate();
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
@@ -37,7 +37,7 @@ export default function Login({ showLogin, updateShowLogin, logInFunction }) {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:4000/login`, {
+      .post(`http://localhost:${port}/login`, {
         email: email,
         password: password,
         type: e.target.name,

@@ -8,6 +8,9 @@ import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
 export default function NavBar({ navButtons = [], updateShowLogin }) {
+  const isLoggedIn = useContext(LoggedInContext);
+  const user = useContext(UserContext);
+
   return (
     <>
       <div className={styles.persistent_nav_bar}>
@@ -43,27 +46,46 @@ export default function NavBar({ navButtons = [], updateShowLogin }) {
           </div>
 
           <div>
-            <div className={styles.register_and_login}>
-              <Link to="/home">
-                <img
-                  style={{ height: "24px" }}
-                  src={avatar_white_icon}
-                  alt="avatar_white_icon"
-                />
-              </Link>
-              <div
-                style={{ textDecoration: "none", color: "#ffffff" }}
-                onClick={updateShowLogin}
-              >
-                REGISTER
+            {isLoggedIn && (
+              <div className={styles.register_and_login}>
+                <Link to={`/${user.user_type}-profile-viewer`}>
+                  <img
+                    style={{ height: "24px" }}
+                    src={user.profile_pic}
+                    alt={"profile picture"}
+                  />
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "#ffffff" }}
+                  to={`/${user.user_type}-profile-viewer`}
+                >
+                  <div>{user.name.toUpperCase()}</div>
+                </Link>
               </div>
-              <div
-                style={{ textDecoration: "none", color: "#ffffff" }}
-                onClick={updateShowLogin}
-              >
-                LOGIN
+            )}
+            {!isLoggedIn && (
+              <div className={styles.register_and_login}>
+                <Link to="/home">
+                  <img
+                    style={{ height: "24px" }}
+                    src={avatar_white_icon}
+                    alt={"profile picture"}
+                  />
+                </Link>
+                <div
+                  style={{ textDecoration: "none", color: "#ffffff" }}
+                  onClick={updateShowLogin}
+                >
+                  REGISTER
+                </div>
+                <div
+                  style={{ textDecoration: "none", color: "#ffffff" }}
+                  onClick={updateShowLogin}
+                >
+                  LOGIN
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

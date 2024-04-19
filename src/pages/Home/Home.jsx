@@ -15,7 +15,7 @@ import StageOne from "./Components_for_home/stageOne/StageOne.jsx";
 import StageFive from "./Components_for_home/stageFive/StageFive.jsx";
 
 // Note: All parts of the website has been modularized, refer to Components_for_home, page to see more details //
-export default function Home({ logInFunction }) {
+export default function Home({ port, logInFunction }) {
   const user = useContext(UserContext);
 
   const [showLogin, setShowLogin] = useState(false);
@@ -31,7 +31,7 @@ export default function Home({ logInFunction }) {
   return (
     <>
       <NavBar navButtons={navButtons} updateShowLogin={updateShowLogin} />
-      {showLogin && <Login showLogin={showLogin} updateShowLogin={ updateShowLogin} logInFunction={logInFunction} />}
+      {showLogin && <Login port={ port} showLogin={showLogin} updateShowLogin={ updateShowLogin} logInFunction={logInFunction} />}
 
       <div className={styles.default_component_for_home}>
         <div>
