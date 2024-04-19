@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { UserContext, LoggedInContext } from "./context.js";
 
 import Home from "./pages/Home/Home.jsx";
@@ -19,8 +19,8 @@ import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
 
 // This function is used to protect routes that require the user to be logged in
-function ProtectedRoute({ isLoggedIn, element }) {
-  return isLoggedIn ? element : <Navigate to="/" />;
+function ProtectedRoute({element}) {
+  return useContext(LoggedInContext) ? element : <Navigate to="/" />;
 }
 
 function App() {
