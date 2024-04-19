@@ -6,7 +6,7 @@ import imageTeacher from "../../assets/LoginSignup/teachers.png";
 import imageCrosshair from "../../assets/LoginSignup/esc.png";
 import axios from "axios";
 
-export default function Login({ showLogin, setShowLogin, logInFunction }) {
+export default function Login({ port, showLogin, updateShowLogin, logInFunction }) {
   const navigate = useNavigate();
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
@@ -37,7 +37,7 @@ export default function Login({ showLogin, setShowLogin, logInFunction }) {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/login", {
+      .post(`http://localhost:${port}/login`, {
         email: email,
         password: password,
         type: e.target.name,
@@ -45,8 +45,13 @@ export default function Login({ showLogin, setShowLogin, logInFunction }) {
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
-          logInFunction(e.target.name, res.data[0]);
-          navigate('/project-library'); // this will send the user to this page upong succesful login
+
+          navigate("/project-library"); // this will send the user to this page upon succesful login
+
+          const userData = { ...res.data[0], user_type: e.target.name };
+          console.log(userData);
+          logInFunction(userData);
+          
         } else {
           //Add some code here
         }
@@ -67,7 +72,7 @@ export default function Login({ showLogin, setShowLogin, logInFunction }) {
                       style={{ height: "30px" }}
                       src={imageCrosshair}
                       alt="imageCrosshair"
-                      onClick={() => setShowLogin(false)}
+                      onClick={updateShowLogin}
                     />
                   </div>
                 </div>
