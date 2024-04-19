@@ -5,7 +5,7 @@ import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function NavBar({ isLoggedIn, user, navButtons }) {
+export default function NavBar({ isLoggedIn, user, navButtons, setShowLogin }) {
   return (
     <>
       <div className={styles.persistent_nav_bar}>
@@ -57,6 +57,10 @@ export default function NavBar({ isLoggedIn, user, navButtons }) {
               <Link
                 to="/login"
                 style={{ textDecoration: "none", color: "#ffffff" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowLogin(true);
+                }}
               >
                 LOGIN
               </Link>

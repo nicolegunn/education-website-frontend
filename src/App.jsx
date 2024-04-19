@@ -1,6 +1,5 @@
 import "./App.css";
 
-import useSrLatch from "./common/SrLatch.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -22,12 +21,12 @@ import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileVie
 
 // This function is used to protect routes that require the user to be logged in
 function ProtectedRoute({ isLoggedIn, element }) {
-  return isLoggedIn ? element : <Navigate to="/login" />;
+  return isLoggedIn ? element : <Navigate to="/" />;
 }
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userType, setUserType] = useState();
+  const [userType, setUserType] = useState('');
   const [user, setUser] = useState([]);
 
   const logInUser = (userType, userData) => {
