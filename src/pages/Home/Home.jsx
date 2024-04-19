@@ -25,14 +25,15 @@ export default function Home({ port, logInFunction }) {
   const navButtons = [
     { label: "HOME", link: "/" },
     { label: "FEATURES", link: "/" },
-    { label: "PROFILE", link: `/${user.user_type}-profile-viewer` },
+    { label: "PROFILE", link: `/${userType}-profile-viewer` },
   ];
 
   return (
     <>
+    
       <NavBar navButtons={navButtons} updateShowLogin={updateShowLogin} />
       {showLogin && <Login port={ port} showLogin={showLogin} updateShowLogin={ updateShowLogin} logInFunction={logInFunction} />}
-
+      
       <div className={styles.default_component_for_home}>
         <div>
           {/*Stage One Modules, refer to src> pages> home> Component_for_home> stageOne
