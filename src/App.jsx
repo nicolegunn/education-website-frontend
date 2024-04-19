@@ -45,10 +45,11 @@ function App() {
             element={<Home port={PORT} logInFunction={logInUser} />}
           />
 
-          <Route
-            path="/project-library"
-            element={<ProjectLibrary port={PORT} />}
-          />
+<Route
+  path="/project-library"
+  element={ProtectedRoute({element: <ProjectLibrary port={PORT} />})}
+/>
+
           <Route
             path="/student-profile-viewer"
             element={<StudentProfileViewer />}
