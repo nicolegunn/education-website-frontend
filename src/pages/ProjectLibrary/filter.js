@@ -13,15 +13,6 @@ const filters = {
   ],
 };
 
-const initialFilters = {
-  pages: [],
-  course: [],
-  subscription: [],
-  activity_type: [],
-  year_level: [],
-  subject_matter: [],
-};
-
 //This function creates an object of filters that can then be applied to the projects array using the filterProjects function.
 function createFilter(existingFiltersObject, id, name, selected) {
   let value = id.toLowerCase();
@@ -87,12 +78,12 @@ function filterProjects(filterObj, projectsArray) {
       newFilteredProjects.push(project);
     }
   }
-  console.log(newFilteredProjects);
 
   if (filterObj.pages.length > 0) {
     newFilteredProjects = newFilteredProjects.splice(0, filterObj.pages[0]);
   }
+
   return newFilteredProjects;
 }
 
-export { filters, initialFilters, createFilter, filterProjects };
+export { filters, createFilter, filterProjects };

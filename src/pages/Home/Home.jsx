@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../../context.js";
 import styles from "./Home.module.css";
 
 import NavBar from "../../common/NavBar";
@@ -14,8 +15,9 @@ import StageOne from "./Components_for_home/stageOne/StageOne.jsx";
 import StageFive from "./Components_for_home/stageFive/StageFive.jsx";
 
 // Note: All parts of the website has been modularized, refer to Components_for_home, page to see more details //
+export default function Home() {
 
-export default function Home({ isLoggedIn, user, userType }) {
+  
   const [showLogin, setShowLogin] = useState(false);
   const navButtons = [
     { label: "HOME", link: "/" },
@@ -25,8 +27,10 @@ export default function Home({ isLoggedIn, user, userType }) {
 
   return (
     <>
-      <NavBar isLoggedIn={isLoggedIn} user={user} navButtons={navButtons} setShowLogin={setShowLogin} />
-      {showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin} />}
+
+      <NavBar navButtons={navButtons} setShowLogin={setShowLogin}/>
+
+{showLogin && <Login showLogin={showLogin} setShowLogin={setShowLogin} />}
       <div className={styles.default_component_for_home}>
         <div>
           {/*Stage One Modules, refer to src> pages> home> Component_for_home> stageOne

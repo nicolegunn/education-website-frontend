@@ -45,8 +45,13 @@ export default function Login({ showLogin, setShowLogin, logInFunction }) {
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
-          logInFunction(e.target.name, res.data[0]);
+
+
           navigate('/project-library'); // this will send the user to this page upong succesful login
+
+          const userData = { ...res.data[0], user_type: e.target.name }
+          console.log(userData)
+          logInFunction(userData);
         } else {
           //Add some code here
         }

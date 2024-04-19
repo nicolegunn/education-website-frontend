@@ -1,8 +1,7 @@
 import "./App.css";
-
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { UserContext, LoggedInContext } from "./context.js";
 
 import Home from "./pages/Home/Home.jsx";
 import Login from "./pages/Login/Login.jsx";
@@ -26,63 +25,42 @@ function ProtectedRoute({ isLoggedIn, element }) {
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userType, setUserType] = useState('');
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({
+    profile_pic: "/images/students/LuciaMendez.png",
+  });
 
-  const logInUser = (userType, userData) => {
+  const logInUser = (userData) => {
     setIsLoggedIn(true);
-    setUserType(userType);
     setUser(userData);
   };
 
   return (
-    <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home isLoggedIn={isLoggedIn} userType={userType} user={user} />
-          }
-        />
-        <Route path="/login" element={<Login logInFunction={logInUser} />} />
-        <Route
-          path="/project-library"
-          element={
-            <ProtectedRoute
-              isLoggedIn={isLoggedIn}
-              element={<ProjectLibrary userType={userType} user={user} />}
-            />
-          }
-        />
-        <Route
-          path="/student-profile-viewer"
-          element={
-            <ProtectedRoute
-              isLoggedIn={isLoggedIn}
-              element={<StudentProfileViewer student={user} />}
-            />
-          }
-        />
-        <Route path="/learning-objectives" element={<LearningObjectives />} />
-        <Route path="/instructions" element={<Instructions />} />
-        <Route path="/make-project" element={<MakeProject />} />
-        <Route path="/video-tutorial" element={<VideoTutorial />} />
-        <Route path="/project-submissions" element={<ProjectSubmissions />} />
-        <Route path="/submit-project" element={<SubmitProject />} />
-        <Route path="/student-profiles" element={<StudentProfiles />} />
-        <Route path="/progress-tracker" element={<ProgressTracker />} />
-        <Route path="/help-requests" element={<HelpRequests />} />
-        <Route
-          path="/teacher-profile-viewer"
-          element={
-            <ProtectedRoute
-              isLoggedIn={isLoggedIn}
-              element={<TeacherProfileViewer teacher={user} />}
-            />
-          }
-        />
-      </Routes>
-    </>
+    <UserContext.Provider value={user}>
+      <LoggedInContext.Provider value={isLoggedIn}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login logInFunction={logInUser} />} />
+          <Route path="/project-library" element={<ProjectLibrary />} />
+          <Route
+            path="/student-profile-viewer"
+            element={<StudentProfileViewer />}
+          />
+          <Route path="/learning-objectives" element={<LearningObjectives />} />
+          <Route path="/instructions" element={<Instructions />} />
+          <Route path="/make-project" element={<MakeProject />} />
+          <Route path="/video-tutorial" element={<VideoTutorial />} />
+          <Route path="/project-submissions" element={<ProjectSubmissions />} />
+          <Route path="/submit-project" element={<SubmitProject />} />
+          <Route path="/student-profiles" element={<StudentProfiles />} />
+          <Route path="/progress-tracker" element={<ProgressTracker />} />
+          <Route path="/help-requests" element={<HelpRequests />} />
+          <Route
+            path="/teacher-profile-viewer"
+            element={<TeacherProfileViewer />}
+          />
+        </Routes>
+      </LoggedInContext.Provider>
+    </UserContext.Provider>
   );
 }
 

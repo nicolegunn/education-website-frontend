@@ -1,23 +1,14 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../context.js";
 import ProfileViewer from "../ProfileViewers/ProfileViewer";
 import { DateTime } from "luxon";
-import axios from "axios";
 
-export default function StudentProfileViewer({ isLoggedIn, student }) {
-  const [teacherName, setTeacherName] = useState("");
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/teacher/${student.teacher_id}`)
-      .then((res) => {
-        setTeacherName(res.data[0].name);
-      })
-      .catch((err) => console.log(err));
-  });
+export default function StudentProfileViewer() {
+  const student = useContext(UserContext);
 
   const cardFields = [
     { label: "School", value: student.school },
-    { label: "Teacher", value: teacherName },
+    { label: "Teacher", value: student.teacher_name },
     {
       label: "Course",
       value: student.course
@@ -44,9 +35,6 @@ export default function StudentProfileViewer({ isLoggedIn, student }) {
   return (
     <>
       <ProfileViewer
-        isLoggedIn={isLoggedIn}
-        userType="student"
-        user={student}
         buttons={["EDIT PROFILE", "CHANGE PHOTO"]}
         cardFields={cardFields}
         navButtons={navButtons}
