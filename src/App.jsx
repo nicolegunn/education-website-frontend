@@ -18,6 +18,8 @@ import ProgressTracker from "./pages/ProgressTracker/ProgressTracker.jsx";
 import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
 
+const PORT = 4000;
+
 // This function is used to protect routes that require the user to be logged in
 function ProtectedRoute({ element }) {
   return useContext(LoggedInContext) ? element : <Navigate to="/" />;
@@ -38,10 +40,15 @@ function App() {
     <UserContext.Provider value={user}>
       <LoggedInContext.Provider value={isLoggedIn}>
         <Routes>
-          <Route path="/" element={<Home logInFunction={logInUser} />} />
-          {/* <Route path="/login" element={<Login logInFunction={logInUser} />} /> */}
+          <Route
+            path="/"
+            element={<Home port={PORT} logInFunction={logInUser} />}
+          />
 
-          <Route path="/project-library" element={<ProjectLibrary />} />
+          <Route
+            path="/project-library"
+            element={<ProjectLibrary port={PORT} />}
+          />
           <Route
             path="/student-profile-viewer"
             element={<StudentProfileViewer />}
@@ -52,7 +59,10 @@ function App() {
           <Route path="/video-tutorial" element={<VideoTutorial />} />
           <Route path="/project-submissions" element={<ProjectSubmissions />} />
           <Route path="/submit-project" element={<SubmitProject />} />
-          <Route path="/student-profiles" element={<StudentProfiles />} />
+          <Route
+            path="/student-profiles"
+            element={<StudentProfiles port={PORT} />}
+          />
           <Route path="/progress-tracker" element={<ProgressTracker />} />
           <Route path="/help-requests" element={<HelpRequests />} />
           <Route
