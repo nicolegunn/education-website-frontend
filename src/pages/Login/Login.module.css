@@ -115,3 +115,23 @@
     border-color: #41BAEF;
 }
 
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modalContainer {
+  background-color: white;
+  padding: 120px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+}
