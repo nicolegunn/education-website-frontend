@@ -7,7 +7,7 @@ import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function NavBar({ navButtons=[], setShowLogin  }) {
+export default function NavBar({ navButtons = [], updateShowLogin }) {
   return (
     <>
       <div className={styles.persistent_nav_bar}>
@@ -41,6 +41,7 @@ export default function NavBar({ navButtons=[], setShowLogin  }) {
               alt="maori_flag"
             />
           </div>
+
           <div>
             <div className={styles.register_and_login}>
               <Link to="/home">
@@ -50,22 +51,18 @@ export default function NavBar({ navButtons=[], setShowLogin  }) {
                   alt="avatar_white_icon"
                 />
               </Link>
-              <Link
-                to="/signup"
+              <div
                 style={{ textDecoration: "none", color: "#ffffff" }}
+                onClick={updateShowLogin}
               >
                 REGISTER
-              </Link>{" "}
-              <Link
-                to="/login"
+              </div>
+              <div
                 style={{ textDecoration: "none", color: "#ffffff" }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowLogin(true);
-                }}
+                onClick={updateShowLogin}
               >
                 LOGIN
-              </Link>
+              </div>
             </div>
           </div>
         </div>

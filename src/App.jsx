@@ -19,7 +19,7 @@ import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
 
 // This function is used to protect routes that require the user to be logged in
-function ProtectedRoute({element}) {
+function ProtectedRoute({ element }) {
   return useContext(LoggedInContext) ? element : <Navigate to="/" />;
 }
 
@@ -38,8 +38,9 @@ function App() {
     <UserContext.Provider value={user}>
       <LoggedInContext.Provider value={isLoggedIn}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login logInFunction={logInUser} />} />
+          <Route path="/" element={<Home logInFunction={logInUser} />} />
+          {/* <Route path="/login" element={<Login logInFunction={logInUser} />} /> */}
+
           <Route path="/project-library" element={<ProjectLibrary />} />
           <Route
             path="/student-profile-viewer"
