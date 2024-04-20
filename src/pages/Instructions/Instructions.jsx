@@ -6,14 +6,13 @@ import DashboardFooter from "../../common/DashboardFooter";
 import Projectinstructions from "../../../public/images/projects/Project01-instructions.png";
 import { useState, useEffect } from "react";
 
-export default function Instructions({ port}) {
+export default function Instructions({ port }) {
   const [projectInstructions, setProjectInstructions] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:${port}/projects/1/instructions`)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        setProjectInstructions(result);
+        setProjectInstructions(result[0].instructions);
       });
   }, []);
 
@@ -67,17 +66,9 @@ export default function Instructions({ port}) {
                   </div> */}
 
                   <div>
-                    {projectInstructions.map((data, index) => {
-                      
-                      return (
-                        <div key={index}>
-                          const htmlText={data.instructions}
-                          
-                            <div dangerouslySetInnerHTML={{ __html: htmlContent }}/>;
-                          
-                        </div>
-                      );
-                    })}
+                    <div
+                      dangerouslySetInnerHTML={{ __html: projectInstructions }}
+                    />
                   </div>
                 </div>
               </div>
