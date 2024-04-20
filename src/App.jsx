@@ -1,6 +1,6 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import { UserContext, LoggedInContext } from "./context.js";
 
 import Home from "./pages/Home/Home.jsx";
@@ -18,27 +18,58 @@ import ProgressTracker from "./pages/ProgressTracker/ProgressTracker.jsx";
 import HelpRequests from "./pages/HelpRequests/HelpRequests.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
 
+const PORT = 4000;
+
+// This function is used to protect routes that require the user to be logged in
+function ProtectedRoute({ element }) {
+  return useContext(LoggedInContext) ? element : <Navigate to="/" />;
+}
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({
     profile_pic: "/images/students/LuciaMendez.png",
   });
 
+  const navigate = useNavigate();
+
   const logInUser = (userData) => {
     setIsLoggedIn(true);
     setUser(userData);
+  };
+
+  const logOutUser = () => {
+    setIsLoggedIn(false);
+    setUser({
+      profile_pic: "/images/students/LuciaMendez.png",
+    });
+    navigate("/");
   };
 
   return (
     <UserContext.Provider value={user}>
       <LoggedInContext.Provider value={isLoggedIn}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login logInFunction={logInUser} />} />
-          <Route path="/project-library" element={<ProjectLibrary />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                port={PORT}
+                logInFunction={logInUser}
+                logOutFunction={logOutUser}
+              />
+            }
+          />
+
+
+          <Route
+            path="/project-library"
+            element={ProtectedRoute({element: <ProjectLibrary port={PORT} logOutFunction={logOutUser} />})}
+          />
+
           <Route
             path="/student-profile-viewer"
-            element={<StudentProfileViewer />}
+            element={<StudentProfileViewer logOutFunction={logOutUser} />}
           />
           <Route path="/learning-objectives" element={<LearningObjectives />} />
           <Route path="/instructions" element={<Instructions />} />
@@ -46,12 +77,15 @@ function App() {
           <Route path="/video-tutorial" element={<VideoTutorial />} />
           <Route path="/project-submissions" element={<ProjectSubmissions />} />
           <Route path="/submit-project" element={<SubmitProject />} />
-          <Route path="/student-profiles" element={<StudentProfiles />} />
+          <Route
+            path="/student-profiles"
+            element={<StudentProfiles port={PORT} />}
+          />
           <Route path="/progress-tracker" element={<ProgressTracker />} />
           <Route path="/help-requests" element={<HelpRequests />} />
           <Route
             path="/teacher-profile-viewer"
-            element={<TeacherProfileViewer />}
+            element={<TeacherProfileViewer logOutFunction={logOutUser} />}
           />
         </Routes>
       </LoggedInContext.Provider>

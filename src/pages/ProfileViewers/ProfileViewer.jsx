@@ -15,12 +15,12 @@ const btnStyles = {
   marginBottom: "4rem",
 };
 
-export default function ProfileViewer({ buttons, cardFields, navButtons }) {
+export default function ProfileViewer({ buttons, cardFields, navButtons, logOutFunction }) {
   const userType = useContext(UserContext).user_type;
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar navButtons={navButtons} />
+        <NavBar navButtons={navButtons} LogOutFunction={logOutFunction} />
       </div>
       <div className={styles.MainContent}>
         <PhotoCard buttons={buttons} />

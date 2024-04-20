@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext, LoggedInContext } from "../context.js";
 import styles from "./NavBar.module.css";
+import NavBarPopUp from "./NavBarPopUp.jsx";
 import level_up_works_logo from "../assets/NavBar/LevelUpWorks-white.png";
 import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function NavBar({ navButtons=[] }) {
+export default function NavBar({
+  navButtons = [],
+  updateShowLogin,
+  logOutFunction,
+}) {
+  const [popup, setPopup] = useState(false);
+
+  const isLoggedIn = useContext(LoggedInContext);
+  const user = useContext(UserContext);
+
   return (
     <>
       <div className={styles.persistent_nav_bar}>
@@ -41,28 +51,44 @@ export default function NavBar({ navButtons=[] }) {
               alt="maori_flag"
             />
           </div>
+
           <div>
-            <div className={styles.register_and_login}>
-              <Link to="/home">
-                <img
-                  style={{ height: "24px" }}
-                  src={avatar_white_icon}
-                  alt="avatar_white_icon"
-                />
-              </Link>
-              <Link
-                to="/signup"
-                style={{ textDecoration: "none", color: "#ffffff" }}
-              >
-                REGISTER
-              </Link>{" "}
-              <Link
-                to="/login"
-                style={{ textDecoration: "none", color: "#ffffff" }}
-              >
-                LOGIN
-              </Link>
-            </div>
+            {isLoggedIn && (
+              <div className={styles.register_and_login}>
+                <Link to={`/${user.user_type}-profile-viewer`}>
+                  <img
+                    style={{ height: "24px" }}
+                    src={user.profile_pic}
+                    alt={"profile picture"}
+                  />
+                </Link>
+
+                <div
+                  className={styles.LoginText}
+                  onClick={() => setPopup(!popup)}
+                >
+                  {user.name.toUpperCase()}
+                  {popup && <NavBarPopUp logOutFunction={logOutFunction} />}
+                </div>
+              </div>
+            )}
+            {!isLoggedIn && (
+              <div className={styles.register_and_login}>
+                <Link to="/home">
+                  <img
+                    style={{ height: "24px" }}
+                    src={avatar_white_icon}
+                    alt={"profile picture"}
+                  />
+                </Link>
+                <div className={styles.LoginText} onClick={updateShowLogin}>
+                  REGISTER
+                </div>
+                <div className={styles.LoginText} onClick={updateShowLogin}>
+                  LOGIN
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { UserContext } from "../../context.js";
 import ProfileViewer from "../ProfileViewers/ProfileViewer";
 import { DateTime } from "luxon";
 
-export default function StudentProfileViewer() {
+export default function StudentProfileViewer({ logOutFunction }) {
   const student = useContext(UserContext);
 
   const cardFields = [
@@ -29,7 +29,7 @@ export default function StudentProfileViewer() {
   const navButtons = [
     { label: "HOME", link: "/" },
     { label: "PROJECTS", link: "/project-library" },
-    { label: "SUBMISSIONS", link: "/project-submissions" },
+    { label: "DASHBOARD", link: "/learning-objectives" },
   ];
 
   return (
@@ -38,6 +38,7 @@ export default function StudentProfileViewer() {
         buttons={["EDIT PROFILE", "CHANGE PHOTO"]}
         cardFields={cardFields}
         navButtons={navButtons}
+        logOutFunction={logOutFunction}
       />
     </>
   );
