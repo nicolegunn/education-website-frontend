@@ -55,63 +55,129 @@ function App() {
     <UserContext.Provider value={user}>
       <LoggedInContext.Provider value={isLoggedIn}>
         <Routes>
+
           <Route
             path="/"
-            element={
-              <Home
-                port={PORT}
-                logInFunction={logInUser}
-                logOutFunction={logOutUser}
-              />
-            }
-          />
+              element={
+                <Home
+                  port={PORT}
+                  logInFunction={logInUser}
+                  logOutFunction={logOutUser}
+                />
+              }
+            />
 
           <Route
             path="/project-library"
-            element={
-              // ProtectedRoute({
-              // element: (
-              <ProjectLibrary port={PORT} logOutFunction={logOutUser} />
-              // ),
-              // })
-            }
-          />
+              element={
+                <ProtectedRoute
+                  element={<ProjectLibrary logOutFunction={logOutUser} />}
+                />
+              }
+            />
 
           <Route
             path="/student-profile-viewer"
-            element={<StudentProfileViewer logOutFunction={logOutUser} />}
-          />
+              element={
+                <ProtectedRoute
+                  element={<StudentProfileViewer logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
           <Route
             path="/learning-objectives"
-            element={<LearningObjectives port={PORT} />}
-          />
-          <Route path="/instructions" element={<Instructions port={PORT} />} />
-          <Route path="/make-project" element={<MakeProject />} />
+              element={
+                <ProtectedRoute
+                  element={<LearningObjectives logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
+          <Route 
+            path="/instructions" 
+              element={
+                <ProtectedRoute
+                  element={<Instructions logOutFunction={logOutUser} />}
+                />
+              }
+            />
+                  
+
+          <Route 
+            path="/make-project" 
+              element={
+                <ProtectedRoute
+                  element={<MakeProject logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
+
           <Route
             path="/video-tutorial"
-            element={<VideoTutorial port={PORT} />}
-          />
+              element={
+                <ProtectedRoute
+                  element={<VideoTutorial logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
           <Route
             path="/project-submissions"
-            element={<ProjectSubmissions port={PORT} />}
-          />
+              element={
+                <ProtectedRoute
+                  element={<ProjectSubmissions logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
           <Route
             path="/submit-project"
-            element={<SubmitProject port={PORT} />}
-          />
+              element={
+                <ProtectedRoute
+                  element={<SubmitProject logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
           <Route
             path="/student-profiles"
-            element={<StudentProfiles port={PORT} />}
-          />
+              element={
+                <ProtectedRoute
+                  element={<StudentProfiles logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
           <Route
             path="/progress-tracker"
-            element={<ProgressTracker port={PORT} />}
-          />
-          <Route path="/help-requests" element={<HelpRequests />} />
+              element={
+                <ProtectedRoute
+                  element={<ProgressTracker logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
+          <Route 
+            path="/help-requests" 
+              element={
+                <ProtectedRoute
+                  element={<HelpRequests logOutFunction={logOutUser} />}
+                />
+              }
+            />
+
+
           <Route
             path="/teacher-profile-viewer"
-            element={<TeacherProfileViewer logOutFunction={logOutUser} />}
-          />
+              element={
+                <ProtectedRoute
+                  element={<TeacherProfileViewer logOutFunction={logOutUser} />}
+                />
+              }
+            />
+            
         </Routes>
       </LoggedInContext.Provider>
     </UserContext.Provider>
