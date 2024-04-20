@@ -175,7 +175,7 @@ export default function SideBar(props) {
         {/* Toggle function */}
         <nav className={`${styles.SideBar} ${isActive ? styles.isActive : ""}`}>
             <div>
-            <button className={styles.ProfilePicture}><img src="../../public/images/students/RawiriFletcher.png" alt="" width="40%" /></button>
+            <button className={styles.ProfilePicture}><img src="../../public/images/students/RawiriFletcher.png" alt="profile picture" width="40%" /></button>
             </div>
             
             {/* Import buttons */}
@@ -188,9 +188,9 @@ export default function SideBar(props) {
             
             {/* Setting Buttons at the bottom of sidebar */}
             <div className={styles.SettingButtonsContainer}>
-                    <button className={styles.SettingButtons}><img src={profile} alt="" /><br/><p className={styles.SettingButtonsText}>Profile</p></button>
-                    <button className={styles.SettingButtons}><img src={settings} alt="" /><br/><p className={styles.SettingButtonsText}>Settings</p></button>
-                    <button className={styles.SettingButtons}><img src={logout} alt="" /><br/><p className={styles.SettingButtonsText}>Log out</p></button>
+                    <button className={styles.SettingButtons}><img src={profile} alt="profile" /><br/><p className={styles.SettingButtonsText}>Profile</p></button>
+                    <button className={styles.SettingButtons}><img src={settings} alt="settings" /><br/><p className={styles.SettingButtonsText}>Settings</p></button>
+                    <button className={styles.SettingButtons}><img src={logout} alt="logout" /><br/><p className={styles.SettingButtonsText}>Log out</p></button>
             </div>
         </nav>
         </>

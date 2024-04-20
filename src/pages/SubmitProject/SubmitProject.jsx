@@ -22,7 +22,7 @@ export default function SubmitProject() {
   //   const [imageUrl, setImageUrl] = useState();
   
   //   //About using environment variables in react => https://create-react-app.dev/docs/adding-custom-environment-variables/
-  //   const FILESTACK_API_KEY = process.env.REACT_APP_FILESTACK_API_KEY || 'A9VOm58TLTudg6YPBXWiwz'; 
+  //   const FILESTACK_API_KEY = process.env.REACT_APP_FILESTACK_API_KEY
   
   //   const handleVisible = () => {
   //     setIsPickerOverlayVisible(!isPickerOverlayVisible);
