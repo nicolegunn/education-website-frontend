@@ -25,45 +25,11 @@
     padding-top: 30px;
 }
 
-/* .isActive .profilePicture {
-    width: 100%;
-} */
-
 .SideBarButtonsList {
     outline: none;
 }
 
 
-/* .isActive .SideBarButtonsList>img {
-    width: 1000%;
-} */
-
-/* 
-img {
-    border-radius: 50%;
-    border-radius: none;
-    background: transparent 0% 0% no-repeat padding-box;
-    opacity: 1;
-} */
-
-/* nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: uppercase;
-    overflow-x: visible;
-    background-color: #43c0f6;
-} */
-
-/* p:hover {
-    background-color: #B2E4FA;
-} */
-
-/* .img {
-    align-items: center;
-    justify-content: center;
-} */
 
 /* Style navigation bar links */
 /* nav a {
@@ -118,14 +84,9 @@ img {
 }
 
 .isActive .ImportedMenuButtons img {
-    width: 20%;
+    width: 15%;
+    /* justify-content: center; */
 }
-
-/* .isActive .ImportedMenuButtons {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-} */
 
 .isActive .ImportedMenuButtons p {
     display: none;
@@ -174,34 +135,11 @@ img {
     display: none;
 }
 
-
-/* content placeholder */
-/* .contentBox {
-    background: white 0% 0% no-repeat padding-box;
-    border-radius: 30px;
-    opacity: 1;
-    justify-content: center;
-    top: 109px;
-    left: 266px;
-    width: 1571px;
-    height: 860px;
-    padding: 20px;
+.isActive .ImportedMenuButtons {
+    padding-left: 3dvh;
 }
-
-/* .menuButtons>li>a {
-    display: flex;
-    flex-direction: row;
-} */
 
 .ProfilePicture, .SettingButtonsContainer {
     background-color: #43c0f6;
     border: none;
 }
-
-/* ul {
-    background-color: #43c0f6;
-} */
-
-/* .isActive buttons{
-    width: 20%;
-} */

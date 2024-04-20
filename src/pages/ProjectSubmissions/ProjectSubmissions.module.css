@@ -17,27 +17,36 @@
 }
 
 .ContentHeader {
-    flex-direction: row;
+    display: flex inline;
+    justify-content: space-between;
 }
 
-.ContentTitle {
+.ContentTitleText {
     background-color: #d9f2fd;
     color: #6C6C6C;
     font-family: "Nunito", sans-serif;
     justify-content: flex-start;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 900;
     height: 34px;
     width: 305px;
 }
 
+.ContentButtonsContainer {
+    display: flex inline;
+    align-items: center;
+}
+
 .ContentButtons {
+    display: flex;
     background-color: #d9f2fd;
     align-items: right;
     font-family: "Open-sans", sans-serif;
     color: #6C6C6C;
     font-size: 18px;
     font-weight: 900;
+    border: none;
+    padding-left: 30px;
 }
 
 .ScrollContainer {
@@ -53,12 +62,17 @@
     width: 70vw;
     padding: 0px;
     /* scrollbar-color: #43C0F6; */
+    /* align-items: center; */
 }
+/* 
+.SubmissionList {
+    align-items: center;
+} */
 
 .SubmissionList li {
     display: flex;
     list-style-type: none;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     background-color: #d9f2fd;
 }
@@ -72,9 +86,9 @@
   list-style: none;
 }
 
-.CheckBoxContainer {
+/* .CheckBoxContainer {
     display: flex;
-}
+} */
 
 .SubmittedProjectContainer {
     /* display: flex; */

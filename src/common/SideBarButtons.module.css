@@ -3,11 +3,10 @@
     flex-direction: column;
     background-color: #43C0F6;
     background: transparent url('img/Rectangle 250.png') 0% 0% no-repeat padding-box;
-    /* border: 1px solid #B2E4FA; */
     opacity: 1;
-    font-family: Open-sans, sans-serif;
+    font-family: "Open-sans", sans-serif;
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 700;
     color: white;
     text-decoration: none;
     text-align: left;
@@ -21,11 +20,8 @@
 
 .SideBarButtonsText {
     background-color: #43c0f6;
-    justify-content: flex-start;
     color: white;
     text-decoration: none;
-    text-align: left;
-    display: inline;
 }
 
 /* Style navigation bar links */
@@ -44,6 +40,7 @@
     width: 20vw;
     display: flex;
     font-size: 14px;
+    align-items: center;
 }
 
 /* .isActive .SideBarButtonIcon {
@@ -53,3 +50,8 @@
 .SideBarButtonIcon {
     width: 10%;
 }
+
+/* .SideBarButtonIcon, .SideBarButtonsText {
+    display: inline-block;
+    vertical-align: middle;
+} */
