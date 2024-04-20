@@ -1,0 +1,42 @@
+.PopUpBox {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  background-color: #fdf7d3;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #707070;
+  font-family: "Open Sans";
+  line-height: 2;
+  padding: 10px;
+  padding-top: 15px;
+  box-shadow: 0px 4px 5px #00000029;
+  z-index: 1;
+}
+
+.PopUpBox::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 8px;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #fdf7d3 transparent;
+
+}
+
+.PopUpLink {
+  text-decoration: none;
+}
+
+.PopUpLink:visited{
+      color: #707070;
+}
+
+.PopUpLink:hover{
+  color: rgb(149, 14, 149);
+}

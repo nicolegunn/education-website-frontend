@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext, LoggedInContext } from "./context.js";
 
@@ -31,9 +31,19 @@ function App() {
     profile_pic: "/images/students/LuciaMendez.png",
   });
 
+  const navigate = useNavigate();
+
   const logInUser = (userData) => {
     setIsLoggedIn(true);
     setUser(userData);
+  };
+
+  const logOutUser = () => {
+    setIsLoggedIn(false);
+    setUser({
+      profile_pic: "/images/students/LuciaMendez.png",
+    });
+    navigate("/");
   };
 
   return (
@@ -42,16 +52,22 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home port={PORT} logInFunction={logInUser} />}
+            element={
+              <Home
+                port={PORT}
+                logInFunction={logInUser}
+                logOutFunction={logOutUser}
+              />
+            }
           />
 
           <Route
             path="/project-library"
-            element={<ProjectLibrary port={PORT} />}
+            element={<ProjectLibrary port={PORT} logOutFunction={logOutUser} />}
           />
           <Route
             path="/student-profile-viewer"
-            element={<StudentProfileViewer />}
+            element={<StudentProfileViewer logOutFunction={logOutUser} />}
           />
           <Route path="/learning-objectives" element={<LearningObjectives />} />
           <Route path="/instructions" element={<Instructions />} />
@@ -67,7 +83,7 @@ function App() {
           <Route path="/help-requests" element={<HelpRequests />} />
           <Route
             path="/teacher-profile-viewer"
-            element={<TeacherProfileViewer />}
+            element={<TeacherProfileViewer logOutFunction={logOutUser} />}
           />
         </Routes>
       </LoggedInContext.Provider>
