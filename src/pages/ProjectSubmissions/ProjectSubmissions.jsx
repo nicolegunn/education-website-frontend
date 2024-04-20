@@ -12,13 +12,13 @@ import DashboardContent from '../../common/DashboardContent'
 import makeProjectScreenshot from '../../assets/StudentDashboard/makeProject-screenshot.png'
 
 
-export default function ProjectSubmissions() {
+export default function ProjectSubmissions({port}) {
 
   const [userData, setUserData] = useState([])
   
   useEffect(() => {
     axios
-      .get("http://localhost:${PORT}/project-submissions")
+      .get(`http://localhost:${port}/project-submissions`)
       .then((res) => {
         setUserData(res.data);
       })
