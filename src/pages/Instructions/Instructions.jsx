@@ -6,10 +6,10 @@ import DashboardFooter from "../../common/DashboardFooter";
 import Projectinstructions from "../../../public/images/projects/Project01-instructions.png";
 import { useState, useEffect } from "react";
 
-export default function Instructions() {
+export default function Instructions({ port}) {
   const [projectInstructions, setProjectInstructions] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/projects/1/instructions")
+    fetch(`http://localhost:${port}/projects/1/instructions`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);

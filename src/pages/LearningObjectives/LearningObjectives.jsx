@@ -10,7 +10,7 @@ import image4 from "../../../public/images/projects/Project01-obj4.png";
 import image5 from "../../../public/images/projects/Project01-obj5.png";
 import image6 from "../../../public/images/projects/Project01-obj6.png";
 
-export default function LearningObjectives() {
+export default function LearningObjectives({ port}) {
   
   return (
     <>

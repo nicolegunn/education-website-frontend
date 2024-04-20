@@ -4,11 +4,11 @@ import DashboardFooter from "../../common/DashboardFooter";
 import SideBar from "../../common/SideBar";
 import styles from "./VideoTutorial.module.css";
 
-export default function VideoTutorial() {
+export default function VideoTutorial({ port}) {
   // const src = "https://www.youtube.com/embed/sb-wF35TuvQ?si=nBY6Laaje2I4P-fM";
   const [urls, setUrls] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/projects/1/video_tutorial")
+    fetch(`http://localhost:${port}/projects/1/video_tutorial`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result.video);
