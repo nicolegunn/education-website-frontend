@@ -11,6 +11,7 @@ import image5 from "../../../public/images/projects/Project01-obj5.png";
 import image6 from "../../../public/images/projects/Project01-obj6.png";
 
 export default function LearningObjectives() {
+  
   return (
     <>
       {/*Displays StudentDashboard Navigation bar */}
@@ -28,7 +29,7 @@ export default function LearningObjectives() {
             <div className={styles.Dashboard}>
               <div>
                 {/*Displays Right side of Side bar */}
-                <div className={styles.main}>
+              <div>  { /*//className={styles.main} */}
                   <div className={styles.Title}>
                     <h1>Explore Scratch blocks</h1>
                   </div>
@@ -75,3 +76,6 @@ export default function LearningObjectives() {
     </>
   );
 }
+
+
+    
