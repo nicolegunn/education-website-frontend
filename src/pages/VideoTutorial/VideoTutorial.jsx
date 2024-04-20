@@ -11,8 +11,8 @@ export default function VideoTutorial({ port}) {
     fetch(`http://localhost:${port}/projects/1/video_tutorial`)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result.video);
-        setUrls(result);
+        console.log(result[0].video);
+        setUrls(result[0].video);
       })
       .catch((err)=>console.log(err));
   }, []);
@@ -41,9 +41,10 @@ export default function VideoTutorial({ port}) {
                   {/* //----------------------------------------------- */}
                   {/* // src="https://www.youtube.com/embed/-SjuiawRMU4?si=hnkMTC3_DWBKWrmq" */}
 
-                  {urls.map((url, index) => {
-                return (
-                  <iframe src={url.video}
+                  {/* {urls.map((url, index) => {
+                return ( */}
+
+                  <iframe src={urls}
                     width="800"
                     height="500" 
                     title="YouTube video player"
@@ -53,8 +54,9 @@ export default function VideoTutorial({ port}) {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     >
                   </iframe>
-                );
-              })}
+
+                {/* );
+              })} */}
 
                   {/* //-------------------------------------------------- */}
                   {/* title="YouTube video player"
