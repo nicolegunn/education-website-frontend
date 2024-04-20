@@ -6,12 +6,12 @@ import Footer from '/src/common/DashboardFooter.jsx';
 import SideBar from '../../common/SideBar';
 import TeacherDashboardNavbar from '../../common/TeacherDashboardNavbar.jsx'; 
 
-export default function ProgressTracker() {
+export default function ProgressTracker({port}) {
     //useState to get student data
     const [data, setData] = useState([]);
     //useEffect to get apis
     useEffect(() => {
-      fetch('http://localhost:4000/student')
+      fetch(`http://localhost:${port}/student`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
