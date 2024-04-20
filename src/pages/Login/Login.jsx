@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import imageStudent from "../../assets/LoginSignup/students.png";
 import imageTeacher from "../../assets/LoginSignup/teachers.png";
@@ -12,7 +11,7 @@ export default function Login({
   updateShowLogin,
   logInFunction,
 }) {
-  const navigate = useNavigate();
+
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
 
@@ -51,13 +50,8 @@ export default function Login({
         console.log(res);
         if (res.status === 200) {
           const userData = { ...res.data[0], user_type: e.target.name };
-          const link =
-            userData.user_type === "teacher"
-              ? "/progress-tracker"
-              : "/project-library";
-          navigate(link); // this will send the user to this page upon successful login
+
           logInFunction(userData);
-          
         } else {
           //Add some code here
         }

@@ -4,7 +4,6 @@ import { useState, useContext } from "react";
 import { UserContext, LoggedInContext } from "./context.js";
 
 import Home from "./pages/Home/Home.jsx";
-import Login from "./pages/Login/Login.jsx";
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary.jsx";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer.jsx";
 import LearningObjectives from "./pages/LearningObjectives/LearningObjectives.jsx";
@@ -36,6 +35,12 @@ function App() {
   const logInUser = (userData) => {
     setIsLoggedIn(true);
     setUser(userData);
+    let link;
+    link =
+      userData.user_type === "teacher"
+        ? "/progress-tracker"
+        : "/project-library";
+    navigate(link);
   };
 
   const logOutUser = () => {
@@ -63,21 +68,29 @@ function App() {
 
           <Route
             path="/project-library"
-            element={ProtectedRoute({
-              element: (
-                <ProjectLibrary port={PORT} logOutFunction={logOutUser} />
-              ),
-            })}
+            element={
+              // ProtectedRoute({
+              // element: (
+              <ProjectLibrary port={PORT} logOutFunction={logOutUser} />
+              // ),
+              // })
+            }
           />
 
           <Route
             path="/student-profile-viewer"
             element={<StudentProfileViewer logOutFunction={logOutUser} />}
           />
-          <Route path="/learning-objectives" element={<LearningObjectives />} />
-          <Route path="/instructions" element={<Instructions />} />
+          <Route
+            path="/learning-objectives"
+            element={<LearningObjectives port={PORT} />}
+          />
+          <Route path="/instructions" element={<Instructions port={PORT} />} />
           <Route path="/make-project" element={<MakeProject />} />
-          <Route path="/video-tutorial" element={<VideoTutorial />} />
+          <Route
+            path="/video-tutorial"
+            element={<VideoTutorial port={PORT} />}
+          />
           <Route path="/project-submissions" element={<ProjectSubmissions />} />
           <Route path="/submit-project" element={<SubmitProject />} />
           <Route
