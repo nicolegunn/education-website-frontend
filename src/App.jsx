@@ -27,7 +27,7 @@ function ProtectedRoute({ element }) {
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({
-    profile_pic: "/images/students/LuciaMendez.png",
+    profile_pic: "/images/Avatar-white.png",
   });
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ function App() {
   const logOutUser = () => {
     setIsLoggedIn(false);
     setUser({
-      profile_pic: "/images/students/LuciaMendez.png",
+      profile_pic: "/images/Avatar-white.png",
     });
     navigate("/");
   };
@@ -91,8 +91,14 @@ function App() {
             path="/video-tutorial"
             element={<VideoTutorial port={PORT} />}
           />
-          <Route path="/project-submissions" element={<ProjectSubmissions />} />
-          <Route path="/submit-project" element={<SubmitProject />} />
+          <Route
+            path="/project-submissions"
+            element={<ProjectSubmissions port={PORT} />}
+          />
+          <Route
+            path="/submit-project"
+            element={<SubmitProject port={PORT} />}
+          />
           <Route
             path="/student-profiles"
             element={<StudentProfiles port={PORT} />}

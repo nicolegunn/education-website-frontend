@@ -15,7 +15,7 @@ import submitProjectPhoto from "../../assets/StudentDashboard/submitProject-Phot
 import callTeacher from "../../assets/StudentDashboard/callTeacher.png"
 import DashboardContent from '../../common/DashboardContent'
 
-export default function SubmitProject() {
+export default function SubmitProject({port}) {
 
   // const FileStack = () => {
   //   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false);
