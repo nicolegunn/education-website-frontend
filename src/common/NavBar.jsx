@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext, LoggedInContext } from "../context.js";
 import styles from "./NavBar.module.css";
+import NavBarPopUp from "./NavBarPopUp.jsx";
 import level_up_works_logo from "../assets/NavBar/LevelUpWorks-white.png";
 import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function NavBar({ navButtons = [], updateShowLogin }) {
+export default function NavBar({
+  navButtons = [],
+  updateShowLogin,
+  logOutFunction,
+}) {
+  const [popup, setPopup] = useState(false);
+
   const isLoggedIn = useContext(LoggedInContext);
   const user = useContext(UserContext);
 
@@ -55,12 +62,14 @@ export default function NavBar({ navButtons = [], updateShowLogin }) {
                     alt={"profile picture"}
                   />
                 </Link>
-                <Link
-                  style={{ textDecoration: "none", color: "#ffffff" }}
-                  to={`/${user.user_type}-profile-viewer`}
+
+                <div
+                  className={styles.LoginText}
+                  onClick={() => setPopup(!popup)}
                 >
-                  <div>{user.name.toUpperCase()}</div>
-                </Link>
+                  {user.name.toUpperCase()}
+                  {popup && <NavBarPopUp logOutFunction={logOutFunction} />}
+                </div>
               </div>
             )}
             {!isLoggedIn && (
@@ -72,16 +81,10 @@ export default function NavBar({ navButtons = [], updateShowLogin }) {
                     alt={"profile picture"}
                   />
                 </Link>
-                <div
-                  style={{ textDecoration: "none", color: "#ffffff" }}
-                  onClick={updateShowLogin}
-                >
+                <div className={styles.LoginText} onClick={updateShowLogin}>
                   REGISTER
                 </div>
-                <div
-                  style={{ textDecoration: "none", color: "#ffffff" }}
-                  onClick={updateShowLogin}
-                >
+                <div className={styles.LoginText} onClick={updateShowLogin}>
                   LOGIN
                 </div>
               </div>

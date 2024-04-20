@@ -6,11 +6,10 @@ import { DateTime } from "luxon";
 const navButtons = [
   { label: "HOME", link: "/" },
   { label: "PROJECTS", link: "/project-library" },
-  { label: "PROGRESS TRACKER", link: "/progress-tracker" },
-  { label: "STUDENT PROFILES", link: "/student-profiles" },
+  { label: "DASHBOARD", link: "/progress-tracker" },
 ];
 
-export default function TeacherProfileViewer() {
+export default function TeacherProfileViewer({ logOutFunction }) {
   const teacher = useContext(UserContext);
 
   const cardFields = [
@@ -32,6 +31,7 @@ export default function TeacherProfileViewer() {
         buttons={["EDIT PROFILE", "CHANGE PHOTO", "SETTINGS"]}
         cardFields={cardFields}
         navButtons={navButtons}
+        logOutFunction={logOutFunction}
       />
     </>
   );

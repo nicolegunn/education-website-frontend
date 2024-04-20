@@ -6,7 +6,12 @@ import imageTeacher from "../../assets/LoginSignup/teachers.png";
 import imageCrosshair from "../../assets/LoginSignup/esc.png";
 import axios from "axios";
 
-export default function Login({ port, showLogin, updateShowLogin, logInFunction }) {
+export default function Login({
+  port,
+  showLogin,
+  updateShowLogin,
+  logInFunction,
+}) {
   const navigate = useNavigate();
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
@@ -45,11 +50,12 @@ export default function Login({ port, showLogin, updateShowLogin, logInFunction 
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
-
-          navigate("/project-library"); // this will send the user to this page upon succesful login
-
           const userData = { ...res.data[0], user_type: e.target.name };
-          console.log(userData);
+          const link =
+            userData.user_type === "teacher"
+              ? "/progress-tracker"
+              : "/project-library";
+          navigate(link); // this will send the user to this page upon successful login
           logInFunction(userData);
           
         } else {

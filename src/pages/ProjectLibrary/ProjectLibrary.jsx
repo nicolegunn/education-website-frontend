@@ -17,7 +17,7 @@ import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
 
-export default function ProjectLibrary({ port }) {
+export default function ProjectLibrary({ port, logOutFunction }) {
   const [allProjects, setAllProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState();
@@ -49,13 +49,14 @@ export default function ProjectLibrary({ port }) {
     if (userType === "student") {
       userNavButtons = [
         { label: "HOME", link: "/" },
-        { label: "SUBMISSIONS", link: "/project-submissions" },
+        { label: "PROFILE", link: `/${userType}-profile-viewer` },
+        { label: "DASHBOARD", link: "/learning-objectives" },
       ];
     } else if (userType === "teacher") {
       userNavButtons = [
         { label: "HOME", link: "/" },
-        { label: "PROGRESS TRACKER", link: "/progress-tracker" },
-        { label: "STUDENT PROFILES", link: "/student-profiles" },
+        { label: "PROFILE", link: `/${userType}-profile-viewer` },
+        { label: "DASHBOARD", link: "/progress-tracker" },
       ];
     }
     setNavButtons(userNavButtons);
@@ -92,7 +93,7 @@ export default function ProjectLibrary({ port }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Header}>
-        <NavBar navButtons={navButtons} />
+        <NavBar navButtons={navButtons} logOutFunction={logOutFunction} />
       </div>
       <div className={styles.TitleArea}>
         <TitleArea />

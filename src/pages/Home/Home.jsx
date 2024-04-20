@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../context.js";
+import { UserContext, LoggedInContext } from "../../context.js";
 import styles from "./Home.module.css";
 
 import NavBar from "../../common/NavBar";
@@ -15,25 +15,45 @@ import StageOne from "./Components_for_home/stageOne/StageOne.jsx";
 import StageFive from "./Components_for_home/stageFive/StageFive.jsx";
 
 // Note: All parts of the website has been modularized, refer to Components_for_home, page to see more details //
-export default function Home({ port, logInFunction }) {
+export default function Home({ port, logInFunction, logOutFunction }) {
   const user = useContext(UserContext);
+  const loggedIn = useContext(LoggedInContext);
 
   const [showLogin, setShowLogin] = useState(false);
   const updateShowLogin = () => {
     setShowLogin(!showLogin);
   };
-  const navButtons = [
-    { label: "HOME", link: "/" },
-    { label: "FEATURES", link: "/" },
-    { label: "PROFILE", link: `/${user.user_type}-profile-viewer` },
-  ];
+
+  let navButtons = [];
+  if (loggedIn && user.user_type === "student") {
+    navButtons = [
+      { label: "PROJECTS", link: "/project-library" },
+      { label: "PROFILE", link: `/${user.user_type}-profile-viewer` },
+      { label: "DASHBOARD", link: "/learning-objectives" },
+    ];
+  } else if (loggedIn && user.user_type === "teacher") {
+    navButtons = [
+      { label: "PROJECTS", link: "/project-library" },
+      { label: "PROFILE", link: `/${user.user_type}-profile-viewer` },
+      { label: "DASHBOARD", link: "/progress-tracker" },
+    ];
+  }
 
   return (
     <>
-    
-      <NavBar navButtons={navButtons} updateShowLogin={updateShowLogin} />
-      {showLogin && <Login port={ port} showLogin={showLogin} updateShowLogin={ updateShowLogin} logInFunction={logInFunction} />}
-      
+      <NavBar
+        navButtons={navButtons}
+        updateShowLogin={updateShowLogin}
+        logOutFunction={logOutFunction}
+      />
+      {showLogin && (
+        <Login
+          port={port}
+          showLogin={showLogin}
+          updateShowLogin={updateShowLogin}
+          logInFunction={logInFunction}
+        />
+      )}
       <div className={styles.default_component_for_home}>
         <div>
           {/*Stage One Modules, refer to src> pages> home> Component_for_home> stageOne
