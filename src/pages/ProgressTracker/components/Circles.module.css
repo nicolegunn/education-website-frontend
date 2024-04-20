@@ -1,8 +1,8 @@
 .CircleStyle {
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 70%;
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(162, 160, 160, 1);
@@ -10,6 +10,7 @@
     line-height: 40px;
     margin: 5px;
     color: rgba(108, 108, 108, 1);
+    gap: 4em, 4em;
   };
   
   .Container {
