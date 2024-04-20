@@ -57,6 +57,7 @@ export default function Login({
               : "/project-library";
           navigate(link); // this will send the user to this page upon successful login
           logInFunction(userData);
+          
         } else {
           //Add some code here
         }

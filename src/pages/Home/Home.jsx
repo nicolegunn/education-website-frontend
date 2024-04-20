@@ -54,7 +54,6 @@ export default function Home({ port, logInFunction, logOutFunction }) {
           logInFunction={logInFunction}
         />
       )}
-
       <div className={styles.default_component_for_home}>
         <div>
           {/*Stage One Modules, refer to src> pages> home> Component_for_home> stageOne

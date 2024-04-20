@@ -61,10 +61,12 @@ function App() {
             }
           />
 
+
           <Route
             path="/project-library"
-            element={<ProjectLibrary port={PORT} logOutFunction={logOutUser} />}
+            element={ProtectedRoute({element: <ProjectLibrary port={PORT} logOutFunction={logOutUser} />})}
           />
+
           <Route
             path="/student-profile-viewer"
             element={<StudentProfileViewer logOutFunction={logOutUser} />}
