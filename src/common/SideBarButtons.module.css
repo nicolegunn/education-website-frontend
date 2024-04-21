@@ -1,27 +1,28 @@
 .SideBarButtonsLink {
-    display: flex;
-    flex-direction: column;
-    background-color: #43C0F6;
-    background: transparent url('img/Rectangle 250.png') 0% 0% no-repeat padding-box;
-    opacity: 1;
-    font-family: "Open-sans", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    text-align: left;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #43c0f6;
+  background: transparent url("img/Rectangle 250.png") 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+  font-family: "Open-sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  padding: 20px;
 }
 
 .SideBarButtonsLink:hover {
-    background-color: #B2E4FA;
-    color: #707070;
+  background-color: #b2e4fa;
+  color: #707070;
 }
 
 .SideBarButtonsText {
-    background-color: #43c0f6;
-    color: white;
-    text-decoration: none;
+  background-color: #43c0f6;
+  color: white;
+  text-decoration: none;
 }
 
 /* Style navigation bar links */
@@ -37,10 +38,10 @@
 } */
 
 .SideBarButtonsList {
-    width: 20vw;
-    display: flex;
-    font-size: 14px;
-    align-items: center;
+  width: 20vw;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
 }
 
 /* .isActive .SideBarButtonIcon {
@@ -48,7 +49,8 @@
 } */
 
 .SideBarButtonIcon {
-    width: 10%;
+  width: 10%;
+  margin-right: 3%;
 }
 
 /* .SideBarButtonIcon, .SideBarButtonsText {
