@@ -10,11 +10,13 @@ import DashboardFooter from '../../common/DashboardFooter'
 import styles from './ProjectSubmissions.module.css'
 import DashboardContent from '../../common/DashboardContent'
 import makeProjectScreenshot from '../../assets/StudentDashboard/makeProject-screenshot.png'
+import EnlargePhoto from './components/EnlargePhoto'
 
 
 export default function ProjectSubmissions() {
 
   const [userData, setUserData] = useState([])
+  const [openModal, setOpenModal] = useState(false);
   
   useEffect(() => {
     axios
@@ -66,7 +68,8 @@ export default function ProjectSubmissions() {
                             <img src={user.profile_pic} alt="profile picture" style={{ borderRadius: "50%" }} />
                             <h5> {user.name} submitted a project.</h5>
                             <img src={user.submission} alt="project submission" style={{ borderRadius: "20%" }} />
-                            <button className={styles.EnlargeButton}>ENLARGE PHOTO</button>
+                            <button className={styles.EnlargeButton} onClick={() => {setOpenModal(true)}}>ENLARGE PHOTO</button>
+                            {openModal && <EnlargePhoto closeModal={setOpenModal} />}
                             <p> {user.date_submitted} </p>
                             </div>
                         )
