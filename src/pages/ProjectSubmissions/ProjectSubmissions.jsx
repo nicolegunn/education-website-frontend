@@ -23,9 +23,11 @@ export default function ProjectSubmissions({ port }) {
     axios
       .get(`http://localhost:${port}/project-submissions`)
       .then((res) => {
+        console.log(res.data)
         setUserData(res.data);
       })
       .catch((err) => console.log(err));
+
   }, []);
 
   const handleMarkComplete = () => {
