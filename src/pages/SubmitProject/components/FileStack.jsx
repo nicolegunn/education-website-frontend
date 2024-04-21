@@ -5,7 +5,7 @@ const FileStack = () => {
   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false);
   const [imageUrl, setImageUrl] = useState();
 
-  const API_KEY = import.meta.env.VITE_REACT_APP_FILESTACK_API_KEY
+  const API_KEY = import.meta.env.REACT_APP_FILESTACK_API_KEY
 
   const handleVisible = () => {
     setIsPickerOverlayVisible(!isPickerOverlayVisible);

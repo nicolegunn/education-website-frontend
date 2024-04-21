@@ -8,13 +8,15 @@ import SideBar from "../../common/SideBar";
 import DashboardNavbar from "../../common/DashboardNavbar";
 import DashboardFooter from "../../common/DashboardFooter";
 
-import styles from "./ProjectSubmissions.module.css";
-import DashboardContent from "../../common/DashboardContent";
-import makeProjectScreenshot from "../../assets/StudentDashboard/makeProject-screenshot.png";
+import styles from './ProjectSubmissions.module.css'
+import DashboardContent from '../../common/DashboardContent'
+import makeProjectScreenshot from '../../assets/StudentDashboard/makeProject-screenshot.png'
+import EnlargePhoto from './components/EnlargePhoto'
 
 export default function ProjectSubmissions({ port }) {
   const [userData, setUserData] = useState([]);
-
+  const [openModal, setOpenModal] = useState(false);
+  
   useEffect(() => {
     axios
       .get(`http://localhost:${port}/project-submissions`)
@@ -67,14 +69,11 @@ export default function ProjectSubmissions({ port }) {
                               style={{ borderRadius: "50%" }}
                             />
                             <h5> {user.name} submitted a project.</h5>
-                            <img
-                              src={user.submission}
-                              alt="project submission"
-                              style={{ borderRadius: "20%" }}
-                            />
-                            <button className={styles.EnlargeButton}>
-                              ENLARGE PHOTO
-                            </button>
+
+                            <img src={user.submission} alt="project submission" style={{ borderRadius: "20%" }} />
+                            <button className={styles.EnlargeButton} onClick={() => {setOpenModal(true)}}>ENLARGE PHOTO</button>
+                            {openModal && <EnlargePhoto closeModal={setOpenModal} />}
+                            
                             <p> {user.date_submitted} </p>
                           </div>
                         );
