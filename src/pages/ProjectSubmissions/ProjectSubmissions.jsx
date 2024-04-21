@@ -1,21 +1,20 @@
-import React from 'react'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
+import React from "react";
+import axios from "axios";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../context";
 
-// import axios from 
-import SideBar from '../../common/SideBar'
-import DashboardNavbar from '../../common/DashboardNavbar'
-import DashboardFooter from '../../common/DashboardFooter'
+// import axios from
+import SideBar from "../../common/SideBar";
+import DashboardNavbar from "../../common/DashboardNavbar";
+import DashboardFooter from "../../common/DashboardFooter";
 
-import styles from './ProjectSubmissions.module.css'
-import DashboardContent from '../../common/DashboardContent'
-import makeProjectScreenshot from '../../assets/StudentDashboard/makeProject-screenshot.png'
+import styles from "./ProjectSubmissions.module.css";
+import DashboardContent from "../../common/DashboardContent";
+import makeProjectScreenshot from "../../assets/StudentDashboard/makeProject-screenshot.png";
 
+export default function ProjectSubmissions({ port }) {
+  const [userData, setUserData] = useState([]);
 
-export default function ProjectSubmissions({port}) {
-
-  const [userData, setUserData] = useState([])
-  
   useEffect(() => {
     axios
       .get(`http://localhost:${port}/project-submissions`)
@@ -25,7 +24,6 @@ export default function ProjectSubmissions({port}) {
       .catch((err) => console.log(err));
   });
 
-  
   return (
     <>
       {/* Header */}
@@ -60,22 +58,31 @@ export default function ProjectSubmissions({port}) {
 
                   <div className={styles.SubmittedProjectContainer}>
                     <div className={styles.SubmittedProjectInfo}>
-                      {userData.map((user) => {
+                      {userData.map((user, index) => {
                         return (
-                          <div key={user.student.student_id}>
-                            <img src={user.profile_pic} alt="profile picture" style={{ borderRadius: "50%" }} />
+                          <div key={index}>
+                            <img
+                              src={user.profile_pic}
+                              alt="profile picture"
+                              style={{ borderRadius: "50%" }}
+                            />
                             <h5> {user.name} submitted a project.</h5>
-                            <img src={user.submission} alt="project submission" style={{ borderRadius: "20%" }} />
-                            <button className={styles.EnlargeButton}>ENLARGE PHOTO</button>
+                            <img
+                              src={user.submission}
+                              alt="project submission"
+                              style={{ borderRadius: "20%" }}
+                            />
+                            <button className={styles.EnlargeButton}>
+                              ENLARGE PHOTO
+                            </button>
                             <p> {user.date_submitted} </p>
-                            </div>
-                        )
+                          </div>
+                        );
                       })}
                     </div>
-                    </div>
+                  </div>
                 </li>
 
-                
                 <li>
                   <input type="checkbox" id="checkbox" />
                   <div className={styles.SubmittedProjectContainer}>

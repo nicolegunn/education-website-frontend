@@ -21,7 +21,11 @@ const PORT = 4000;
 
 // This function is used to protect routes that require the user to be logged in
 function ProtectedRoute({ element }) {
-  return useContext(LoggedInContext) ? element : <Navigate to="/" />;
+  return true ? ( //replace true with useContext(LoggedInContext) upon completion
+    element
+  ) : (
+    <Navigate to="/" />
+  );
 }
 
 function App() {
@@ -55,129 +59,98 @@ function App() {
     <UserContext.Provider value={user}>
       <LoggedInContext.Provider value={isLoggedIn}>
         <Routes>
-
           <Route
             path="/"
-              element={
-                <Home
-                  port={PORT}
-                  logInFunction={logInUser}
-                  logOutFunction={logOutUser}
-                />
-              }
-            />
+            element={
+              <Home
+                port={PORT}
+                logInFunction={logInUser}
+                logOutFunction={logOutUser}
+              />
+            }
+          />
 
           <Route
             path="/project-library"
-              element={
-                <ProtectedRoute
-                  element={<ProjectLibrary logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={
+              <ProtectedRoute
+                element={
+                  <ProjectLibrary port={PORT} logOutFunction={logOutUser} />
+                }
+              />
+            }
+          />
 
           <Route
             path="/student-profile-viewer"
-              element={
-                <ProtectedRoute
-                  element={<StudentProfileViewer logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={
+              <ProtectedRoute
+                element={<StudentProfileViewer logOutFunction={logOutUser} />}
+              />
+            }
+          />
 
           <Route
             path="/learning-objectives"
-              element={
-                <ProtectedRoute
-                  element={<LearningObjectives logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={
+              <ProtectedRoute element={<LearningObjectives port={PORT} />} />
+            }
+          />
 
-          <Route 
-            path="/instructions" 
-              element={
-                <ProtectedRoute
-                  element={<Instructions logOutFunction={logOutUser} />}
-                />
-              }
-            />
-                  
+          <Route
+            path="/instructions"
+            element={<ProtectedRoute element={<Instructions port={PORT} />} />}
+          />
 
-          <Route 
-            path="/make-project" 
-              element={
-                <ProtectedRoute
-                  element={<MakeProject logOutFunction={logOutUser} />}
-                />
-              }
-            />
-
+          <Route
+            path="/make-project"
+            element={<ProtectedRoute element={<MakeProject />} />}
+          />
 
           <Route
             path="/video-tutorial"
-              element={
-                <ProtectedRoute
-                  element={<VideoTutorial logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={<ProtectedRoute element={<VideoTutorial port={PORT} />} />}
+          />
 
           <Route
             path="/project-submissions"
-              element={
-                <ProtectedRoute
-                  element={<ProjectSubmissions logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={
+              <ProtectedRoute element={<ProjectSubmissions port={PORT} />} />
+            }
+          />
 
           <Route
             path="/submit-project"
-              element={
-                <ProtectedRoute
-                  element={<SubmitProject logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={<ProtectedRoute element={<SubmitProject port={PORT} />} />}
+          />
 
           <Route
             path="/student-profiles"
-              element={
-                <ProtectedRoute
-                  element={<StudentProfiles logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={
+              <ProtectedRoute element={<StudentProfiles port={PORT} />} />
+            }
+          />
 
           <Route
             path="/progress-tracker"
-              element={
-                <ProtectedRoute
-                  element={<ProgressTracker logOutFunction={logOutUser} />}
-                />
-              }
-            />
+            element={
+              <ProtectedRoute element={<ProgressTracker port={PORT} />} />
+            }
+          />
 
-          <Route 
-            path="/help-requests" 
-              element={
-                <ProtectedRoute
-                  element={<HelpRequests logOutFunction={logOutUser} />}
-                />
-              }
-            />
-
+          <Route
+            path="/help-requests"
+            element={<ProtectedRoute element={<HelpRequests />} />}
+          />
 
           <Route
             path="/teacher-profile-viewer"
-              element={
-                <ProtectedRoute
-                  element={<TeacherProfileViewer logOutFunction={logOutUser} />}
-                />
-              }
-            />
-            
+            element={
+              <ProtectedRoute
+                element={<TeacherProfileViewer logOutFunction={logOutUser} />}
+              />
+            }
+          />
         </Routes>
       </LoggedInContext.Provider>
     </UserContext.Provider>
