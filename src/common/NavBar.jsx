@@ -70,9 +70,6 @@ export default function NavBar({
                   {user.name.toUpperCase()}
                   {popup && <NavBarPopUp logOutFunction={logOutFunction} />}
                 </div>
-                <div className={styles.LoginText} onClick={logOutFunction}>
-                  LOGOUT
-                </div>
               </div>
             )}
             {!isLoggedIn && (
