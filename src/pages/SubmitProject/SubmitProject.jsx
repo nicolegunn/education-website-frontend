@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { PickerOverlay } from "filestack-react-18";
+// import { PickerOverlay } from "filestack-react-18";
 
 import SideBar from '../../common/SideBar'
 import styles from './SubmitProject.module.css'
+import FileStack from './components/FileStack.jsx'
 
 import DashboardNavbar from '../../common/DashboardNavbar'
 import DashboardFooter from '../../common/DashboardFooter'
@@ -15,19 +16,56 @@ import submitProjectPhoto from "../../assets/StudentDashboard/submitProject-Phot
 import callTeacher from "../../assets/StudentDashboard/callTeacher.png"
 import DashboardContent from '../../common/DashboardContent'
 
-export default function SubmitProject({port}) {
+export default function SubmitProject({ port }) {
 
   // const FileStack = () => {
   //   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false);
   //   const [imageUrl, setImageUrl] = useState();
   
-  //   //About using environment variables in react => https://create-react-app.dev/docs/adding-custom-environment-variables/
   //   const FILESTACK_API_KEY = process.env.REACT_APP_FILESTACK_API_KEY
   
   //   const handleVisible = () => {
   //     setIsPickerOverlayVisible(!isPickerOverlayVisible);
-  //   };  
+  //   };
+  // }
 
+  //state for storing the image URL
+  const [imageUrl, setImageUrl] = useState(null);
+
+//   const [isSubmitted, setIsSubmitted] = useState(false);
+    
+//   useEffect(() => {
+//     if (isSubmitted) {
+//       fetch('/submit-project', {
+//         method: 'POST',
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({})
+//       })
+//         .then((res) => {
+//           console.log(res);
+//         })
+//         .catch((err) => console.log(err));
+//     }
+// }, [isSubmitted]);
+
+//   const handleSubmit = () => {
+//     setIsSubmitted(true);
+//   };
+
+const handleSubmit = () => {
+  fetch('/submit-project', {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({})
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.error('Error:', err);
+    });
+};
+  
   return (
     <>
       {/* Header */}
@@ -54,7 +92,8 @@ export default function SubmitProject({port}) {
 
               <div className={styles.ButtonContainer}>
                 <button className={styles.Button}>
-                  <img src={sendPhoto} alt="submit project image" width="20%" />
+                  <FileStack setImageUrl={setImageUrl} />
+                  <img src={sendPhoto} alt="submit project image" width="20%" onClick={handleSubmit} />
                   <br />
                   Send Photo
                 </button>
