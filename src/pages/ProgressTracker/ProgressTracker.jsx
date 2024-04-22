@@ -11,7 +11,7 @@ export default function ProgressTracker({port}) {
     const [data, setData] = useState([]);
     //useEffect to get apis
     useEffect(() => {
-      fetch(`http://localhost:${port}/student`)
+      fetch(`http://localhost:${port}/students`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
