@@ -58,6 +58,43 @@ export default function Login({
       });
   };
 
+// signup for teacher or student
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      // Show an error message that passwords do not match
+      return;
+    }
+    let userType;
+    if (e.target.name === "student") {
+      userType = "student";
+    } else if (e.target.name === "teacher") {
+      userType = "teacher";
+    }
+    axios({
+      
+        method: 'post', 
+        url: `http://localhost:${port}/signup`,
+        headers:{},
+        body:{
+          name: name,
+          email: email,
+          password: password,
+          userType: userType,
+        }}
+      )
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 200) {
+          // User registered successfully
+          // You can redirect to login page here
+        } else {
+          // Show error message
+        }
+      });
+  };
+
   return (
     <>
       {showLogin && (
@@ -152,13 +189,16 @@ export default function Login({
                           />
                         </>
                       )}
+
+                      {/* Submit */}
                       <input
                         className={styles.submitButton}
                         type="submit"
                         value="Submit"
-                        onClick={handleLogin}
-                        name="student"
+                        onSubmit={handleSignup}
+                        name="student" // or "teacher" for teacher signup form
                       ></input>
+
                     </form>
                   </div>
                   <div className={styles.sectionRight}>
