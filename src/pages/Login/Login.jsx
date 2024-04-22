@@ -65,6 +65,7 @@ export default function Login({
       // Show an error message that passwords do not match
       return;
     }
+    //Adding some dummy data to the other columns so entire row in database is complete
     let userData = {
       name: name,
       email: email,
