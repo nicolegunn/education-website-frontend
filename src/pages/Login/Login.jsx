@@ -11,7 +11,6 @@ export default function Login({
   updateShowLogin,
   logInFunction,
 }) {
-
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
 
@@ -40,6 +39,7 @@ export default function Login({
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     axios
       .post(`http://localhost:${port}/login`, {
         email: email,
@@ -47,7 +47,6 @@ export default function Login({
         type: e.target.name,
       })
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           const userData = { ...res.data[0], user_type: e.target.name };
 
@@ -56,6 +55,56 @@ export default function Login({
           //Add some code here
         }
       });
+  };
+
+  // signup for teacher or student
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      // Show an error message that passwords do not match
+      return;
+    }
+    //Adding some dummy data to the other columns so entire row in database is complete
+    let userData = {
+      name: name,
+      email: email,
+      password: password,
+      school: "Mission X Primary School",
+      profile_pic: "/images/Avatar-white.png",
+      date_of_birth: "1980-01-01",
+      contact_number: "021-123-456",
+      type: e.target.name,
+    };
+    if (userData.type === "student") {
+      userData = {
+        ...userData,
+        date_of_birth: "2014-01-01",
+        teacher_id: 1,
+        course: "intermediate",
+      };
+    }
+
+    axios.post(`http://localhost:${port}/signup`, userData).then((res) => {
+      if (res.status === 200) {
+        handleLogin(e);
+        // User registered successfully
+        // You can redirect to login page here
+      } else {
+        // Show error message
+      }
+    });
+  };
+
+  const selectHandler = (e) => {
+    if (
+      (e.target.name === "student" && isStudentLogin) ||
+      (e.target.name === "teacher" && isTeacherLogin)
+    ) {
+      handleLogin(e);
+    } else {
+      handleSignup(e);
+    }
   };
 
   return (
@@ -68,6 +117,7 @@ export default function Login({
                 <div className={styles.containerHeader}>
                   <div className={styles.headerLeft} />
                   <div className={styles.headerRight}>
+                    {/* Cross on top right of login pop up to close it */}
                     <img
                       style={{ height: "30px" }}
                       src={imageCrosshair}
@@ -81,6 +131,7 @@ export default function Login({
                     <img style={{ height: "15em" }} src={imageStudent} />
                     <p className={styles.classSelector1}>Student</p>
                     <div className={styles.loginSignup}>
+                      {/* Log In Heading*/}
                       <p
                         style={{
                           marginRight: "20px",
@@ -91,6 +142,7 @@ export default function Login({
                       >
                         Log In
                       </p>
+                      {/* Sign up Heading*/}
                       <p
                         style={{
                           marginLeft: "20px",
@@ -102,6 +154,7 @@ export default function Login({
                         Sign Up
                       </p>
                     </div>
+                    {/* These two inputs show when isStudentLogin is true */}
                     <form className={styles.formsLayout}>
                       {isStudentLogin ? (
                         <>
@@ -122,6 +175,7 @@ export default function Login({
                         </>
                       ) : (
                         <>
+                          {/* The following inputs show up when isStudentLogin is false */}
                           <input
                             className={styles.inputField}
                             type="text"
@@ -141,7 +195,7 @@ export default function Login({
                             type="password"
                             placeholder="Password"
                             onChange={handleInput}
-                            id="password"
+                            name="password"
                           />
                           <input
                             className={styles.inputField}
@@ -152,12 +206,14 @@ export default function Login({
                           />
                         </>
                       )}
+
+                      {/* Submit */}
                       <input
                         className={styles.submitButton}
                         type="submit"
                         value="Submit"
-                        onClick={handleLogin}
-                        name="student"
+                        onClick={selectHandler}
+                        name="student" // or "teacher" for teacher signup form
                       ></input>
                     </form>
                   </div>
@@ -187,6 +243,7 @@ export default function Login({
                       </p>
                     </div>
                     <form className={styles.formsLayout}>
+                      {/* These two inputs show when isTeacherLogin is true */}
                       {isTeacherLogin ? (
                         <>
                           <input
@@ -206,6 +263,7 @@ export default function Login({
                         </>
                       ) : (
                         <>
+                          {/* These inputs show when isTeacherLogin is false */}
                           <input
                             className={styles.inputField}
                             type="text"
@@ -240,7 +298,7 @@ export default function Login({
                         className={styles.submitButton}
                         type="submit"
                         value="Submit"
-                        onClick={handleLogin}
+                        onClick={selectHandler}
                         name="teacher"
                       ></input>
                     </form>

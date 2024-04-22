@@ -42,7 +42,7 @@ return (
   <div>
     {projects.map((item, index) => {
       return (
-        <div className={styles.submitedProject} key={index}>
+        <div className={styles.submittedProject} key={index}>
           <div>
             {item.profilePicture && (
               <img
