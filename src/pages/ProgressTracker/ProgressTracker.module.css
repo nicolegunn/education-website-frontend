@@ -28,15 +28,46 @@
 
 .H2Content, .PContent {
   color: #6C6C6C;
-  font-weight: bold;
+  font-weight: semi-bold;
+  font-family: sans;
 
 }
 
 .H2Content {
   padding-bottom: 2%;
+  font-size: medium;
 }
 
 .PContent {
   margin-left: auto;
 
+}
+
+.Style {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.NameCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6C6C6C;
+}
+
+.Circ {
+  text-align: center;
+  justify-content: center;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(213, 38, 38);
 }

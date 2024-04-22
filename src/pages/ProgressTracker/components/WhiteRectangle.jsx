@@ -12,9 +12,6 @@ function WhiteRectangle ({name, level}) {
                 {name} <br/>
                 {level}
             </div>
-            <div>
-                <Circles />
-            </div>
         </div>
     )
 }
