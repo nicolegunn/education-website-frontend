@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../../context";
+import { useState, useEffect } from "react";
 import { DateTime } from 'luxon';
 
 // import axios from

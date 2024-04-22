@@ -8,7 +8,7 @@ function StudentProfiles({ port }) {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:${port}/student`)
+    fetch(`http://localhost:${port}/students`)
       .then((response) => response.json())
       .then((data) => {
         setStudents(data);
