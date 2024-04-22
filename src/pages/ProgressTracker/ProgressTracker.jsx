@@ -5,16 +5,21 @@ import WhiteRectangle from './components/WhiteRectangle.jsx';
 import Footer from '/src/common/DashboardFooter.jsx';
 import SideBar from '../../common/SideBar';
 import TeacherDashboardNavbar from '../../common/TeacherDashboardNavbar.jsx'; 
+import Circles from './components/Circles.jsx';
 
 export default function ProgressTracker({port}) {
     //useState to get student data
     const [data, setData] = useState([]);
     //useEffect to get apis
     useEffect(() => {
-      fetch(`http://localhost:${port}/student`)
+      fetch(`http://localhost:${port}/student-progress-tracker`)
       .then((response) => response.json())
       .then((data) => {
-        setData(data);
+        const parsedData = data.map(student => ({
+          ...student,
+          projects:JSON.parse(student.projects)
+        }))
+        setData(parsedData);
       })
       .catch((error) => {
         console.error("err", error)
@@ -32,9 +37,18 @@ export default function ProgressTracker({port}) {
                 <p className={styles.PContent}>Export as spreadsheet</p>
                 <h2 className={styles.H2Content}>BEGINNER COURSE</h2>
                 {data.map((student, index) => (
-                  <WhiteRectangle key={index} name={student.name} level={student.course} />
+                  <div key={index} className={styles.Style}>
+                    <div key={`white-${index}`}  className= {styles.NameCont}>
+                    <WhiteRectangle name={student.name} level={`${student.completed_projects_count} ` + '/ 15 projects completed'}/>
+                    </div>
+                    {student.projects.map((project, projectKey) => (
+                      <div key={`circle-${projectKey}`} className={styles.Circ}>
+                      <Circles number={project.project_id} project={project.project_details}/>
+                      </div>
+                    ))}
+                  </div>
                 ))}
-              </div>
+              </div>  
           </div>
     <Footer />
    </div>
