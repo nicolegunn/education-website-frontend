@@ -131,3 +131,15 @@ background-color: rgb(209, 105, 8);
     gap: 0px; 
     margin-left: 40px; 
 }
+.ProjectHeading{
+    font-size: 20px;
+    font-family: Nunito, sans-serif;
+    color: #6C6C6C;
+    font-weight: bold;
+}
+.ProjectSubheading{
+    font-size: 11px;
+    font-family: Open Sans, Regular;
+    color: #6C6C6C;
+    font-weight: bold;
+}
