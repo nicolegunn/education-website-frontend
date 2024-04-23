@@ -71,7 +71,7 @@ export default function Login({
       email: email,
       password: password,
       school: "Mission X Primary School",
-      profile_pic: "/images/Avatar-white.png",
+      profile_pic: "/images/Avatar-blue.png",
       date_of_birth: "1980-01-01",
       contact_number: "021-123-456",
       type: e.target.name,
