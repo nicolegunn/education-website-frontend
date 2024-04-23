@@ -8,7 +8,7 @@ export default function MakeProject() {
   return (
     <>
       {/*Displays StudentDashboard Navigation bar */}
-      <DashboardNavbar projectTitle="Project" subTitle="Introduction" />
+      <DashboardNavbar projectTitle="PROJECT" subTitle="Introduction" />
       {/*Displays Sidebar and buttons */}
       <div className={styles.Layout}>
         <div className={styles.Colunmn}>
