@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState} from "react";
 import { UserContext, LoggedInContext } from "./context.js";
 
 import Home from "./pages/Home/Home.jsx";

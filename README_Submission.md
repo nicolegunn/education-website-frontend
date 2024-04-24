@@ -56,7 +56,7 @@ Complete the following steps to set up and run the project in development mode:
 
 A context called UserContext, created using the React useContext hook, holds all user information for a logged in user except for the user's password. <br/>
 This context is based on the user state variable which is held in the top level App component, and is updated using the setUser function when a user logs in. <br/>
-Upon login all fields (other than password) from the student or teacher table are returned in the response to a get request which is actioned upon login. <br/>
+Upon login all fields (other than password) from the student or teacher table of the MySQL database are returned in the response to a get request which is actioned upon login. <br/>
 A key called user_type (student or teacher) is added to the UserContext together with the fields and corresponding values from the MySQL database query.
 
 The UserContext is available to all components within the project, and is used within the sidebar on the Student and Teacher Dashboards (profile_pic), the Student and Teacher Profile Viewers, the Project Library (user_type) and the navigation bar at the top of the Home, ProjectLibrary and Profile Viewer Pages.
@@ -136,7 +136,8 @@ When a filter checkbox or button is clicked, the handleFilter function is called
 
 The handleFilter function passes the existing filtersObj state variable to the createFilter function, together with details of the name (representing the group of checkboxes or FilterButtons to which the checkbox or button belongs), the id of the checkbox or filter (equivalent to its label) and a boolean value indicating whether it has been selected or de-selected.
 
-The createFilter function creates a new filter object by creating a copy of the existing filtersObj and adding or removing the value (which is an adjusted version of the checkbox or button's id property) from the appropriate array. <br/> The appropriate array is selected using the name property of the checkbox or filter selected.
+The createFilter function creates a new filter object by creating a copy of the existing filtersObj and adding or removing the value (which is an adjusted version of the checkbox or button's id property) from the appropriate array. <br/> The appropriate array is selected using the name property of the checkbox or filter selected. <br/>
+The name properties of the checkboxes and filters match the keys within the filter objects.
 
 The updated filter object is passed to the newFilteredProjects function which returns a filtered version of the allProjects array.
 
@@ -160,6 +161,7 @@ The ProfileViewer component takes the following props:
 
 - buttons
   - This prop holds the names of the buttons that are rendered on the PhotoCard component.
+  - These differ depending on the user_type.
 - cardFields
   - This prop holds the labels and values of each field mapped in the ProfileCard componet.
 - navButtons
