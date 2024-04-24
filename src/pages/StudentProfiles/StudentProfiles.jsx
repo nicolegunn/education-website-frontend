@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./StudentProfile.module.css";
 import SideBar from "../../common/SideBar";
 import Footer from "../../common/DashboardFooter";
@@ -25,7 +26,8 @@ function StudentProfiles({ port }) {
         <SideBar dashboard="teacher" />
         <div className={styles.Rectangle}>
           {students.map((student, index) => (
-            <div className={styles.StudentCard} key={index}>
+            <Link to='/student-profile-viewer'>
+            <div className={styles.StudentCard} key={index} >
               <img
                 className={styles.StudentImg}
                 src={student.profile_pic}
@@ -33,6 +35,7 @@ function StudentProfiles({ port }) {
               />
               <h2 className={styles.StudentName}>{student.name}</h2>
             </div>
+            </Link>
           ))}
         </div>
         <Footer />

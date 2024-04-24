@@ -7,17 +7,17 @@
 .Rectangle {
   background-color: #ffffff80;
   border-radius: 30px;
-  width: 100%;
+  width: 70%;
   height: 60%;
   margin: 40px;
   padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   justify-content: center;
   align-items: center;
   column-gap: 50px;
-  overflow: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  padding-right: 4em;
+  column-gap: 20px;
 }
 
 .Content {
@@ -29,7 +29,7 @@
 .H2Content, .PContent {
   color: #6C6C6C;
   font-weight: semi-bold;
-  font-family: sans;
+  font-family: open sans;
 
 }
 
@@ -50,8 +50,9 @@
   flex-wrap: wrap; 
   justify-content: space-between;
   align-items: center;
+  align-content: center;
   background-color: white;
-  padding: 1px;
+  padding: 10px;
   margin: 10px;
   border-radius: 15px;
 }
@@ -61,6 +62,7 @@
   align-items: center;
   justify-content: center;
   color: #6C6C6C;
+  margin: 10px;
 }
 
 .Circ {
@@ -68,6 +70,20 @@
   justify-content: center;
 }
 
-::-webkit-scrollbar-track {
-  background-color: rgb(213, 38, 38);
+.Rectangle::-webkit-scrollbar {
+  width: 1em;
+  margin-left: 4em;
+  padding-right: 5rem;
+
+}
+.Rectangle::-webkit-scrollbar-track {
+  background-color: white;
+  border-radius: 100vw;
+  margin-block: 4em;
+}
+
+.Rectangle::-webkit-scrollbar-thumb {
+  background-color: #B2E4FA;
+  border: .2em solid white;
+  border-radius: 100vw;
 }
