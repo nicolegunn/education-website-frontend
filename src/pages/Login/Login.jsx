@@ -40,6 +40,12 @@ export default function Login({
   const handleLogin = (e) => {
     e.preventDefault();
 
+    // Check if fields are empty
+    if (!email || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+    
     axios
       .post(`http://localhost:${port}/login`, {
         email: email,
@@ -61,8 +67,14 @@ export default function Login({
 
   const handleSignup = (e) => {
     e.preventDefault();
+    // Check if fields are empty
+    if (!name || !email || !password || !confirmPassword) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     if (password !== confirmPassword) {
-      // Show an error message that passwords do not match
+      alert("Passwords do not match");
       return;
     }
     //Adding some dummy data to the other columns so entire row in database is complete
