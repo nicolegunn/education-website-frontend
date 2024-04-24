@@ -27,11 +27,11 @@ Complete the following steps to set up and run the project in development mode:
    ```
 3. Navigate to the backend folder and install dependencies
    ```
-   npm i or npm install
+   npm i
    ```
 4. Navigate to the frontend folder and install dependencies
    ```
-   npm i or npm install
+   npm i
    ```
 5. Navigate to the backend folder and start the server
    ```
@@ -52,32 +52,55 @@ Complete the following steps to set up and run the project in development mode:
 
 ### Protected Routes - Andrei
 
-### UserContext - Nicole
+### UserContext
+
+A context called UserContext, created using the React useContext hook, holds all user information for a logged in user except for the user's password. <br/>
+This context is based on the user state variable which is held in the top level App component, and is updated using the setUser function when a user logs in. <br/>
+Upon login all fields (other than password) from the student or teacher table are returned in the response to a get request which is actioned upon login. <br/>
+A key called user_type (student or teacher) is added to the UserContext together with the fields and corresponding values from the MySQL database query.
+
+The UserContext is available to all components within the project, and is used within the sidebar on the Student and Teacher Dashboards (profile_pic), the Student and Teacher Profile Viewers, the Project Library (user_type) and the navigation bar at the top of the Home, ProjectLibrary and Profile Viewer Pages.
 
 ## Project Library
 
-Upon login a student will be directed to the project-library.
-Available projects are stored in a MySQL database within the project table.
-All projects are mapped from this database and displayed on the project-library page.
+The main purpose of this page is to allow students to select a project. <br/>
+Upon login a student will be directed to the Project Library page.
+
+A project is represented on the page by a ProjectCard component which includes an image representing the project. <br/>
+A student may click on a ProjectCard which will take the student to the Instructions page for the selected project. <br/>
+The Instructions page is the first page of the Student Dashboard.
+
+Teachers are also able to access the Project Library, however they should not be able to access the Student Dashboard by clicking on a project.
+
+For the purposes of Mission X, only one project can be accessed, and teacher access has not been restricted.
+
+Available projects are stored in a MySQL database in a table named project. <br/>
+All projects are selected from this database and stored in an array of objects, each representing a project, which is used to render ProjectCard components onto the Project Library page.
+
+The user can apply a number of filters which filter the available projects so that only those meeting the user's selected criteria are displayed.
 
 ### Navigation
 
-From the project-library a student may navigate to the instructions for a given project by clicking on the project container.
-For the purposes of Mission X this has only been implemented for project 1.
+Upon login a student will be directed to the Project Library page. <br/>
+If the user is a teacher, they can navigate to the Project Library from the sidebar within the Teacher Dashboard page. <br/>
+A user can also navigate to the Project Library via the navigation bar at the top of their Profile Viewer Page or the Home Page (when logged in).
+
+From the Project Library a student may navigate to the Instructions page for a selected project by clicking on the corresponding ProjectCard. <br/>
+For the purposes of Mission X, this has only been implemented for Project 1.
 
 Teacher access should be restricted so that only students can navigate to the instructions for a given project, however this has not been implemented in Mission X.
 
-Using the navigation bar at the top of the project-library page, a user may navigate to the home page, their profile page or the first page of their dashboard.
+Using the navigation bar at the top of the Project Library page, a user may navigate to the Home page, their Profile Viewer page or the first page of their Dashboard.
 
-If the user is a student, clicking on PROFILE in the nav bar will take them to the student-profile-viewer.
-If the user is a teacher, clicking on PROFILE in the nav bar will take them to the teacher-profile-viewer.
+If the user is a student, clicking on PROFILE in the navigation bar will take them to the Student Profile Viewer.
+If the user is a teacher, clicking on PROFILE in the navigation bar will take them to the Teacher Profile Viewer.
 
-If the user is a student, clicking on DASHBOARD in the nav bar will take them to the first page of the student-dashboard (instructions for project 1).
-If the user is a teacher, clicking on DASHBOARD in the nav bar will take them to the first page of the teacher-dashboard (student-profiles).
+If the user is a student, clicking on DASHBOARD in the navigation bar will take them to the first page of the Student Dashboard (Instructions for Project 1).
+If the user is a teacher, clicking on DASHBOARD in the navigation bar will take them to the first page of the Teacher Dashboard (Student Profiles).
 
-A button is included after the project images which will take the user back to the top of the page.
+A button is included below the ProjectCard components which will take the user back to the top of the page.
 
-If the user is a teacher, an additional button is included which will take the teacher to the first page of the teacher-dashboard (student-profiles).
+If the user is a teacher, an additional button is included which will take the teacher to the first page of the Teacher Dashboard (Student Profiles).
 
 ### Filter Logic
 
@@ -87,11 +110,64 @@ A user can filter by:
 - Activity type
 - Year level
 - Subject matter
-- Course level - Beginner - Intermediate - Advanced
-  The user can also select how many projects to display on the page, with the options being 5, 10 or All.
-  If no filters are selected in any given filter category, then no filters are applied in that category.
+- Course level
+  - Beginner
+  - Intermediate
+  - Advanced
 
-## User Profile Pages - Nicole
+The user can also select how many projects to display on the page, with the options being 5, 10 or All.
+
+If no filters are selected in any given filter category, then no filters from that category are applied.
+
+Three state variables are used in the filtering process:
+
+- allProjects
+  - An array of objects, each representing a project.
+  - Set upon mount using a get request which returns all projects from the project table within the mySQL database.
+- filtersObj
+  - An object holding an array for each filter type.
+  - The object keys match the field names in the MySQL project table.
+  - Each filter is set to an empty array upon mount.
+- filteredProjects
+  - An array of objects representing the filtered projects.
+  - This array is used to render the ProjectCard components using the map Array method.
+
+When a filter checkbox or button is clicked, the handleFilter function is called by the handleChange or handleClick function associated with the CheckboxFilter or ButtonFilter component.
+
+The handleFilter function passes the existing filtersObj state variable to the createFilter function, together with details of the name (representing the group of checkboxes or FilterButtons to which the checkbox or button belongs), the id of the checkbox or filter (equivalent to its label) and a boolean value indicating whether it has been selected or de-selected.
+
+The createFilter function creates a new filter object by creating a copy of the existing filtersObj and adding or removing the value (which is an adjusted version of the checkbox or button's id property) from the appropriate array. <br/> The appropriate array is selected using the name property of the checkbox or filter selected.
+
+The updated filter object is passed to the newFilteredProjects function which returns a filtered version of the allProjects array.
+
+The setFiltersObj and setFilteredProjects state updating functions are then called with the new filter object and new filtered projects array.
+
+The filteredProjects state variable is then used to render the ProjectCard components using the map Array method.
+
+## User Profile Pages
+
+The Profile Pages display the information about the logged in user sourced from the student or teacher table in the MySQL database.
+
+The StudentProfileViewer and TeacherProfileViewer both utilize the ProfileViewer component. <br/>
+The ProfileViewer includes two main components:
+
+- PhotoCard
+  - Includes the users profile image and buttons.
+- ProfileCard
+  - Includes information about the user sourced from the student or teacher table in the MySQL database.
+
+The ProfileViewer component takes the following props:
+
+- buttons
+  - This prop holds the names of the buttons that are rendered on the PhotoCard component.
+- cardFields
+  - This prop holds the labels and values of each field mapped in the ProfileCard componet.
+- navButtons
+  - This prop holds the text and links passed to the NavBar component.
+  - These differ depending on the user_type.
+- logOutFunction
+  - This is the logOutUser function passed down from App.jsx.
+  - When a user logs out the UserContext is set to a blank array with a default avatar profile picture and the user is redirected to the Home page.
 
 ## Student Dashboard
 

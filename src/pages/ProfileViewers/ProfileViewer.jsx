@@ -16,10 +16,10 @@ const btnStyles = {
 };
 
 export default function ProfileViewer({
-  buttons,
-  cardFields,
-  navButtons,
-  logOutFunction,
+  buttons, //The labels of buttons in the PhotoCard component.
+  cardFields, //The fields and values mapped in the ProfileCard component.
+  navButtons, //The text and links mapped into the NavBar.
+  logOutFunction, //The logOutUser function passed down from App.jsx.
 }) {
   const userType = useContext(UserContext).user_type;
   return (
