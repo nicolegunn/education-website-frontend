@@ -1,24 +1,25 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./DashboardNavbar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/NavBar/LevelUpWorks-blue.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function DashboardNavbar(props,{ port }) {
+export default function DashboardNavbar(props,{port}) {
 
 
   {/*Start Project button color and text changes when project is submitted */}
     const [projectSubmission, setProjectSubmission] = useState([]);
   
-    // useEffect(() => {
-    //   fetch(`http://localhost:${port}/projects/1/instructions`)
-    //     .then((response) => response.json())
-    //     .then((result) => {
-    //       setProjectInstructions(result[0].instructions);
-    //     });
-    // }, []);
+    useEffect(() => {
+      fetch(`http://localhost:${port}/project-submissions`)
+        .then((response) => response.json())
+        .then((result) => {
+          setProjectSubmission(result[0].submission);
+        });
+    }, []);
+
 
 
 
@@ -55,9 +56,17 @@ export default function DashboardNavbar(props,{ port }) {
   }
 
   {/*Start Project button function */}
+  const [buttonText, setButtonText] = useState("Start Project");
   function projectStart() {
+    setButtonText(buttonText === "Start Project" ? "Submit Project" : 'Start Project');
     alert("Nice one, project successfully started!");
+    if (projectSubmission==!""){
+      setButtonText(buttonText == "Project Submitted")
+    }
+
   }
+ 
+
   return (
     <>
       <div className={styles.Navbar}>
@@ -96,9 +105,8 @@ export default function DashboardNavbar(props,{ port }) {
         <div className={styles.Btn}>
 
           {/*Start Project button */}
-          <button onClick={projectStart} className={styles.Navbtn1}>
-            Start Project
-          </button>
+          <button onClick={projectStart} className={styles.Navbtn1}>{buttonText}</button>
+         
 
           {/* Ask Teacher for Help button */}
           <button onClick={clickMe} className={styles.Navbtn2}>
