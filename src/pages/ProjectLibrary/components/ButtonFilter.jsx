@@ -23,7 +23,7 @@ export default function ButtonFilter({
       {buttons.map((btn) => {
         return (
           <button
-            key={btn} //I've used btn label as key, as these should always be unique.
+            key={btn} //I've used btn label as key, as these will always be unique.
             id={btn}
             name={name}
             onClick={(e) => handleClick(e)}

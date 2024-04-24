@@ -1,3 +1,4 @@
+// Labels for the CheckBoxFilter components
 const filters = {
   course: ["beginner", "intermediate", "advanced"],
   subscription: ["free", "premium"],
@@ -13,35 +14,36 @@ const filters = {
   ],
 };
 
-//This function creates an object of filters that can then be applied to the projects array using the filterProjects function.
+// This function creates an object of filters that can then be applied to the projects array using the filterProjects function.
 function createFilter(existingFiltersObject, id, name, selected) {
   let value = id.toLowerCase();
   let newFiltersObject = { ...existingFiltersObject };
 
-  //The switch statement updates the filterObjCopy to include or remove filters based on the selected or unselected filter
+  // The switch statement updates the filterObjCopy to include or remove filters based on the selected or unselected filter.
   switch (name) {
     case "pages":
-      //No filter is applied if "all" is selected
+      // No filter is applied if "all" is selected.
       value === "all"
         ? (newFiltersObject.pages = [])
         : (newFiltersObject.pages[0] = Number(value));
       break;
     case "course":
-      //Only one course type can be selected at a time
+      // Only one course type can be selected at a time.
       newFiltersObject.course[0] = value;
       break;
     case "year_level":
-      //Converts the selected range of year levels into separate array items
+      // Converts the selected range of year levels into separate array items.
       const min = Number(id[0]);
       const max = Number(id.slice(2));
       value = [...Array(max - min + 1).keys()].map((key) => key + min);
       selected
         ? newFiltersObject.year_level.push(...value)
+        // Returns an array of year_levels that don't include those in the value array.
         : (newFiltersObject.year_level = newFiltersObject.year_level.filter(
             (num) => value.indexOf(num) < 0
           ));
       break;
-    //default will run for the remaining three filter options: subscription, activity_type and subject_matter
+    // Default will run for the remaining three filter options: subscription, activity_type and subject_matter.
     default:
       selected
         ? newFiltersObject[name].push(value)
@@ -53,12 +55,13 @@ function createFilter(existingFiltersObject, id, name, selected) {
   return newFiltersObject;
 }
 
-//This function applies an object of filters to an array of projects
+// This function applies an object of filters to an array of projects.
 function filterProjects(filterObj, projectsArray) {
   let newFilteredProjects = [];
   const activeFilters = {};
   const filterKeys = Object.keys(filterObj);
-  //Adds active filters to the activeFilters object, which was originally initialized as an empty object
+  // Adds active filters to the activeFilters object, which was originally initialized as an empty object.
+  // If no checkboxes or buttons within a group are selected then no filters are applied from that group of filters.
   for (let key of filterKeys) {
     if (filterObj[key].length !== 0) {
       activeFilters[key] = filterObj[key];
