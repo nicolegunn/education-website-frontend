@@ -1,17 +1,13 @@
 import React from "react";
-import Circles from "./Circles.jsx"
 import styles from "./WhiteRectangle.module.css"
 
 
 function WhiteRectangle ({name, level}) {
     
-    
-    return (
+   return (
         <div className={styles.Style}>
-            <div className={styles.NameCont}>
-                {name} <br/>
-                {level}
-            </div>
+            <h3>{name}</h3>
+            {level}
         </div>
     )
 }

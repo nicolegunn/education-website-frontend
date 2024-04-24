@@ -48,7 +48,7 @@ export default function ProgressTracker({port}) {
                     ))}
                   </div>
                 ))}
-              </div>  
+              </div>
           </div>
     <Footer />
    </div>

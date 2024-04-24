@@ -25,7 +25,7 @@ function StudentProfiles({ port }) {
         <SideBar dashboard="teacher" />
         <div className={styles.Rectangle}>
           {students.map((student, index) => (
-            <div className={styles.StudentCard} key={index}>
+            <div className={styles.StudentCard} key={index} >
               <img
                 className={styles.StudentImg}
                 src={student.profile_pic}
