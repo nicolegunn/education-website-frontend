@@ -21,11 +21,9 @@ const PORT = 4000;
 
 // This function is used to protect routes that require the user to be logged in
 function ProtectedRoute({ element }) {
-  return true ? ( //replace true with useContext(LoggedInContext) upon completion
-    element
-  ) : (
-    <Navigate to="/" />
-  );
+  const isLoggedIn = useContext(LoggedInContext);
+  
+  return isLoggedIn ? element : <Navigate to="/" />;
 }
 
 function App() {
