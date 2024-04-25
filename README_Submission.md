@@ -67,8 +67,8 @@ The main purpose of this page is to allow students to select a project. <br/>
 Upon login a student will be directed to the Project Library page.
 
 A project is represented on the page by a ProjectCard component which includes an image representing the project. <br/>
-A student may click on a ProjectCard which will take the student to the Instructions page for the selected project. <br/>
-The Instructions page is the first page of the Student Dashboard.
+A student may click on a ProjectCard which will take the student to the Learning Objectives page for the selected project. <br/>
+The Learning Objectives page is the first page of the Student Dashboard.
 
 Teachers are also able to access the Project Library, however they should not be able to access the Student Dashboard by clicking on a project.
 
@@ -85,17 +85,17 @@ Upon login a student will be directed to the Project Library page. <br/>
 If the user is a teacher, they can navigate to the Project Library from the sidebar within the Teacher Dashboard page. <br/>
 A user can also navigate to the Project Library via the navigation bar at the top of their Profile Viewer Page or the Home Page (when logged in).
 
-From the Project Library a student may navigate to the Instructions page for a selected project by clicking on the corresponding ProjectCard. <br/>
+From the Project Library a student may navigate to the Learning Objectives page for a selected project by clicking on the corresponding ProjectCard. <br/>
 For the purposes of Mission X, this has only been implemented for Project 1.
 
-Teacher access should be restricted so that only students can navigate to the instructions for a given project, however this has not been implemented in Mission X.
+Teacher access should be restricted so that only students can navigate to the Learning Objectives for a given project, however this has not been implemented in Mission X.
 
 Using the navigation bar at the top of the Project Library page, a user may navigate to the Home page, their Profile Viewer page or the first page of their Dashboard.
 
 If the user is a student, clicking on PROFILE in the navigation bar will take them to the Student Profile Viewer.
 If the user is a teacher, clicking on PROFILE in the navigation bar will take them to the Teacher Profile Viewer.
 
-If the user is a student, clicking on DASHBOARD in the navigation bar will take them to the first page of the Student Dashboard (Instructions for Project 1).
+If the user is a student, clicking on DASHBOARD in the navigation bar will take them to the first page of the Student Dashboard (Learning Objectives for Project 1).
 If the user is a teacher, clicking on DASHBOARD in the navigation bar will take them to the first page of the Teacher Dashboard (Student Profiles).
 
 A button is included below the ProjectCard components which will take the user back to the top of the page.
@@ -174,14 +174,22 @@ The ProfileViewer component takes the following props:
 ## Student Dashboard
 
 ### Learning Objectives
-From the Project Library  student can navigate to the Learning Objective page for a selected project by clicking on the corresponding ProjectCard.It shows the learning objectives corresponding to the selected project from database.The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named learning_objective. <br/>
+
+From the Project Library student can navigate to the Learning Objective page for a selected project by clicking on the corresponding ProjectCard.It shows the learning objectives corresponding to the selected project from database.The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named learning_objective. <br/>
 For the purposes of Mission X, this has only been implemented for Project 1.
+
 ### Instructions
+
 It shows the Instructions corresponding to the selected project from database. The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named instructions.
+
 ### Video Tutorial
+
 It shows the Video corresponding to the selected project from database.The URL of youtube video link is stored in the project table of mySQL database where table column named video.
+
 ### Make Project
+
 It's a static page it shows the screenshot stored in the image folder.
+
 ### Submitting a Project
 
 ## Teacher Dashboard
