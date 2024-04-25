@@ -7,6 +7,9 @@ import { useState, useEffect } from "react";
 import DOMPurify from "dompurify";
 
 export default function Instructions({ port }) {
+  {
+    /*Fetching data from backend */
+  }
   const [projectInstructions, setProjectInstructions] = useState([]);
 
   useEffect(() => {
@@ -45,6 +48,7 @@ export default function Instructions({ port }) {
             </div>
           </div>
         </div>
+        {/*Displays Footer */}
         <DashboardFooter />
       </div>
     </>

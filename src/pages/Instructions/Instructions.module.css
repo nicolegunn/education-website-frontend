@@ -1,13 +1,3 @@
-/*Styling of content area in side bar */
-.Main {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  color: #707070;
-}
-
 /*Styling of dashboard right side of side bar */
 .Container {
   padding-left: 10%;
@@ -15,72 +5,15 @@
   text-align: left;
 }
 
-/*Styling of Title "Join Scratch" */
-.Title {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-family: Nunito, sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  color: #6c6c6c;
-}
-
-/*Styling of Text above image */
-.P1 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/*Styling of image */
-.Image {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/*Styling of text below image */
-.P3 {
-  width: 100%;
-}
-
-/*Styling of pink color text */
-.PinkcolorText {
-  color: #f91c85;
-}
-
-/*Styling of Studentdashboard sidebar*/
-.Sidebar {
-  background-color: #43c0f6;
-  grid-area: sidebar;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/*Styling of buttons on sidebar*/
-.Btn {
-  top: 143px;
-  margin-left: 0px;
-  width: 177px;
-  height: 40px;
-  background-color: #43c0f6;
-  color: white;
-  font-weight: 700;
-  border-width: 0;
-}
-
-.Active {
-  background-color: #b2e4fa;
-  color: gray;
-}
 /*Styling of whole area below navigation bar*/
 .Layout {
-  /* display: flex; */
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-areas: "sidebar main";
   background-color: #b2e4fa;
 }
+
 /*Styling of main content*/
 .CentreArea {
   text-align: center;
@@ -96,7 +29,6 @@
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 15px;
-  /* margin-bottom: 40px; */
   border-radius: 30px;
   height: 85vh;
 }

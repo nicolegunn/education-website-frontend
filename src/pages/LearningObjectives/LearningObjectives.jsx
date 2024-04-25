@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import DOMPurify from "dompurify";
 
 export default function LearningObjectives({ port }) {
-
+  {/*Fetching data from backend */}
   const [projectObjectives, setProjectObjectives] = useState([]);
 
   useEffect(() => {
@@ -42,8 +42,10 @@ export default function LearningObjectives({ port }) {
             </div>
           </div>
         </div>
+        {/*Displays Footer */}
         <DashboardFooter />
       </div>
     </>
   );
 }
+
