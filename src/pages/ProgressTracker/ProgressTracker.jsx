@@ -28,30 +28,32 @@ export default function ProgressTracker({port}) {
 
 
   return (
-    <div>
-       <TeacherDashboardNavbar />
-   <div className={styles.App}>
-    <SideBar className={styles.SideBar} dashboard="teacher"/>
-            <div className={styles.Rectangle}>
-              <div className={styles.Content}>
-                <p className={styles.PContent}>Export as spreadsheet</p>
-                <h2 className={styles.H2Content}>BEGINNER COURSE</h2>
-                {data.map((student, index) => (
-                  <div key={index} className={styles.Style}>
-                    <div key={`white-${index}`}  className= {styles.NameCont}>
+  <div>
+  <TeacherDashboardNavbar />
+    <div className={styles.App}>
+      <SideBar className={styles.SideBar} dashboard="teacher"/>
+        <div className={styles.Rectangle}>
+          <div className={styles.Content}>
+            <p className={styles.PContent}>Export as spreadsheet</p>
+              <h2 className={styles.H2Content}>BEGINNER COURSE</h2>
+              {/*map through first layer of data */}
+              {data.map((student, index) => (
+                <div key={index} className={styles.Style}>
+                  <div key={`white-${index}`}  className= {styles.NameCont}>
                     <WhiteRectangle name={student.name} level={`${student.completed_projects_count} ` + '/ 15 projects completed'}/>
-                    </div>
-                    {student.projects.map((project, projectKey) => (
-                      <div key={`circle-${projectKey}`} className={styles.Circ}>
-                      <Circles number={project.project_id} project={project.project_details}/>
-                      </div>
-                    ))}
                   </div>
+                  {/*second map to get info nested in 'projects' */}
+                  {student.projects.map((project, projectKey) => (
+                    <div key={`circle-${projectKey}`} className={styles.Circ}>
+                      <Circles number={project.project_id} project={project.project_details}/>
+                    </div>
+                  ))}
+                </div>
                 ))}
-              </div>
-          </div>
-    <Footer />
-   </div>
-   </div>
+          </div>     
+        </div>
+      <Footer />
+    </div>
+  </div>
   );
 }

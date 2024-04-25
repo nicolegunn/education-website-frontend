@@ -6,8 +6,9 @@ import Footer from "../../common/DashboardFooter";
 import TeacherDashboardNavbar from "../../common/TeacherDashboardNavbar";
 
 function StudentProfiles({ port }) {
+  //initializing an array to push data into
   const [students, setStudents] = useState([]);
-
+  //fetching data from API
   useEffect(() => {
     fetch(`http://localhost:${port}/students`)
       .then((response) => response.json())
@@ -21,20 +22,21 @@ function StudentProfiles({ port }) {
 
   return (
     <>
-      <TeacherDashboardNavbar />
+    <TeacherDashboardNavbar />
       <div className={styles.App}>
         <SideBar dashboard="teacher" />
-        <div className={styles.Rectangle}>
-          {students.map((student, index) => (
-            <Link to='/student-profile-viewer'>
-            <div className={styles.StudentCard} key={index} >
-              <img
+        {/*creating div to map through data to populate the student cards */}
+          <div className={styles.Rectangle}>
+            {students.map((student, index) => (
+            <Link to='/student-profile-viewer' style={{textDecoration: 'none'}} key={`studentCard-${index + 1}`}>
+              <div className={styles.StudentCard} >
+                <img
                 className={styles.StudentImg}
                 src={student.profile_pic}
-                alt={`Student ${index + 1}`}
-              />
-              <h2 className={styles.StudentName}>{student.name}</h2>
-            </div>
+                alt={student.name}
+                />
+                <h2 className={styles.StudentName}>{student.name}</h2>
+              </div>
             </Link>
           ))}
         </div>
