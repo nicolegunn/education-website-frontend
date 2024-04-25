@@ -42,13 +42,9 @@ Complete the following steps to set up and run the project in development mode:
    npm run dev
    ```
 
-## Routes - Eunhye - you may want to talk about the routes you set up, or delete
-
 ## Authentication
 
 ### Login Process
-
-**Login Process**
 
 1. **Prevent Default Form Submission**: The function starts by preventing the default form submission using `e.preventDefault()`. This is done to prevent the page from refreshing when the form is submitted.
 
@@ -239,13 +235,3 @@ It shows the Video corresponding to the selected project from database.The URL o
 ### Make Project
 
 It's a static page it shows the screenshot stored in the image folder.
-
-### Submitting a Project
-
-## Teacher Dashboard
-
-### Progress Tracker
-
-### Student Profiles
-
-### Project Submissions
