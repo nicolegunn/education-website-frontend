@@ -39,7 +39,7 @@ export default function Login({
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+  
     // Check if fields are empty
     if (!email || !password) {
       alert("Please fill in all fields");
@@ -55,13 +55,18 @@ export default function Login({
       .then((res) => {
         if (res.status === 200) {
           const userData = { ...res.data[0], user_type: e.target.name };
-
+  
           logInFunction(userData);
-        } else {
-          //Add some code here
+        }
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 401) {
+          alert("Incorrect Password"); // Alert for incorrect password
         }
       });
   };
+  
+
 
   // signup for teacher or student
 

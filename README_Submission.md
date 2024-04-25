@@ -48,6 +48,10 @@ Complete the following steps to set up and run the project in development mode:
 
 ### Login Process - Andrei
 
+How the login process works? Refer to this link for the full documentation
+
+https://miro.com/app/board/uXjVKVO8LPg=/
+
 ### Registering a New User - Andrei
 
 ### Protected Routes - Andrei
