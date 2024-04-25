@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "../context";
-import { Link } from "react-router-dom";
 import styles from "./SideBar.module.css";
 
 // Icon for common buttons
