@@ -38,15 +38,29 @@ export default function ProjectSubmissions({ port }) {
     setSelectedIds([])
   }
 
-  const handleCheckboxChange = (id) => {
-    // check if the clicked checkbox is already selected
-    const isSelected = selectedIds.includes(id);
+  // const handleCheckboxChange = (id) => {
+  //   // check if the clicked checkbox is already selected
+  //   const isSelected = selectedIds.includes(id);
 
-    if (isSelected) {
-      setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
-    } else {
-      setSelectedIds([...selectedIds, id]);
-    }
+  //   if (isSelected) {
+  //     setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
+  //   } else {
+  //     setSelectedIds([...selectedIds, id]);
+  //   }
+  // };
+
+  const handleCheckboxChange = (id) => {
+    setSelectedIds((prevState) => {
+      // Check if the clicked checkbox is already selected
+      const isSelected = prevState.includes(id);
+  
+      // Toggle the selected state based on the previous state
+      if (isSelected) {
+        return prevState.filter((selectedId) => selectedId !== id);
+      } else {
+        return [...prevState, id];
+      }
+    });
   };
 
   return (
@@ -84,7 +98,7 @@ export default function ProjectSubmissions({ port }) {
                         <div className={styles.CheckboxContainer}>
                           <input
                             type="checkbox"
-                            id={`checkbox-${user.id}`}
+                            id={`checkbox-${user.id}-${index}`}
                             className={styles.Checkbox}
                             onChange={() => handleCheckboxChange(user.id)}
                             checked={selectedIds.includes(user.id)}
@@ -102,7 +116,7 @@ export default function ProjectSubmissions({ port }) {
                           <h5> {user.name} submitted a project.</h5>
 
                           <img
-                            src={makeProjectScreenshot}
+                            src={user.submission}
                             alt="project submission"
                             className={styles.ScreenshotImg}
                           />
