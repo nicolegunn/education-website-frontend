@@ -17,6 +17,7 @@ export default function ProjectSubmissions({ port }) {
   const [userData, setUserData] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
   
   useEffect(() => {
     axios
@@ -62,6 +63,12 @@ export default function ProjectSubmissions({ port }) {
       }
     });
   };
+
+  const openImageModal = (imageSrc) => {
+    console.log("image");
+    setSelectedImage(imageSrc);
+    setOpenModal(true);
+  }
 
   return (
     <>
@@ -118,19 +125,20 @@ export default function ProjectSubmissions({ port }) {
                           <img
                             src={user.submission}
                             alt="project submission"
-                            className={styles.ScreenshotImg}
+                              className={styles.ScreenshotImg}
+                              onClick={() => openImageModal(user.submission)}
                           />
 
                           <button
                             className={styles.EnlargeButton}
                             onClick={() => {
-                              setOpenModal(true);
+                              setOpenModal(index);
                             }}
                           >
                             ENLARGE PHOTO
                           </button>
-                          {openModal && (
-                            <EnlargePhoto closeModal={setOpenModal} />
+                          {(openModal === index) && (
+                            <EnlargePhoto closeModal={() => setOpenModal(false)} image={user.submission} />
                             )}
                             </div>
 
