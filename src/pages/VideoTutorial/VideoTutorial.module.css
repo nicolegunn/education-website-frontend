@@ -1,55 +1,12 @@
-.VideoContainer{
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 100px;
-    margin-left: 0%;
-    margin-right: 10%;
-    border-radius: 30px;
-    width: 1000px;
-}
-.Video{
-    width: 95%;
-    margin-top: 5%;
-    margin-bottom: 5%; 
-    /* width:"800";
-    height:"500"; */
-}
-
-/*Styling of Studentdashboard sidebar*/
-/* .Sidebar {
-    background-color: #43C0F6;
-    grid-area: sidebar;
-    height:90vh;
-    display: flex;
-    flex-direction: column;
-} */
-
-/*Styling of buttons on sidebar*/
-.Btn {
-    top: 143px;
-    margin-left:0px;
-    width: 177px;
-    height: 40px;
-    background-color: #43C0F6;
-    color: white;
-    font-weight: 700;
-    border-width: 0;
-}
-
-.Active {
-    background-color: #b2e4fa;
-    color: gray;
-}
 /*Styling of whole area below navigation bar*/
 .Layout {
- 
-    /* display: flex; */
     width:100vw;
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-areas: "sidebar main";
     background-color: #B2E4FA;
 }
+
 /*Styling of main content*/
 .CentreArea{
     text-align: center;
@@ -65,7 +22,16 @@
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 15px;
-    /* margin-bottom: 40px; */
     border-radius: 30px;
     height: 85vh;
+}
+/*Styling of Video*/
+.VideoContainer{
+    align-items: center;
+    margin-left: 0%;
+    margin-right: 10%;
+    border-radius: 30px;
+    width: 1000px;
+    margin-top: 5%;
+    margin-bottom: 5%; 
 }

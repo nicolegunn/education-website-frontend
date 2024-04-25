@@ -1,81 +1,3 @@
-/*Styling of title*/
-.Title{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: Nunito, sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: #707070;
-}
-/*Styling of text below the title*/
-.Content{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #707070;
-}
-/*Styling of block title*/
-.Subtitle1{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: Nunito, sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #707070;
-}
-/*Styling of block area*/
-.FlexContainer{
-    display: flex;
-    justify-content: space-around;
-    
-    
-
-}
-/*Styling of each block*/
-.ScratchBlock{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-/*Styling of images in each block*/
-.ImgContainer{
-    display:flex;
-    gap: 1em;
-    
-}
-/*Styling of small images in each block*/
-.Img2{
-    align-self: start;
-}
-
-
-/*Styling of Studentdashboard sidebar*/
-.Sidebar {
-    background-color: #43C0F6;
-    grid-area: sidebar;
-    height:90vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/*Styling of buttons on sidebar*/
-.Btn {
-    top: 143px;
-    margin-left:0px;
-    width: 177px;
-    height: 40px;
-    background-color: #43C0F6;
-    color: white;
-    font-weight: 700;
-    border-width: 0;
-}
-
-.Active {
-    background-color: #b2e4fa;
-    color: gray;
-}
 /*Styling of whole area below navigation bar*/
 .Layout {
  
@@ -86,6 +8,7 @@
     grid-template-areas: "sidebar main";
     background-color: #B2E4FA;
 }
+
 /*Styling of main content*/
 .CentreArea{
     text-align: center;

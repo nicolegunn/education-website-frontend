@@ -5,6 +5,7 @@ import SideBar from "../../common/SideBar";
 import styles from "./VideoTutorial.module.css";
 
 export default function VideoTutorial({ port }) {
+  {/*Fetching data from backend */}
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
@@ -34,22 +35,21 @@ export default function VideoTutorial({ port }) {
           <div className={styles.CentreArea}>
             <div className={styles.Dashboard}>
               <div className={styles.VideoContainer}>
-                <div className={styles.Video}>
-                  <iframe
-                    src={urls}
-                    width="800"
-                    height="500"
-                    title="YouTube video player"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  ></iframe>
-                </div>
+                <iframe
+                  src={urls}
+                  width="800"
+                  height="500"
+                  title="YouTube video player"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                ></iframe>
               </div>
             </div>
           </div>
         </div>
+        {/*Displays Footer */}
         <DashboardFooter />
       </div>
     </>

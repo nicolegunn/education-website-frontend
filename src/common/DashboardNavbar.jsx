@@ -1,53 +1,30 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./DashboardNavbar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/NavBar/LevelUpWorks-blue.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
 
-export default function DashboardNavbar(props,{ port }) {
-
-
+export default function DashboardNavbar(props, { port }) {
   {/*Start Project button color and text changes when project is submitted */}
-    const [projectSubmission, setProjectSubmission] = useState([]);
+  const [projectSubmission, setProjectSubmission] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:${port}/project-submissions`)
+      .then((response) => response.json())
+      .then((result) => {
+        setProjectSubmission(result[0].submission);
+      });
+  }, []);
   
-    // useEffect(() => {
-    //   fetch(`http://localhost:${port}/projects/1/instructions`)
-    //     .then((response) => response.json())
-    //     .then((result) => {
-    //       setProjectInstructions(result[0].instructions);
-    //     });
-    // }, []);
-
-
-
-
-
-
-  // const [projectButton, selectedProjectButton] = useState([
-  //   {label: "project-1", value: 1},
-  //   {label: "project-2", value: 2},
-  //   {label: "project-3", value: 3}
-  // ]);
-
+  {/* function for displaying corresponding project_id when clicked on each project on project library page */}
   const [isDeliveryClicked, setIsDeliveryClicked] = useState(false);
   const handleClick = (e) => {
     if (e.target.className.includes("delivery")) {
-      setIsDeliveryClicked(true);
-      if (isDeliveryClicked === true) {
-        setIsDeliveryClicked(false);
-      }
+      setIsDeliveryClicked(!isDeliveryClicked); 
     }
   };
-
-  // const handleDeliveryClassStyler = (e) => {
-  //   if (isDeliveryClicked === true) {
-  //     return "deliveryClicked";
-  //   } else {
-  //     return "delivery";
-  //   }
-  // };
 
   {/* Ask Teacher for Help button function */}
   function clickMe() {
@@ -55,9 +32,17 @@ export default function DashboardNavbar(props,{ port }) {
   }
 
   {/*Start Project button function */}
+  const [buttonText, setButtonText] = useState("Start Project");
   function projectStart() {
+    setButtonText(
+      buttonText === "Start Project" ? "Submit Project" : "Start Project"
+    );
     alert("Nice one, project successfully started!");
+    // if (projectSubmission!==""){
+    //   setButtonText(buttonText === "Project Submitted")
+    // }
   }
+
   return (
     <>
       <div className={styles.Navbar}>
@@ -94,10 +79,9 @@ export default function DashboardNavbar(props,{ port }) {
         </div>
         {/*Buttons */}
         <div className={styles.Btn}>
-
           {/*Start Project button */}
           <button onClick={projectStart} className={styles.Navbtn1}>
-            Start Project
+            {buttonText}
           </button>
 
           {/* Ask Teacher for Help button */}
@@ -109,7 +93,6 @@ export default function DashboardNavbar(props,{ port }) {
           <Link to="/project-library">
             <button className={styles.Navbtn3}>More Projects</button>
           </Link>
-
         </div>
 
         {/*Displays Flags */}

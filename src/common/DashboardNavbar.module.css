@@ -1,145 +1,147 @@
 /*Styling of Navigation bar*/
-  .Navbar{
-    font-family: Nunito, sans-serif;
-    /* font-family:'Open Sans', Bold,  system-ui, -apple-system; */
-    font-weight: 500;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 0px;
-    margin-left: 0px;
-    align-items: center;
-    height:64px;
-    gap: 0px;
-    background-color: white;
-} 
+.Navbar {
+  font-family: Nunito, sans-serif;
+  /* font-family:'Open Sans', Bold,  system-ui, -apple-system; */
+  font-weight: 500;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0px;
+  margin-left: 0px;
+  align-items: center;
+  height: 64px;
+  gap: 0px;
+  background-color: white;
+}
 
 /*Styling of Logo*/
-.Logo{
-    top: 0px;
-    left: 29px;
-    width: 109px;
-    height: 45px;
-    align-items: start;
-    padding-left: 0;
+.Logo {
+  top: 0px;
+  left: 29px;
+  width: 109px;
+  height: 45px;
+  align-items: start;
+  padding-left: 0;
 }
 
 /*Styling of "Start Project" button*/
- .Navbtn1{color: white;
-padding: 10px 15px;
-border-radius: 5px;
-width: 150px;
-height:35px;
-outline: 0;
-border: 0; 
-margin: 10px 0px;
-cursor: pointer;
-box-shadow: 0px 2px 2px lightgray;
-background-color: rgb(209, 105, 8);
-} 
-
-/*Styling of "Ask Teacher for Help" button*/
-.Navbtn2{color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    width: 150px;
-    height:35px;
-    outline: 0;
-    border: 0; 
-    margin: 10px 0px;
-    cursor: pointer;
-    box-shadow: 0px 2px 2px lightgray;
-    background-color:#F91C85;
-    }
-
-/*Styling of "More Projects" button*/
-    .Navbtn3{color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    width: 150px;
-    height:35px;
-    outline: 0;
-    border: 0; 
-    margin: 10px 0px;
-    cursor: pointer;
-    box-shadow: 0px 2px 2px lightgray;
-    background-color: #43C0F6;
-    font-family: Nunito, sans-serif;
-    }
-
-/*Styling of Project and Subtitle*/
-.Layout{
-    justify-content: space-evenly;
-    padding-right: 1px;
-    top: 13px;
-    left: 200px;
-    width: 68px;
-    height: 32px;
-   }
-
-/*Styling of all buttons*/
-.Btn{
-    font-family: Nunito, sans-serif;
-    justify-content: space-evenly;
-    gap: 10px; 
-    display: flex;
-    align-items: center;
-    margin-right: 40px;
-    margin-left: 20px; 
+.Navbtn1 {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 150px;
+  height: 35px;
+  outline: 0;
+  border: 0;
+  margin: 10px 0px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px lightgray;
+  background-color: rgb(209, 105, 8);
 }
 
+/*Styling of "Ask Teacher for Help" button*/
+.Navbtn2 {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 150px;
+  height: 35px;
+  outline: 0;
+  border: 0;
+  margin: 10px 0px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px lightgray;
+  background-color: #f91c85;
+}
+
+/*Styling of "More Projects" button*/
+.Navbtn3 {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 150px;
+  height: 35px;
+  outline: 0;
+  border: 0;
+  margin: 10px 0px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px lightgray;
+  background-color: #43c0f6;
+  font-family: Nunito, sans-serif;
+}
+
+/*Styling of Project and Subtitle*/
+.Layout {
+  justify-content: space-evenly;
+  padding-right: 1px;
+  top: 13px;
+  left: 200px;
+  width: 68px;
+  height: 32px;
+}
+
+/*Styling of all buttons*/
+.Btn {
+  font-family: Nunito, sans-serif;
+  justify-content: space-evenly;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  margin-left: 20px;
+}
 
 /*Styling of Flag*/
 .Languageflag {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    gap: 0.6em;
-   margin:50px;
-     top: 5px;
-    left: 6px; 
-    width: 24px;
-    height: 12px;
-  }
-  .Delivery {
-    width: 30px;
-    height: 30px;
-    background-color: #FDF7C0;
-    border: solid black 5px;
-    border: 3px solid #43C0F6;
-    border-radius: 100px;
-    margin: 5px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  gap: 0.6em;
+  margin: 50px;
+  top: 5px;
+  left: 6px;
+  width: 24px;
+  height: 12px;
+}
+.Delivery {
+  width: 30px;
+  height: 30px;
+  background-color: #fdf7c0;
+  border: solid black 5px;
+  border: 3px solid #43c0f6;
+  border-radius: 100px;
+  margin: 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .DeliveryClicked {
-    width: 8px;
-    height: 8px;
-    background-color: white;
-    border: solid #43C0F6 3px;
-    box-shadow: 0px 3px 6px #00000040;
-    border-radius: 10px;
-    margin: 3px;
-  
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border: solid #43c0f6 3px;
+  box-shadow: 0px 3px 6px #00000040;
+  border-radius: 10px;
+  margin: 3px;
 }
-.ProjectNumber{
-    align-items: center;
-    position: relative;
-    display:flex;
-    gap: 0px; 
-    margin-left: 40px; 
+.ProjectNumber {
+  align-items: center;
+  position: relative;
+  display: flex;
+  gap: 0px;
+  margin-left: 40px;
 }
-.ProjectHeading{
-    font-size: 20px;
-    font-family: Nunito, sans-serif;
-    color: #6C6C6C;
-    font-weight: bold;
+/*Styling of Project Title*/
+.ProjectHeading {
+  font-size: 20px;
+  font-family: Nunito, sans-serif;
+  color: #6c6c6c;
+  font-weight: bold;
 }
-.ProjectSubheading{
-    font-size: 11px;
-    font-family: Open Sans, Regular;
-    color: #6C6C6C;
-    font-weight: bold;
+/*Styling of Project Subtitle*/
+.ProjectSubheading {
+  font-size: 11px;
+  font-family: Open Sans, Regular;
+  color: #6c6c6c;
+  font-weight: bold;
 }

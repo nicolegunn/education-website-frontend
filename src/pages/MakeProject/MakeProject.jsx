@@ -12,7 +12,6 @@ export default function MakeProject() {
       {/*Displays Sidebar and buttons */}
       <div className={styles.Layout}>
         <div className={styles.Colunmn}>
-          {/* <div className={styles.Sidebar}></div> */}
           <SideBar dashboard="student" />
         </div>
 
@@ -21,7 +20,6 @@ export default function MakeProject() {
           <div className={styles.CentreArea}>
             <div className={styles.Dashboard}>
               <div>
-                {" "}
                 {/*Displays Right side of Side bar */}
                 <div className={styles.ImageContainer}>
                   <img className={styles.Image} src={makeprojectimage} alt="" />
@@ -30,6 +28,7 @@ export default function MakeProject() {
             </div>
           </div>
         </div>
+        {/*Displays Footer */}
         <DashboardFooter />
       </div>
     </>
