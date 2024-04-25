@@ -46,15 +46,57 @@ Complete the following steps to set up and run the project in development mode:
 
 ## Authentication
 
-### Login Process - Andrei
+### Login Process
 
-How the login process works? Refer to this link for the full documentation
+**Login Process**
 
-https://miro.com/app/board/uXjVKVO8LPg=/
+1. **Prevent Default Form Submission**: The function starts by preventing the default form submission using `e.preventDefault()`. This is done to prevent the page from refreshing when the form is submitted.
 
-### Registering a New User - Andrei
+2. **Field Validation**: This checks if the email and password fields are not empty. If either of them is empty, it alerts the user to fill in all fields and returns from the function.
 
-### Protected Routes - Andrei
+3. **API Call**: If the fields are not empty, it makes a POST request to the `/login` endpoint on the server using `axios.post()`. The server is running on `localhost` with the port number provided in the `port` prop. The email, password, and type (student or teacher) are sent in the request body.
+
+4. **Response Handling**: If the server responds with a status of 200, it means the login was successful. The function then calls the `logInFunction` prop with the user data received from the server. If the server responds with a status of 401, it means the password was incorrect, and an alert is shown to the user.
+
+**The `handleLogin` function is called when the user clicks the "Submit" button on the login form. The type of user (student or teacher) is determined based on the `name` attribute of the button that was clicked. This is passed to the `handleLogin` function through the event object `e`.**
+
+### Registering a New User
+
+**Signup Method**
+
+1. **Prevent Default Form Submission**: The function starts by preventing the default form submission using `e.preventDefault()`. This is done to prevent the page from refreshing when the form is submitted.
+
+2. **Field Validation**: It checks if the name, email, password, and confirmPassword fields are not empty. If any of them is empty, it alerts the user to fill in all fields and returns from the function. It also checks if the password and confirmPassword fields match. If they don't, it alerts the user that the passwords do not match and returns from the function.
+
+3. **User Data Preparation**: It prepares the user data to be sent to the server. This includes the name, email, password, and some dummy data for other fields. If the user is a student, additional dummy data is added.
+
+4. **API Call**: It makes a POST request to the `/signup` endpoint on the server using `axios.post()`. The server is running on `localhost` with the port number provided in the `port` prop. The user data is sent in the request body.
+
+5. **Response Handling**: If the server responds with a status of 200, it means the registration was successful. The function then calls the `handleLogin` function to log in the user. If the server responds with a status other than 200, an error message shows to the user.
+
+The `handleSignup` function is called when the user clicks the "Submit" button on the signup form. The type of user (student or teacher) is determined based on the `name` attribute of the button that was clicked. This is passed to the `handleSignup` function through the event object `e`.
+
+**Important**
+
+This code does not handle other potential errors, such as network errors or server errors, and does not provide feedback to the user in those cases.
+
+### Protected Routes
+
+**Protected Routes & useNavigate**
+
+**useNavigate is a hook provided by the react-router-dom library. It returns a function that you can use to navigate programmatically within your application**
+
+1. **Context**: The `LoggedInContext` is a React context that holds the login state of the user. If the user is logged in, `isLoggedIn` is `true`; otherwise, it's `false`.
+
+2. **Route Protection**: The `ProtectedRoute` function takes an `element` prop, which is the component to render for the route. If `isLoggedIn` is `true`, it returns the `element` prop, rendering the component. If `isLoggedIn` is `false`, it returns `<Navigate to="/" />`, which redirects the user to the home page.
+
+3. **Usage**: To use `ProtectedRoute`, wrap it around the component in the `element` prop of the `Route`. For example, `<Route path="/project-library" element={<ProtectedRoute element={<ProjectLibrary port={PORT} logOutFunction={logOutUser} />} />}`. This means that the `ProjectLibrary` component will only be rendered if the user is logged in. If the user is not logged in, they will be redirected to the home page.
+
+**Important**
+
+Make sure that useNavigate hook is installed, otherwise the you will not be able to access the protected routes.
+
+This ensures that only authenticated users can access certain routes. If a user who is not authenticated tries to access a protected route, they are redirected to a public page (in this case, the home page).
 
 ### UserContext
 
