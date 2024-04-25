@@ -42,13 +42,9 @@ Complete the following steps to set up and run the project in development mode:
    npm run dev
    ```
 
-## Routes - Eunhye - you may want to talk about the routes you set up, or delete
-
 ## Authentication
 
 ### Login Process
-
-**Login Process**
 
 1. **Prevent Default Form Submission**: The function starts by preventing the default form submission using `e.preventDefault()`. This is done to prevent the page from refreshing when the form is submitted.
 
@@ -80,9 +76,7 @@ The `handleSignup` function is called when the user clicks the "Submit" button o
 
 This code does not handle other potential errors, such as network errors or server errors, and does not provide feedback to the user in those cases.
 
-### Protected Routes
-
-**Protected Routes & useNavigate**
+### Protected Routes & useNavigate
 
 **useNavigate is a hook provided by the react-router-dom library. It returns a function that you can use to navigate programmatically within your application**
 
@@ -235,13 +229,3 @@ It shows the Video corresponding to the selected project from database.The URL o
 ### Make Project
 
 It's a static page it shows the screenshot stored in the image folder.
-
-### Submitting a Project
-
-## Teacher Dashboard
-
-### Progress Tracker
-
-### Student Profiles
-
-### Project Submissions
