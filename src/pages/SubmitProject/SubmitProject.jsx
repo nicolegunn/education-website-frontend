@@ -69,7 +69,7 @@ const handleSubmit = () => {
   return (
     <>
       {/* Header */}
-      <DashboardNavbar />
+      <DashboardNavbar projectTitle="PROJECT" subTitle="Introduction" />
 
       {/* Side Bar + Main Contents */}
       <div className={styles.SubmitProjectLayout}>
@@ -93,9 +93,9 @@ const handleSubmit = () => {
               <div className={styles.ButtonContainer}>
                 <button className={styles.Button}>
                   <FileStack setImageUrl={setImageUrl} />
-                  <img src={sendPhoto} alt="submit project image" width="20%" onClick={handleSubmit} />
+                  {/* <img src={sendPhoto} alt="submit project image" width="20%" onClick={handleSubmit} />
                   <br />
-                  Send Photo
+                  Send Photo */}
                 </button>
               </div>
             </div>
