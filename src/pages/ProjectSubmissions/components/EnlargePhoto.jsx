@@ -6,7 +6,8 @@ import styles from './EnlargePhoto.module.css'
 // Import img for testing
 import makeProjectScreenshot from "../../../assets/StudentDashboard/makeProject-screenshot.png"
 
-export default function EnlargePhoto({closeModal}) {
+export default function EnlargePhoto({ closeModal, image }) {
+  
   return (
     <div className={styles.ModalBackground}>
       <div className={styles.ModalContainer}>
@@ -17,7 +18,7 @@ export default function EnlargePhoto({closeModal}) {
                   <h1>Enlarged Image</h1>
               </div>
               <div className={styles.Body}>
-                  <img src={makeProjectScreenshot}></img>
+                  <img src={image} alt="Enlarged" />
               </div>
               <div className={styles.Footer}>
                   <button onClick={() => closeModal(false)} >Go back</button>
