@@ -173,12 +173,15 @@ The ProfileViewer component takes the following props:
 
 ## Student Dashboard
 
+### Learning Objectives
+From the Project Library  student can navigate to the Learning Objective page for a selected project by clicking on the corresponding ProjectCard.It shows the learning objectives corresponding to the selected project from database.The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named learning_objective. <br/>
+For the purposes of Mission X, this has only been implemented for Project 1.
 ### Instructions
-
+It shows the Instructions corresponding to the selected project from database. The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named instructions.
 ### Video Tutorial
-
+It shows the Video corresponding to the selected project from database.The URL of youtube video link is stored in the project table of mySQL database where table column named video.
 ### Make Project
-
+It's a static page it shows the screenshot stored in the image folder.
 ### Submitting a Project
 
 ## Teacher Dashboard
