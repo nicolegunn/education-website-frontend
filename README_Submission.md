@@ -42,6 +42,10 @@ Complete the following steps to set up and run the project in development mode:
    npm run dev
    ```
 
+## Routes - Eunhye
+Frontend routes were set up as part of the initial set up of this project including the overall folder structure. Each page has its own route and css module, along with its own components folder.
+
+
 ## Authentication
 
 ### Login Process
@@ -229,9 +233,13 @@ For the purposes of Mission X, this has only been implemented for Project 1.
 It shows the Instructions corresponding to the selected project from database. The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named instructions.
 
 ### Video Tutorial
-
 It shows the Video corresponding to the selected project from database.The URL of youtube video link is stored in the project table of mySQL database where table column named video.
 
 ### Make Project
-
 It's a static page it shows the screenshot stored in the image folder.
+
+### Submitting a Project
+On this page, students can submit a screenshot of their project by using the 'Send Photo' button. The submission uses FileStack to store the image URLs which then gets updated on the database.
+
+### Project Submissions
+This page is for the teacher and displays project submissions received by students. The screenshots received on the 'Submit Project' page by students uses FileStack to create URLs for the submitted images which then gets updated on the database. Then, these image URLs get displayed on the frontend of this page.
