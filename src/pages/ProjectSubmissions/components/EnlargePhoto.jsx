@@ -3,9 +3,6 @@ import { useState } from 'react'
 
 import styles from './EnlargePhoto.module.css'
 
-// Import img for testing
-import makeProjectScreenshot from "../../../assets/StudentDashboard/makeProject-screenshot.png"
-
 export default function EnlargePhoto({ closeModal, image }) {
   
   return (

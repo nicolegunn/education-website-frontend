@@ -19,6 +19,7 @@ export default function ProjectSubmissions({ port }) {
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   
+  // Using axios to fetch data
   useEffect(() => {
     axios
       .get(`http://localhost:${port}/project-submissions`)
@@ -64,6 +65,7 @@ export default function ProjectSubmissions({ port }) {
     });
   };
 
+  // Modal for 'Enlarge Photo' function
   const openImageModal = (imageSrc) => {
     console.log("image");
     setSelectedImage(imageSrc);
@@ -99,6 +101,7 @@ export default function ProjectSubmissions({ port }) {
             {/* Main contents inside the scroll container */}
             <div className={styles.ScrollContainer}>
               <div className={styles.SubmittedProjectContainer}>
+                {/* Mapping the submissions */}
                   {userData.map((user, index) => {
                     return (
                       <div key={index} className={styles.OuterContainer}>
@@ -141,9 +144,7 @@ export default function ProjectSubmissions({ port }) {
                             <EnlargePhoto closeModal={() => setOpenModal(false)} image={user.submission} />
                             )}
                             </div>
-
-                          {/* <p> {user.date_submitted} </p> */}
-                          {/* <p>{DateTime.fromISO(user.date_submitted).toLocaleString(DateTime.DATE_MED)}</p> */}
+                        
                           <div className={styles.DateTimeContainer}>
                           <p>{DateTime.fromISO(user.date_submitted).toLocaleString({ weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' })}</p>
                           <p>{DateTime.fromISO(user.date_submitted).toLocaleString({ hour: 'numeric', minute: '2-digit', hour12: true })}</p>
