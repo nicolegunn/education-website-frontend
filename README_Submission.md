@@ -45,13 +45,62 @@ Complete the following steps to set up and run the project in development mode:
 ## Routes - Eunhye
 Frontend routes were set up as part of the initial set up of this project including the overall folder structure. Each page has its own route and css module, along with its own components folder.
 
+
 ## Authentication
 
-### Login Process - Andrei
+### Login Process
 
-### Registering a New User - Andrei
+1. **Prevent Default Form Submission**: The function starts by preventing the default form submission using `e.preventDefault()`. This is done to prevent the page from refreshing when the form is submitted.
 
-### Protected Routes - Andrei
+2. **Field Validation**: This checks if the email and password fields are not empty. If either of them is empty, it alerts the user to fill in all fields and returns from the function.
+
+3. **API Call**: If the fields are not empty, it makes a POST request to the `/login` endpoint on the server using `axios.post()`. The server is running on `localhost` with the port number provided in the `port` prop. The email, password, and type (student or teacher) are sent in the request body.
+
+4. **Response Handling**: If the server responds with a status of 200, it means the login was successful. The function then calls the `logInFunction` prop with the user data received from the server. If the server responds with a status of 401, it means the password was incorrect, and an alert is shown to the user.
+
+The `handleLogin` function is called when the user clicks the "Submit" button on the login form. The type of user (student or teacher) is determined based on the `name` attribute of the button that was clicked. This is passed to the `handleLogin` function through the event object `e`.
+
+**Need more details, checkout this progression circuit that I made in the miro app https://miro.com/app/board/uXjVKVO8LPg=/ <==by clicking this link**
+
+### Registering a New User
+
+**Signup Method**
+
+1. **Prevent Default Form Submission**: The function starts by preventing the default form submission using `e.preventDefault()`. This is done to prevent the page from refreshing when the form is submitted.
+
+2. **Field Validation**: It checks if the name, email, password, and confirmPassword fields are not empty. If any of them is empty, it alerts the user to fill in all fields and returns from the function. It also checks if the password and confirmPassword fields match. If they don't, it alerts the user that the passwords do not match and returns from the function.
+
+3. **User Data Preparation**: It prepares the user data to be sent to the server. This includes the name, email, password, and some dummy data for other fields. If the user is a student, additional dummy data is added.
+
+4. **API Call**: It makes a POST request to the `/signup` endpoint on the server using `axios.post()`. The server is running on `localhost` with the port number provided in the `port` prop. The user data is sent in the request body.
+
+5. **Response Handling**: If the server responds with a status of 200, it means the registration was successful. The function then calls the `handleLogin` function to log in the user. If the server responds with a status other than 200, an error message shows to the user.
+
+The `handleSignup` function is called when the user clicks the "Submit" button on the signup form. The type of user (student or teacher) is determined based on the `name` attribute of the button that was clicked. This is passed to the `handleSignup` function through the event object `e`.
+
+**Important**
+
+This code does not handle other potential errors, such as network errors or server errors, and does not provide feedback to the user in those cases.
+
+**Need more details, checkout this progression circuit that I made in the miro app https://miro.com/app/board/uXjVKVO8LPg=/ <==by clicking this link**
+
+### Protected Routes
+
+**Protected Routes & useNavigate**
+
+1. **Context**: The `LoggedInContext` is a React context that holds the login state of the user. If the user is logged in, `isLoggedIn` is `true`; otherwise, it's `false`.
+
+2. **Route Protection**: The `ProtectedRoute` function takes an `element` prop, which is the component to render for the route. If `isLoggedIn` is `true`, it returns the `element` prop, rendering the component. If `isLoggedIn` is `false`, it returns `<Navigate to="/" />`, which redirects the user to the home page.
+
+3. **Usage**: To use `ProtectedRoute`, wraps it around the component in the `element` prop of the `Route`. For example, `<Route path="/project-library" element={<ProtectedRoute element={<ProjectLibrary port={PORT} logOutFunction={logOutUser} />} />}`. This means that the `ProjectLibrary` component will only be rendered if the user is logged in. If the user is not logged in, they will be redirected to the home page.
+
+**Important**
+
+Make sure that **useNavigate** hook is added withing the imports, otherwise you will not be able to access the protected routes.
+
+This ensures that only authenticated users can access certain routes. If a user who is not authenticated tries to access a protected route, they are redirected to a public page (in this case, the home page).
+
+**Need more details, checkout this progression circuit that I made in the miro app https://miro.com/app/board/uXjVKVO8LPg=/ <==by clicking this link**
 
 ### UserContext
 
@@ -68,8 +117,8 @@ The main purpose of this page is to allow students to select a project. <br/>
 Upon login a student will be directed to the Project Library page.
 
 A project is represented on the page by a ProjectCard component which includes an image representing the project. <br/>
-A student may click on a ProjectCard which will take the student to the Instructions page for the selected project. <br/>
-The Instructions page is the first page of the Student Dashboard.
+A student may click on a ProjectCard which will take the student to the Learning Objectives page for the selected project. <br/>
+The Learning Objectives page is the first page of the Student Dashboard.
 
 Teachers are also able to access the Project Library, however they should not be able to access the Student Dashboard by clicking on a project.
 
@@ -86,17 +135,17 @@ Upon login a student will be directed to the Project Library page. <br/>
 If the user is a teacher, they can navigate to the Project Library from the sidebar within the Teacher Dashboard page. <br/>
 A user can also navigate to the Project Library via the navigation bar at the top of their Profile Viewer Page or the Home Page (when logged in).
 
-From the Project Library a student may navigate to the Instructions page for a selected project by clicking on the corresponding ProjectCard. <br/>
+From the Project Library a student may navigate to the Learning Objectives page for a selected project by clicking on the corresponding ProjectCard. <br/>
 For the purposes of Mission X, this has only been implemented for Project 1.
 
-Teacher access should be restricted so that only students can navigate to the instructions for a given project, however this has not been implemented in Mission X.
+Teacher access should be restricted so that only students can navigate to the Learning Objectives for a given project, however this has not been implemented in Mission X.
 
 Using the navigation bar at the top of the Project Library page, a user may navigate to the Home page, their Profile Viewer page or the first page of their Dashboard.
 
 If the user is a student, clicking on PROFILE in the navigation bar will take them to the Student Profile Viewer.
 If the user is a teacher, clicking on PROFILE in the navigation bar will take them to the Teacher Profile Viewer.
 
-If the user is a student, clicking on DASHBOARD in the navigation bar will take them to the first page of the Student Dashboard (Instructions for Project 1).
+If the user is a student, clicking on DASHBOARD in the navigation bar will take them to the first page of the Student Dashboard (Learning Objectives for Project 1).
 If the user is a teacher, clicking on DASHBOARD in the navigation bar will take them to the first page of the Teacher Dashboard (Student Profiles).
 
 A button is included below the ProjectCard components which will take the user back to the top of the page.
@@ -175,25 +224,22 @@ The ProfileViewer component takes the following props:
 ## Student Dashboard
 
 ### Learning Objectives
-From the Project Library  student can navigate to the Learning Objective page for a selected project by clicking on the corresponding ProjectCard.It shows the learning objectives corresponding to the selected project from database.The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named learning_objective. <br/>
+
+From the Project Library student can navigate to the Learning Objective page for a selected project by clicking on the corresponding ProjectCard.It shows the learning objectives corresponding to the selected project from database.The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named learning_objective. <br/>
 For the purposes of Mission X, this has only been implemented for Project 1.
+
 ### Instructions
+
 It shows the Instructions corresponding to the selected project from database. The main content of this page is stored as a innerhtml with inline styling in the project table of mySQL database where table column named instructions.
+
 ### Video Tutorial
 It shows the Video corresponding to the selected project from database.The URL of youtube video link is stored in the project table of mySQL database where table column named video.
+
 ### Make Project
 It's a static page it shows the screenshot stored in the image folder.
 
 ### Submitting a Project
 On this page, students can submit a screenshot of their project by using the 'Send Photo' button. The submission uses FileStack to store the image URLs which then gets updated on the database.
 
-## Teacher Dashboard
-
-### Progress Tracker
-
-### Student Profiles
-
 ### Project Submissions
 This page is for the teacher and displays project submissions received by students. The screenshots received on the 'Submit Project' page by students uses FileStack to create URLs for the submitted images which then gets updated on the database. Then, these image URLs get displayed on the frontend of this page.
-
-

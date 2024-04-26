@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import { useState} from "react";
+import { useState, useContext } from "react";
 import { UserContext, LoggedInContext } from "./context.js";
 
 import Home from "./pages/Home/Home.jsx";
@@ -21,6 +21,8 @@ const PORT = 4000;
 
 // This function is used to protect routes that require the user to be logged in
 function ProtectedRoute({ element }) {
+  const isLoggedIn = useContext(LoggedInContext);
+
   return true ? ( //replace true with useContext(LoggedInContext) upon completion
     element
   ) : (
