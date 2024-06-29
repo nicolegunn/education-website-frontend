@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext, LoggedInContext } from "../../context.js";
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
-import axiosInstance from "../../axiosConfig"; // Import the Axios instance
+import axiosInstance from "../../../axiosConfig.js"
 import NavBar from "../../common/NavBar";
 import Footer from "../../common/Footer";
 import Login from "../Login/Login.jsx";

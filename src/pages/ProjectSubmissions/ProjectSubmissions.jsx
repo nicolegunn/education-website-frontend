@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axiosInstance from "../../axiosConfig"; // Import the Axios instance
+import axiosInstance from "../../../axiosConfig.js";
 import { DateTime } from "luxon";
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
 

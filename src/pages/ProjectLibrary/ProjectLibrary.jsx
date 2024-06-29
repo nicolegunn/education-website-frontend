@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import axiosInstance from "../../axiosConfig"; // Import the Axios instance
+import axiosInstance from "../../../axiosConfig.js"
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import { UserContext } from "../../context.js";
 import { filters, createFilter, filterProjects } from "./filter.js";

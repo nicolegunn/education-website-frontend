@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axiosInstance from "../../axiosConfig"; // Import the Axios instance
+import axiosInstance from "../../../axiosConfig.js";
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import styles from "./Login.module.css";
 import imageStudent from "../../assets/LoginSignup/students.png";
