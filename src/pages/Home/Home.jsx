@@ -24,6 +24,7 @@ export default function Home({ logInFunction, logOutFunction }) {
   };
 
   useEffect(() => {
+    console.log(backendUrl);
     axios
       .post(`${backendUrl}/login`, {
         email: "a_andrews@missionx.school.nz",
