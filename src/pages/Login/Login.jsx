@@ -7,7 +7,7 @@ import imageTeacher from "../../assets/LoginSignup/teachers.png";
 import imageCrosshair from "../../assets/LoginSignup/esc.png";
 
 export default function Login({ showLogin, updateShowLogin, logInFunction }) {
-  const backendUrl = useBackendUrl();
+  const backendUrl = "https://education-website-backend.onrender.com";
 
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
