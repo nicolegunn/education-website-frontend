@@ -1,7 +1,7 @@
-import styles from "./NavBarPopUp.module.css";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../context";
+import styles from "./NavBarPopUp.module.css";
 
 export default function NavBarPopUp({ logOutFunction }) {
   const user = useContext(UserContext);

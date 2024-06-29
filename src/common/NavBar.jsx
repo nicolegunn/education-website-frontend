@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { UserContext, LoggedInContext } from "../context.js";
-import styles from "./NavBar.module.css";
 import NavBarPopUp from "./NavBarPopUp.jsx";
 import level_up_works_logo from "../assets/NavBar/LevelUpWorks-white.png";
 import avatar_white_icon from "../assets/NavBar/Avatar-white.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
+import styles from "./NavBar.module.css";
 
 export default function NavBar({
   navButtons = [],

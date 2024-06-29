@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     background-color: #43c0f6;
-    width: 15vw;
     height: 100vh;
     transition: width 0.3s ease-in-out;
     box-sizing: border-box;
@@ -29,35 +28,9 @@
     outline: none;
 }
 
-
-
-/* Style navigation bar links */
-/* nav a {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #43c0f6;
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: left;
-} */
-
-/* Change color on hover */
-/* nav a:hover {
-    background-color: #B2E4FA;
-    background: transparent url('img/Rectangle 248.png') 0% 0% no-repeat padding-box;
-    color: #707070;
-} */
-
 .ToggleButtonContainer {
     display: flex;
     justify-content: flex-end;
-    /* position: relative; */
-    /* top: 56px;
-    left: 172px;
-    width: 64px;
-    height: 72px; */
     border-radius: 10px 0px 0px 10px;
     opacity: 1;
 }
@@ -73,7 +46,6 @@
     background-color: #B2E4FA;
     border: 1px solid #B2E4FA;
     size: 18px 36px;
-    /* border-radius: 15px; */
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     padding: 15px;
@@ -85,18 +57,11 @@
 
 .isActive .ImportedMenuButtons img {
     width: 15%;
-    /* justify-content: center; */
 }
 
 .isActive .ImportedMenuButtons p {
     display: none;
 }
-
-/* .isActive .SideBarButtonsLink {
-    display: none;
-    display: flex;
-    justify-content: center;
-} */
 
 .isActive .ToggleButton {
     display: flex;

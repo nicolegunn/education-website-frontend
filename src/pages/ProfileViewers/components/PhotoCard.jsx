@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { UserContext } from "../../../context";
-import styles from "./PhotoCard.module.css";
 import Button from "../../../common/Button";
+import styles from "./PhotoCard.module.css";
 
 export default function PhotoCard({ buttons }) {
-  const profilePic = useContext(UserContext).profile_pic
-  
+  const profilePic = useContext(UserContext).profile_pic;
+
   const btnStyle = {
     border: "2px solid #43C0F6",
     color: "#43C0F6",

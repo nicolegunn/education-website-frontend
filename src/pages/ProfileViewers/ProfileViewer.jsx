@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { UserContext } from "../../context";
 import { Link } from "react-router-dom";
-import styles from "./ProfileViewer.module.css";
+import { UserContext } from "../../context";
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
 import Button from "../../common/Button.jsx";
 import PhotoCard from "./components/PhotoCard.jsx";
 import ProfileCard from "./components/ProfileCard.jsx";
+import styles from "./ProfileViewer.module.css";
 
 //Unique styles passed to Button components used at bottom of page
 const btnStyles = {

@@ -1,6 +1,6 @@
-import styles from './StageOne.module.css'
-import hero_banner from '../../../../assets/Home/hero.png'
 import { Link } from 'react-router-dom'
+import hero_banner from '../../../../assets/Home/hero.png'
+import styles from "./StageOne.module.css";
 
 const Content = () => (
   <>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../context";
 import styles from "./SideBar.module.css";
 
@@ -72,17 +72,7 @@ export default function SideBar(props) {
       buttonText: "SUBMIT PROJECT",
       image: submitProject,
       selectedImage: submitProjectSelected,
-    },
-    {
-      link: "/student-dashboard/bonus-challenge",
-      buttonText: "BONUS CHALLENGE",
-      image: bonusChallenge,
-    },
-    {
-      link: "/student-dashboard/take-the-quiz",
-      buttonText: "TAKE THE QUIZ",
-      image: takeTheQuiz,
-    },
+    }
   ];
 
   const TeacherButtonItems = [
@@ -129,9 +119,6 @@ export default function SideBar(props) {
     const buttonItems = [];
   }
 
-  // const [profilePicture, setProfilePicture] = useState(props.TeacherDashboard? "../../images/teachers/JasminaSalvador.png" : "");
-  // useEffect(() => props.TeacherDashboard? null : getStudentProfilePicture(), []);
-
   const buttons = buttonItems.map((button, index) => {
     return (
       <div key={index}>
@@ -145,36 +132,8 @@ export default function SideBar(props) {
     );
   });
 
-  // // Selected buttons
-  //    const buttons = buttonItems.map((button, index) => {
-  //      if (props.page === buttonItems.link) {
-  //        return (
-  //          <div key={index}>
-  //            <SideBarButtons
-  //              link={button.link}
-  //              image={button.image}
-  //              buttonText={button.buttonText}
-  //              key={index}
-  //            />
-  //          </div>
-  //        );
-  //      } else {
-  //        return (
-  //          <div key={index}>
-  //            <SideBarButtons
-  //              link={button.link}
-  //              image={button.selectedImage}
-  //              buttonText={button.buttonText}
-  //              key={index}
-  //            />
-  //          </div>
-  //        );
-  //      }
-  //    });
-
   return (
     <>
-      {/* Toggle function */}
       <nav className={`${styles.SideBar} ${isActive ? styles.isActive : ""}`}>
         <div>
           <button className={styles.ProfilePicture}>
@@ -182,10 +141,7 @@ export default function SideBar(props) {
           </button>
         </div>
 
-        {/* Import buttons */}
         <div className={styles.ImportedMenuButtons}>{buttons}</div>
-
-        {/* Toggle Button */}
         <div className={styles.ToggleButtonContainer}>
           <button className={styles.ToggleButton} onClick={toggleSidebar}>
             <img src={arrowLeft} alt="" width="200%" />

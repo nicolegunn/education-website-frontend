@@ -1,6 +1,6 @@
-import styles from './StageFive.module.css'
 import { Link } from 'react-router-dom'
 import learningImage from '../../../../assets/Home/classroom.png'
+import styles from "./StageFive.module.css";
 
 export default function StageFive() {
   return (

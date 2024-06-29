@@ -1,10 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import styles from "./ProjectLibrary.module.css";
 import axios from "axios";
+import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import { UserContext } from "../../context.js";
 import { filters, createFilter, filterProjects } from "./filter.js";
-
 import NavBar from "../../common/NavBar.jsx";
 import Footer from "../../common/Footer.jsx";
 import Button from "../../common/Button.jsx";
@@ -12,12 +11,14 @@ import TitleArea from "./components/TitleArea.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import ButtonFilter from "./components/ButtonFilter.jsx";
 import CheckBoxFilter from "./components/CheckBoxFilter.jsx";
+import styles from "./ProjectLibrary.module.css";
 
 //Labels for the ButtonFilter components.
 const courseLabels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"];
 const pages = [5, 10, "All"];
 
-export default function ProjectLibrary({ port, logOutFunction }) {
+export default function ProjectLibrary({ logOutFunction }) {
+  const backendUrl = useBackendUrl();
   const [allProjects, setAllProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [filtersObj, setFiltersObj] = useState();
@@ -28,18 +29,18 @@ export default function ProjectLibrary({ port, logOutFunction }) {
   const userType = useContext(UserContext).user_type;
 
   // Upon mount the allProjects and filteredProjects state variables are updated
-  // with the result of the following get request. 
-  // This result is an array of project objects. 
-  // Each project object stores all the fields and corresponding data for a project  
+  // with the result of the following get request.
+  // This result is an array of project objects.
+  // Each project object stores all the fields and corresponding data for a project
   // from the project table in the mySQL database.
-  
-  // The filtersObj state is set to an object of empty arrays. 
-  // The keys of this object represent each filter type. 
-  
+
+  // The filtersObj state is set to an object of empty arrays.
+  // The keys of this object represent each filter type.
+
   // Nav buttons links are also set upon mount based on user type - student or teacher (determined during login).
-    useEffect(() => {
+  useEffect(() => {
     axios
-      .get(`http://localhost:${port}/projects`)
+      .get(`${backendUrl}/projects`)
       .then((res) => {
         setAllProjects(res.data);
         setFilteredProjects(res.data);
@@ -87,7 +88,7 @@ export default function ProjectLibrary({ port, logOutFunction }) {
   }, [backToTop]);
 
   // When a filter checkbox or button is clicked, this function passes the existing filter object to the createFilter function.
-  // Together with the name and id of the checkbox or ButtonFilter pressed, 
+  // Together with the name and id of the checkbox or ButtonFilter pressed,
   //  and a boolean representing whether the checkbox has been selected or de-selected. Set to true by default for ButtonFilters.
   // All checkboxes or buttons in the same filter have the same name, and the id is equivalent to the label name of the checkbox or ButtonFilter.
   // The createFilter function updates the filter object, and returns the updated version.
@@ -163,7 +164,7 @@ export default function ProjectLibrary({ port, logOutFunction }) {
           </div>
         </div>
 
-      {/* The projects from the filteredProjects state are rendered using map.  */}
+        {/* The projects from the filteredProjects state are rendered using map.  */}
         <div className={styles.ProjectCardContainer}>
           {filteredProjects.map((project) => {
             return (

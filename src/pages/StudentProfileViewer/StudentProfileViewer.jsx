@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import { DateTime } from "luxon";
 import { UserContext } from "../../context.js";
 import ProfileViewer from "../ProfileViewers/ProfileViewer";
-import { DateTime } from "luxon";
 
 export default function StudentProfileViewer({ logOutFunction }) {
   const student = useContext(UserContext);

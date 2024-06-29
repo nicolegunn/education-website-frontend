@@ -1,5 +1,5 @@
-import styles from './StageFourCss/PersistentStyleSheet.module.css'
 import StarIcon from './defaultAssestStyles/ComponentIcon'
+import styles from "./StageFourCss/PersistentStyleSheet.module.css";
 
 export default function ClassDigitalTechnologies() {
   return (

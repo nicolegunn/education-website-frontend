@@ -1,7 +1,5 @@
 /*Styling of whole area below navigation bar*/
 .Layout {
- 
-    /* display: flex; */
     width:100vw;
     display: grid;
     grid-template-columns: 1fr 6fr;

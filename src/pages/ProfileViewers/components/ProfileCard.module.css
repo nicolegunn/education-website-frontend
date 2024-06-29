@@ -1,7 +1,9 @@
 .Card {
-  width: 35vw;
+  min-width: 35vw;
+  max-width: fit-content;
   margin-top: 15vh;
   padding-bottom: 7.5vh;
+  padding-inline: 2rem;
   background-color: white;
   border: 2px solid #e2dfdf;
   border-radius: 30px;
@@ -16,10 +18,14 @@
   color: #707070;
 }
 
+.List {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 2rem;
+}
+
 .ListItem {
-  padding: 1rem 30px;
-  display: flex;
-  justify-content: space-between;
+  display: contents;
 }
 
 .Key {
@@ -30,7 +36,6 @@
 }
 
 .Value {
-  width: 55%;
   font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;

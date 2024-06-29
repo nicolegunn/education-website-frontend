@@ -1,7 +1,5 @@
-/*Styling of Navigation bar*/
 .Navbar {
   font-family: Nunito, sans-serif;
-  /* font-family:'Open Sans', Bold,  system-ui, -apple-system; */
   font-weight: 500;
   display: flex;
   justify-content: space-evenly;

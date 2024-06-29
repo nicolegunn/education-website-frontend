@@ -1,10 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
-
 import styles from './EnlargePhoto.module.css'
 
 export default function EnlargePhoto({ closeModal, image }) {
-  
   return (
     <div className={styles.ModalBackground}>
       <div className={styles.ModalContainer}>

@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import styles from "./Login.module.css";
 import imageStudent from "../../assets/LoginSignup/students.png";
 import imageTeacher from "../../assets/LoginSignup/teachers.png";
 import imageCrosshair from "../../assets/LoginSignup/esc.png";
-import axios from "axios";
 
-export default function Login({
-  port,
-  showLogin,
-  updateShowLogin,
-  logInFunction,
-}) {
+export default function Login({ showLogin, updateShowLogin, logInFunction }) {
+  const backendUrl = useBackendUrl();
+
   const [isStudentLogin, setIsStudentLogin] = useState(true);
   const [isTeacherLogin, setIsTeacherLogin] = useState(true);
 
@@ -37,25 +35,18 @@ export default function Login({
     }
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-  
-    // Check if fields are empty
-    if (!email || !password) {
-      alert("Please fill in all fields");
-      return;
-    }
-    
+  const handleLogin = (email, password, type) => {
+    console.log(backendUrl);
     axios
-      .post(`http://localhost:${port}/login`, {
+      .post(`${backendUrl}/login`, {
         email: email,
         password: password,
-        type: e.target.name,
+        type: type,
       })
       .then((res) => {
         if (res.status === 200) {
-          const userData = { ...res.data[0], user_type: e.target.name };
-  
+          const userData = { ...res.data[0], user_type: type };
+
           logInFunction(userData);
         }
       })
@@ -65,8 +56,6 @@ export default function Login({
         }
       });
   };
-  
-
 
   // signup for teacher or student
 
@@ -102,7 +91,7 @@ export default function Login({
       };
     }
 
-    axios.post(`http://localhost:${port}/signup`, userData).then((res) => {
+    axios.post(`${backendUrl}/signup`, userData).then((res) => {
       if (res.status === 200) {
         handleLogin(e);
         // User registered successfully
@@ -123,6 +112,16 @@ export default function Login({
       handleSignup(e);
     }
   };
+
+  // For demo purposes
+  const automaticLogin = () => {
+    handleLogin("a_andrews@missionx.school.nz", "AA1234", "student");
+  };
+
+  // Automatically log in the demo user on mount
+  useEffect(() => {
+    automaticLogin();
+  }, []);
 
   return (
     <>

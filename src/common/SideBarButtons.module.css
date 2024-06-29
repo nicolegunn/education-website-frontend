@@ -25,18 +25,6 @@
   text-decoration: none;
 }
 
-/* Style navigation bar links */
-/* .SideBarButtonsLink:hover {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #B2E4FA;
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: left;
-} */
-
 .SideBarButtonsList {
   width: 20vw;
   display: flex;
@@ -44,16 +32,7 @@
   align-items: center;
 }
 
-/* .isActive .SideBarButtonIcon {
-    width: 20%;
-} */
-
 .SideBarButtonIcon {
   width: 10%;
   margin-right: 3%;
 }
-
-/* .SideBarButtonIcon, .SideBarButtonsText {
-    display: inline-block;
-    vertical-align: middle;
-} */

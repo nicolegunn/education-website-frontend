@@ -1,46 +1,52 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import styles from "./DashboardNavbar.module.css";
 import { Link } from "react-router-dom";
+import { useBackendUrl } from "../../src/BackendUrlContext.jsx";
 import logo from "../assets/NavBar/LevelUpWorks-blue.png";
 import new_zealand_flag from "../assets/NavBar/NZFlag.png";
 import new_zealand_alternate_flag from "../assets/NavBar/MaoriFlag.png";
+import styles from "./DashboardNavbar.module.css";
 
-export default function DashboardNavbar(props, { port }) {
-  {/*Start Project button color and text changes when project is submitted */}
+export default function DashboardNavbar(props) {
+  const backendUrl = useBackendUrl();
+  {
+    /*Start Project button color and text changes when project is submitted */
+  }
   const [projectSubmission, setProjectSubmission] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:${port}/project-submissions`)
+    fetch(`${backendUrl}/project-submissions`)
       .then((response) => response.json())
       .then((result) => {
         setProjectSubmission(result[0].submission);
       });
   }, []);
-  
-  {/* function for displaying corresponding project_id when clicked on each project on project library page */}
+
+  {
+    /* function for displaying corresponding project_id when clicked on each project on project library page */
+  }
   const [isDeliveryClicked, setIsDeliveryClicked] = useState(false);
   const handleClick = (e) => {
     if (e.target.className.includes("delivery")) {
-      setIsDeliveryClicked(!isDeliveryClicked); 
+      setIsDeliveryClicked(!isDeliveryClicked);
     }
   };
 
-  {/* Ask Teacher for Help button function */}
+  {
+    /* Ask Teacher for Help button function */
+  }
   function clickMe() {
     alert("Nice one, help request submitted successfully!");
   }
 
-  {/*Start Project button function */}
+  {
+    /*Start Project button function */
+  }
   const [buttonText, setButtonText] = useState("Start Project");
   function projectStart() {
     setButtonText(
       buttonText === "Start Project" ? "Submit Project" : "Start Project"
     );
     alert("Nice one, project successfully started!");
-    // if (projectSubmission!==""){
-    //   setButtonText(buttonText === "Project Submitted")
-    // }
   }
 
   return (

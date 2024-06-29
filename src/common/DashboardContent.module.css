@@ -1,5 +1,4 @@
 .DashboardContentContainer {
-    /* display: flex; */
     background-color: #B2E4FA;
     box-sizing: border-box;
     font-family: "Open-sans", sans-serif;
@@ -8,8 +7,6 @@
     border: none;
     justify-content: flex-end;
     background: transparent url('img/Rectangle 248.png') 0% 0% no-repeat padding-box;
-    /* top: 62px;
-    left: 236px; */
     width: 85vw;
     height: 100vh;
 }
@@ -22,12 +19,9 @@
     opacity: 1;
     box-sizing: border-box;
     font-family: "Open-sans", sans-serif;
-    /* top: 62px;
-    left: 236px; */
     width: 80vw;
     height: 90vh;
     margin: 50px;
-    /* margin-top: 2rem; */
     border: 1px solid #B2E4FA;
     border-radius: 30px;
     opacity: 1;

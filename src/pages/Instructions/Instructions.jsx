@@ -1,19 +1,21 @@
-import React from "react";
-import styles from "./Instructions.module.css";
+import { useState, useEffect, useContext } from "react";
+import DOMPurify from "dompurify";
+import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import DashboardNavbar from "../../common/DashboardNavbar";
 import SideBar from "../../common/SideBar";
 import DashboardFooter from "../../common/DashboardFooter";
-import { useState, useEffect } from "react";
-import DOMPurify from "dompurify";
+import styles from "./Instructions.module.css";
 
-export default function Instructions({ port }) {
+export default function Instructions() {
+  const backendUrl = useBackendUrl();
+
   {
     /*Fetching data from backend */
   }
   const [projectInstructions, setProjectInstructions] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:${port}/projects/1/instructions`)
+    fetch(`${backendUrl}/projects/1/instructions`)
       .then((response) => response.json())
       .then((result) => {
         setProjectInstructions(result[0].instructions);

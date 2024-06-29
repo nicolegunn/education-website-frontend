@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useBackendUrl } from "../../BackendUrlContext.jsx";
+
 import DashboardNavbar from "../../common/DashboardNavbar";
 import DashboardFooter from "../../common/DashboardFooter";
 import SideBar from "../../common/SideBar";
+
 import styles from "./VideoTutorial.module.css";
 
-export default function VideoTutorial({ port }) {
-  {/*Fetching data from backend */}
+export default function VideoTutorial() {
+  const backendUrl = useBackendUrl();
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:${port}/projects/1/video_tutorial`)
+    fetch(`${backendUrl}/projects/1/video_tutorial`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result[0].video);
@@ -42,14 +45,13 @@ export default function VideoTutorial({ port }) {
                   title="YouTube video player"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 ></iframe>
               </div>
             </div>
           </div>
         </div>
-        {/*Displays Footer */}
         <DashboardFooter />
       </div>
     </>

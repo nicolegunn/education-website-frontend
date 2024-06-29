@@ -1,21 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext, LoggedInContext } from "../../context.js";
-import styles from "./Home.module.css";
-
+import { useBackendUrl } from "../../BackendUrlContext.jsx";
+import axios from "axios";
 import NavBar from "../../common/NavBar";
 import Footer from "../../common/Footer";
-
 import Login from "../Login/Login.jsx";
-import { useState } from "react";
-
 import StageFour from "./Components_for_home/stageFour/StageFour.jsx";
 import StageThree from "./Components_for_home/stageThree/StageThree.jsx";
 import StageTwo from "./Components_for_home/stageTwo/StageTwo.jsx";
 import StageOne from "./Components_for_home/stageOne/StageOne.jsx";
 import StageFive from "./Components_for_home/stageFive/StageFive.jsx";
+import styles from "./Home.module.css";
 
 // Note: All parts of the website has been modularized, refer to Components_for_home, page to see more details //
-export default function Home({ port, logInFunction, logOutFunction }) {
+export default function Home({ logInFunction, logOutFunction }) {
+  const backendUrl = useBackendUrl();
   const user = useContext(UserContext);
   const loggedIn = useContext(LoggedInContext);
 
@@ -23,6 +22,24 @@ export default function Home({ port, logInFunction, logOutFunction }) {
   const updateShowLogin = () => {
     setShowLogin(!showLogin);
   };
+
+  useEffect(() => {
+    axios
+      .post(`${backendUrl}/login`, {
+        email: "a_andrews@missionx.school.nz",
+        password: "AA1234",
+        type: "student",
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          const userData = { ...res.data[0], user_type: "student" };
+          logInFunction(userData);
+        }
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+      });
+  }, [backendUrl, logInFunction]);
 
   let navButtons = [];
   if (loggedIn && user.user_type === "student") {
@@ -48,7 +65,6 @@ export default function Home({ port, logInFunction, logOutFunction }) {
       />
       {showLogin && (
         <Login
-          port={port}
           showLogin={showLogin}
           updateShowLogin={updateShowLogin}
           logInFunction={logInFunction}

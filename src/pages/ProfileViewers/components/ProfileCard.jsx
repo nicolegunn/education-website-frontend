@@ -7,7 +7,7 @@ export default function ProfileCard({ cardFields }) {
     <div className={styles.Card}>
       <h1 className={styles.Title}>{useContext(UserContext).name}</h1>
 
-      <ul>
+      <ul className={styles.List}>
         {cardFields.map((field, index) => (
           <li key={index} className={styles.ListItem}>
             <div className={styles.Key}>{field.label}</div>

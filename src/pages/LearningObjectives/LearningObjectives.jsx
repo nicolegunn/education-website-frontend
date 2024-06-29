@@ -1,23 +1,24 @@
-import React from "react";
-import styles from "./LearningObjectives.module.css";
+import { useState, useEffect } from "react";
+import DOMPurify from "dompurify";
+import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import DashboardNavbar from "../../common/DashboardNavbar";
 import SideBar from "../../common/SideBar";
 import DashboardFooter from "../../common/DashboardFooter";
-import { useState, useEffect } from "react";
-import DOMPurify from "dompurify";
+import styles from "./LearningObjectives.module.css";
 
-export default function LearningObjectives({ port }) {
-  {/*Fetching data from backend */}
+export default function LearningObjectives() {
+  const backendUrl = useBackendUrl();
+
   const [projectObjectives, setProjectObjectives] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:${port}/projects/1/learning_objective`)
+    fetch(`${backendUrl}/projects/1/learning_objective`)
       .then((response) => response.json())
       .then((result) => {
         setProjectObjectives(result[0].learning_objective);
       });
   }, []);
-  
+
   return (
     <>
       {/*Displays StudentDashboard Navigation bar */}
@@ -48,4 +49,3 @@ export default function LearningObjectives({ port }) {
     </>
   );
 }
-
