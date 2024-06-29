@@ -29,6 +29,7 @@ function ProtectedRoute({ element }) {
 }
 
 function App() {
+  console.log("App component rendered");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({
     profile_pic: "/images/Avatar-white.png",
