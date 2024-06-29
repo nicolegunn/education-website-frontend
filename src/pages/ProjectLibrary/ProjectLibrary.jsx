@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../../axiosConfig"; // Import the Axios instance
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import { UserContext } from "../../context.js";
 import { filters, createFilter, filterProjects } from "./filter.js";
@@ -39,7 +39,7 @@ export default function ProjectLibrary({ logOutFunction }) {
 
   // Nav buttons links are also set upon mount based on user type - student or teacher (determined during login).
   useEffect(() => {
-    axios
+    axiosInstance
       .get(`${backendUrl}/projects`)
       .then((res) => {
         setAllProjects(res.data);

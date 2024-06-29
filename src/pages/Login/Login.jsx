@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../../axiosConfig"; // Import the Axios instance
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
 import styles from "./Login.module.css";
 import imageStudent from "../../assets/LoginSignup/students.png";
@@ -37,7 +37,7 @@ export default function Login({ showLogin, updateShowLogin, logInFunction }) {
 
   const handleLogin = (email, password, type) => {
     console.log(backendUrl);
-    axios
+    axiosInstance
       .post(`${backendUrl}/login`, {
         email: email,
         password: password,
@@ -91,7 +91,7 @@ export default function Login({ showLogin, updateShowLogin, logInFunction }) {
       };
     }
 
-    axios.post(`${backendUrl}/signup`, userData).then((res) => {
+    axiosInstance.post(`${backendUrl}/signup`, userData).then((res) => {
       if (res.status === 200) {
         handleLogin(e);
         // User registered successfully

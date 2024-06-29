@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext, LoggedInContext } from "../../context.js";
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
-import axios from "axios";
+import axiosInstance from "../../axiosConfig"; // Import the Axios instance
 import NavBar from "../../common/NavBar";
 import Footer from "../../common/Footer";
 import Login from "../Login/Login.jsx";
@@ -24,7 +24,7 @@ export default function Home({ logInFunction, logOutFunction }) {
   };
 
   useEffect(() => {
-    axios
+    axiosInstance
       .post(`${backendUrl}/login`, {
         email: "a_andrews@missionx.school.nz",
         password: "AA1234",

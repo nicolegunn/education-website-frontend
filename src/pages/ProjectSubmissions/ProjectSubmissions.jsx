@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../../axiosConfig"; // Import the Axios instance
 import { DateTime } from "luxon";
 import { useBackendUrl } from "../../BackendUrlContext.jsx";
 
@@ -19,7 +19,7 @@ export default function ProjectSubmissions() {
   const [selectedImage, setSelectedImage] = useState("");
 
   useEffect(() => {
-    axios
+    axiosInstance
       .get(`${backendUrl}/project-submissions`)
       .then((res) => {
         console.log(res.data);
