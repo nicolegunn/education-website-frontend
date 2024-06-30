@@ -21,11 +21,11 @@ import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileVie
 function ProtectedRoute({ element }) {
   const isLoggedIn = useContext(LoggedInContext);
 
-  return true ? ( //replace true with useContext(LoggedInContext) upon completion
-    element
-  ) : (
-    <Navigate to="/" />
-  );
+  // return true ? ( //replace true with useContext(LoggedInContext) upon completion
+  //   element
+  // ) : (
+  //   <Navigate to="/" />
+  // );
 }
 
 function App() {

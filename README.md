@@ -1,9 +1,9 @@
-# Level Up Works Website
+# Education Website - Frontend
 
-[![React](https://img.shields.io/badge/React-v17.0.2-blue.svg)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-v20.12.2-green.svg)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-v4.19.2-lightgrey.svg)](https://expressjs.com/)
-[![MySQL](https://img.shields.io/badge/MySQL-v3.9.4-orange.svg)](https://www.mysql.com/)
+![React](https://img.shields.io/badge/React-18.2.0-blue)
+![Axios](https://img.shields.io/badge/Axios-1.2.0-orange)
+
+This is the frontend of the Education Website project, built with React and Vite. The frontend communicates with the backend API to display and manage data.
 
 ## Demo Website
 
@@ -14,7 +14,6 @@ The Level Up Works Website is deployed on GitHub Pages. You can access it [here]
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation and Setup](#installation-and-setup)
 - [Authentication](#authentication)
 - [Project Library](#project-library)
 - [User Profile Pages](#user-profile-pages)
@@ -50,35 +49,6 @@ The Level Up Works Website is a Learning Management System that enables school s
   - Context API for state management
   - React Router for routing
   - CSS Modules for styling
-
-## Installation and Setup
-
-To set up and run the project in development mode, follow these steps:
-
-1. Clone the backend repository:
-   ```sh
-   git clone https://github.com/nicolegunn/education-website-backend.git
-   ```
-2. Clone the frontend repository:
-   ```sh
-   git clone https://github.com/nicolegunn/education-website-frontend.git
-   ```
-3. Navigate to the backend folder and install dependencies
-   ```sh
-   npm install
-   ```
-4. Navigate to the frontend folder and install dependencies
-   ```sh
-   npm install
-   ```
-5. Navigate to the backend folder and start the server
-   ```sh
-   npm run dev
-   ```
-6. Navigate to the frontend folder and run the project in development mode
-   ```sh
-   npm run dev
-   ```
 
 ## Authentication
 
