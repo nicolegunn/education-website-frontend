@@ -20,12 +20,7 @@ import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileVie
 // This function is used to protect routes that require the user to be logged in
 function ProtectedRoute({ element }) {
   const isLoggedIn = useContext(LoggedInContext);
-
-  return true ? ( //replace true with useContext(LoggedInContext) upon completion
-    element
-  ) : (
-    <Navigate to="/" />
-  );
+  return isLoggedIn ? element : <Navigate to="/" />;
 }
 
 function App() {
