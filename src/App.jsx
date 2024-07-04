@@ -21,11 +21,11 @@ import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileVie
 function ProtectedRoute({ element }) {
   const isLoggedIn = useContext(LoggedInContext);
 
-  // return true ? ( //replace true with useContext(LoggedInContext) upon completion
-  //   element
-  // ) : (
-  //   <Navigate to="/" />
-  // );
+  return true ? ( //replace true with useContext(LoggedInContext) upon completion
+    element
+  ) : (
+    <Navigate to="/" />
+  );
 }
 
 function App() {
@@ -40,12 +40,12 @@ function App() {
   const logInUser = (userData) => {
     setIsLoggedIn(true);
     setUser(userData);
-    // let link;
-    // link =
-    //   userData.user_type === "teacher"
-    //     ? "/progress-tracker"
-    //     : "/project-library";
-    // navigate(link);
+    let link;
+    link =
+      userData.user_type === "teacher"
+        ? "/progress-tracker"
+        : "/project-library";
+    navigate(link);
   };
 
   const logOutUser = () => {
