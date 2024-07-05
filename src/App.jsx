@@ -35,12 +35,12 @@ function App() {
   const logInUser = (userData) => {
     setIsLoggedIn(true);
     setUser(userData);
-    let link;
-    link =
-      userData.user_type === "teacher"
-        ? "/progress-tracker"
-        : "/project-library";
-    navigate(link);
+    // let link;
+    // link =
+    //   userData.user_type === "teacher"
+    //     ? "/progress-tracker"
+    //     : "/project-library";
+    // navigate(link);
   };
 
   const logOutUser = () => {
