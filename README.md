@@ -7,7 +7,7 @@ This is the frontend of the Education Website project, built with React and Vite
 
 ## Demo Website
 
-The Level Up Works Website is deployed on GitHub Pages. You can access it [here](https://nicolegunn.github.io/education-website-frontend/).
+The Level Up Works Website is deployed on GitHub Pages. You can access it [here](https://main--levelupworks.netlify.app/).
 
 ## Table of Contents
 
